@@ -2,244 +2,170 @@ const TELEGRAM_LINK = "https://t.me/teleparkgdel";
 const MAX_LINK =
   "https://max.ru/u/f9LHodD0cOKruk9OJpcGonTJy_oV88aEq84lB67ECiRtZ5w0t2uVTA5_LP4";
 
-function TelegramIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="h-6 w-6 fill-white">
-      <path d="M9.8 15.6 9.4 20c.6 0 .9-.3 1.2-.6l2.9-2.8 6 4.4c1.1.6 1.9.3 2.2-1L25.6 2c.4-1.5-.5-2.1-1.6-1.7L1.7 8.9C.2 9.5.2 10.4 1.5 10.8l5.7 1.8L20.5 4.3c.6-.4 1.2-.2.7.3L9.8 15.6Z" />
-    </svg>
-  );
-}
-
-function MaxIcon() {
-  return (
-    <svg viewBox="0 0 64 64" className="h-7 w-7">
-      <rect width="64" height="64" rx="18" fill="white" />
-      <text
-        x="32"
-        y="40"
-        textAnchor="middle"
-        fontSize="22"
-        fontWeight="900"
-        fill="#6D28D9"
-        fontFamily="Arial, sans-serif"
-      >
-        MAX
-      </text>
-    </svg>
-  );
-}
-
 export default function Home() {
   const cars = [
-    {
-      name: "Geely Coolray",
-      image: "/images/cars/col.jpg",
-      text:
-        "Современный городской кроссовер для семьи, работы и ежедневных поездок.",
-    },
-    {
-      name: "Kia Rio",
-      image: "/images/cars/rio.jpg",
-      text:
-        "Экономичный автомобиль для такси, доставки и личного использования.",
-    },
-    {
-      name: "Hongqi H5",
-      image: "/images/cars/hon.jpg",
-      text:
-        "Премиальный седан для комфортных поездок, бизнеса и семьи.",
-    },
+    ["Geely Coolray", "/images/cars/col.jpg", "Современный городской кроссовер для семьи и работы."],
+    ["Kia Rio", "/images/cars/rio.jpg", "Экономичный автомобиль для такси, доставки и личных поездок."],
+    ["Hongqi H5", "/images/cars/hon.jpg", "Премиальный седан для комфортных поездок и бизнеса."],
   ];
 
   return (
-    <main className="min-h-screen bg-[#040814] text-white">
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-[#040814]/90 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
-          <div className="flex items-center gap-4">
-            <img
-              src="/logo/telepark-logo.jpg"
-              alt="Телепарк"
-              className="h-14 w-14 rounded-full object-cover shadow-lg"
-            />
+    <>
+      <style>{`
+        * { box-sizing: border-box; }
+        body { margin: 0; background: #040814; color: white; font-family: Arial, sans-serif; }
+        a { color: inherit; text-decoration: none; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .header { position: sticky; top: 0; z-index: 50; background: rgba(4,8,20,.92); border-bottom: 1px solid rgba(255,255,255,.1); backdrop-filter: blur(12px); }
+        .nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; max-width: 1200px; margin: auto; }
+        .brand { display: flex; align-items: center; gap: 14px; }
+        .logo { width: 54px; height: 54px; border-radius: 50%; object-fit: cover; background: white; padding: 3px; }
+        .brand-title { font-size: 24px; font-weight: 900; }
+        .brand-sub { font-size: 12px; color: rgba(255,255,255,.45); }
+        .links { display: flex; gap: 28px; color: rgba(255,255,255,.65); font-size: 14px; }
+        .icons { display: flex; gap: 12px; }
+        .iconBtn { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; color: white; }
+        .tg { background: #0ea5e9; }
+        .max { background: #7c3aed; }
+        .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; padding: 90px 24px; max-width: 1200px; margin: auto; }
+        .badge { display: inline-block; padding: 10px 16px; border-radius: 999px; background: rgba(37,99,235,.15); border: 1px solid rgba(59,130,246,.3); color: #93c5fd; margin-bottom: 24px; }
+        h1 { font-size: 72px; line-height: .95; margin: 0; font-weight: 900; }
+        .hero p { color: rgba(255,255,255,.65); font-size: 18px; line-height: 1.7; max-width: 560px; }
+        .btns { display: flex; gap: 16px; margin-top: 32px; flex-wrap: wrap; }
+        .btn { padding: 16px 28px; border-radius: 16px; font-weight: 800; display: inline-block; }
+        .primary { background: #2563eb; }
+        .secondary { border: 1px solid rgba(255,255,255,.15); }
+        .heroImg { width: 100%; height: 500px; object-fit: cover; border-radius: 32px; border: 1px solid rgba(255,255,255,.1); }
+        section { padding: 70px 0; }
+        h2 { font-size: 44px; margin: 0 0 12px; font-weight: 900; }
+        .muted { color: rgba(255,255,255,.55); font-size: 18px; }
+        .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 36px; }
+        .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 42px; }
+        .card { background: rgba(255,255,255,.035); border: 1px solid rgba(255,255,255,.1); border-radius: 28px; overflow: hidden; }
+        .condition { padding: 28px; }
+        .condition strong { color: #60a5fa; font-size: 34px; display: block; margin-bottom: 10px; }
+        .carImg { width: 100%; height: 280px; object-fit: cover; }
+        .carBody { padding: 28px; }
+        .carBody h3 { font-size: 30px; margin: 0 0 16px; }
+        .carBody p { color: rgba(255,255,255,.6); line-height: 1.6; }
+        .floating { position: fixed; right: 24px; bottom: 24px; display: flex; flex-direction: column; gap: 12px; z-index: 100; }
+        footer { padding: 36px; text-align: center; color: rgba(255,255,255,.45); border-top: 1px solid rgba(255,255,255,.1); }
+        @media (max-width: 900px) {
+          .hero, .grid3, .grid4 { grid-template-columns: 1fr; }
+          .links { display: none; }
+          h1 { font-size: 48px; }
+        }
+      `}</style>
 
-            <div>
-              <div className="text-2xl font-black">
-                Телепарк
+      <main>
+        <header className="header">
+          <div className="nav">
+            <div className="brand">
+              <img src="/logo/telepark-logo.jpg" className="logo" alt="Телепарк" />
+              <div>
+                <div className="brand-title">Телепарк</div>
+                <div className="brand-sub">Аренда авто под выкуп</div>
               </div>
+            </div>
 
-              <div className="text-xs text-white/40">
-                Аренда авто под выкуп
-              </div>
+            <nav className="links">
+              <a href="#conditions">Условия</a>
+              <a href="#cars">Авто</a>
+              <a href="#steps">Как работает</a>
+            </nav>
+
+            <div className="icons">
+              <a className="iconBtn tg" href={TELEGRAM_LINK} target="_blank">TG</a>
+              <a className="iconBtn max" href={MAX_LINK} target="_blank">MAX</a>
+            </div>
+          </div>
+        </header>
+
+        <div className="hero">
+          <div>
+            <div className="badge">Авто сегодня — выкуп постепенно</div>
+            <h1>Аренда авто<br />под выкуп</h1>
+            <p>
+              Телепарк подберёт автомобиль под вашу задачу: такси, доставка,
+              семья или личные поездки. Прозрачный договор, понятные платежи
+              и возможность досрочного выкупа.
+            </p>
+            <div className="btns">
+              <a href="#contact" className="btn primary">Получить подбор авто</a>
+              <a href="#cars" className="btn secondary">Смотреть автомобили</a>
             </div>
           </div>
 
-          <nav className="hidden gap-8 text-sm text-white/60 md:flex">
-            <a href="#conditions">Условия</a>
-            <a href="#cars">Авто</a>
-            <a href="#steps">Как работает</a>
-            <a href="#faq">FAQ</a>
-          </nav>
-
-          <div className="flex items-center gap-3">
-            <a
-              href={TELEGRAM_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex h-11 w-11 items-center justify-center rounded-full bg-sky-500 transition hover:scale-110"
-            >
-              <TelegramIcon />
-            </a>
-
-            <a
-              href={MAX_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex h-11 w-11 items-center justify-center rounded-full bg-purple-600 transition hover:scale-110"
-            >
-              <MaxIcon />
-            </a>
-          </div>
-        </div>
-      </header>
-
-      <section className="mx-auto grid max-w-7xl items-center gap-16 px-6 py-24 md:grid-cols-2">
-        <div>
-          <div className="mb-6 inline-flex rounded-full border border-blue-500/20 bg-blue-500/10 px-4 py-2 text-sm text-blue-300">
-            Авто сегодня — выкуп постепенно
-          </div>
-
-          <h1 className="text-5xl font-black leading-tight md:text-7xl">
-            Аренда авто
-            <br />
-            под выкуп
-          </h1>
-
-          <p className="mt-8 max-w-xl text-lg leading-8 text-white/65">
-            Телепарк подберёт автомобиль под вашу задачу:
-            такси, доставка, семья или личные поездки.
-            Прозрачный договор, понятные платежи и
-            возможность досрочного выкупа.
-          </p>
-
-          <div className="mt-10 flex flex-wrap gap-4">
-            <a
-              href="#contact"
-              className="rounded-2xl bg-blue-600 px-8 py-4 font-bold transition hover:bg-blue-500"
-            >
-              Получить подбор авто
-            </a>
-
-            <a
-              href="#cars"
-              className="rounded-2xl border border-white/10 px-8 py-4 font-bold text-white/80 transition hover:bg-white/10"
-            >
-              Смотреть автомобили
-            </a>
-          </div>
+          <img src="/images/cars/col.jpg" className="heroImg" alt="Авто" />
         </div>
 
-        <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-2xl">
-          <img
-            src="/images/cars/col.jpg"
-            alt="Телепарк"
-            className="h-[500px] w-full object-cover"
-          />
-        </div>
-      </section>
-
-      <section id="conditions" className="mx-auto max-w-7xl px-6 py-20">
-        <h2 className="text-4xl font-black">
-          Условия аренды
-        </h2>
-
-        <div className="mt-10 grid gap-5 md:grid-cols-4">
-          {[
-            ["0%", "без первоначального взноса"],
-            ["16–24 мес.", "срок выкупа"],
-            ["Сразу", "рассмотрение"],
-            ["21+", "возраст водителя"],
-          ].map(([title, text]) => (
-            <div
-              key={title}
-              className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-7"
-            >
-              <div className="text-3xl font-black text-blue-400">
-                {title}
-              </div>
-
-              <div className="mt-3 text-white/50">
-                {text}
-              </div>
+        <section id="conditions">
+          <div className="container">
+            <h2>Условия аренды</h2>
+            <div className="grid4">
+              {[
+                ["0%", "без первоначального взноса"],
+                ["16–24 мес.", "срок выкупа"],
+                ["Сразу", "рассмотрение"],
+                ["21+", "возраст водителя"],
+              ].map(([a, b]) => (
+                <div className="card condition" key={a}>
+                  <strong>{a}</strong>
+                  <span>{b}</span>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </section>
+          </div>
+        </section>
 
-      <section id="cars" className="mx-auto max-w-7xl px-6 py-20">
-        <h2 className="text-5xl font-black">
-          Автомобили в наличии
-        </h2>
+        <section id="cars">
+          <div className="container">
+            <h2>Автомобили в наличии</h2>
+            <p className="muted">Подберём автомобиль под ваши задачи и бюджет.</p>
 
-        <p className="mt-4 text-lg text-white/50">
-          Подберём автомобиль под ваши задачи и бюджет.
-        </p>
-
-        <div className="mt-12 grid gap-8 md:grid-cols-3">
-          {cars.map((car) => (
-            <div
-              key={car.name}
-              className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] transition hover:-translate-y-2"
-            >
-              <img
-                src={car.image}
-                alt={car.name}
-                className="h-72 w-full object-cover"
-              />
-
-              <div className="p-7">
-                <h3 className="text-3xl font-black">
-                  {car.name}
-                </h3>
-
-                <p className="mt-4 text-white/60">
-                  {car.text}
-                </p>
-
-                <a
-                  href="#contact"
-                  className="mt-7 inline-block rounded-2xl bg-blue-600 px-6 py-4 font-bold transition hover:bg-blue-500"
-                >
-                  Оставить заявку
-                </a>
-              </div>
+            <div className="grid3">
+              {cars.map(([name, img, text]) => (
+                <div className="card" key={name}>
+                  <img src={img} className="carImg" alt={name} />
+                  <div className="carBody">
+                    <h3>{name}</h3>
+                    <p>{text}</p>
+                    <a href="#contact" className="btn primary">Оставить заявку</a>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+        </section>
+
+        <section id="steps">
+          <div className="container">
+            <h2>Как это работает</h2>
+            <div className="grid4">
+              {["Оставляете заявку", "Подбираем авто", "Согласовываем условия", "Вы садитесь за руль"].map((s, i) => (
+                <div className="card condition" key={s}>
+                  <strong>0{i + 1}</strong>
+                  <span>{s}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="contact">
+          <div className="container">
+            <h2>Оставьте заявку</h2>
+            <p className="muted">Напишите нам в Telegram или MAX — подберём автомобиль под вас.</p>
+          </div>
+        </section>
+
+        <div className="floating">
+          <a className="iconBtn tg" href={TELEGRAM_LINK} target="_blank">TG</a>
+          <a className="iconBtn max" href={MAX_LINK} target="_blank">MAX</a>
         </div>
-      </section>
 
-      <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
-        <a
-          href={TELEGRAM_LINK}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex h-14 w-14 items-center justify-center rounded-full bg-sky-500 shadow-2xl transition hover:scale-110"
-        >
-          <TelegramIcon />
-        </a>
-
-        <a
-          href={MAX_LINK}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex h-14 w-14 items-center justify-center rounded-full bg-purple-600 shadow-2xl transition hover:scale-110"
-        >
-          <MaxIcon />
-        </a>
-      </div>
-
-      <footer className="border-t border-white/10 px-6 py-10 text-center text-white/40">
-        © 2026 Телепарк — аренда авто под выкуп
-      </footer>
-    </main>
+        <footer>© 2026 Телепарк — аренда авто под выкуп</footer>
+      </main>
+    </>
   );
 }
