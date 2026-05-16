@@ -28,7 +28,7 @@ export default function Home() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
           <a href="#" className="flex items-center gap-2 font-bold tracking-tight">
             <span className="grid h-9 w-9 place-items-center rounded-2xl bg-blue-500 shadow-glow"><Car size={20} /></span>
-            AutoВыкуп
+            Телпарк
           </a>
           <nav className="hidden items-center gap-7 text-sm text-slate-300 md:flex">
             <a href="#terms" className="hover:text-white">Условия</a>
@@ -179,7 +179,7 @@ export default function Home() {
       </section>
 
       <footer className="border-t border-white/10 px-5 py-8 text-center text-sm text-slate-500">
-        © 2026 AutoВыкуп. Информация на сайте не является публичной офертой.
+        © 2026 Телепарк. Информация на сайте не является публичной офертой.
       </footer>
     </main>
   );
