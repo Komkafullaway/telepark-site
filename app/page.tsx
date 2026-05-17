@@ -542,6 +542,122 @@ export default function Home() {
   .carBody h3 {
     font-size: 26px;
   }
+.benefits {
+  position: relative;
+  padding: 110px 20px;
+  overflow: hidden;
+}
+
+.benefits::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      rgba(4,8,20,.90),
+      rgba(4,8,20,.95)
+    ),
+    url("/images/hero-bg.jpg");
+
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
+}
+
+.sectionTop {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 56px;
+}
+
+.sectionBadge {
+  display: inline-block;
+  color: #60a5fa;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin-bottom: 18px;
+}
+
+.sectionTop h2 {
+  font-size: 58px;
+  line-height: 1;
+  margin: 0 0 22px;
+  font-weight: 900;
+  letter-spacing: -2px;
+}
+
+.sectionTop p {
+  color: rgba(255,255,255,.72);
+  font-size: 20px;
+  line-height: 1.6;
+  max-width: 760px;
+  margin: auto;
+}
+
+.benefitGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.benefitCard {
+  position: relative;
+  min-height: 260px;
+  padding: 34px;
+  border-radius: 30px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.09),
+      rgba(255,255,255,.035)
+    );
+  border: 1px solid rgba(255,255,255,.1);
+  overflow: hidden;
+  transition: .25s;
+  backdrop-filter: blur(14px);
+}
+
+.benefitCard:hover {
+  transform: translateY(-8px);
+  border-color: rgba(96,165,250,.45);
+  box-shadow: 0 20px 60px rgba(0,0,0,.35);
+}
+
+.benefitNumber {
+  color: #60a5fa;
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  margin-bottom: 42px;
+}
+
+.benefitCard h3 {
+  font-size: 30px;
+  line-height: 1.05;
+  margin: 0 0 16px;
+  font-weight: 900;
+}
+
+.benefitCard p {
+  color: rgba(255,255,255,.68);
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+@media (max-width: 900px) {
+  .benefitGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .sectionTop h2 {
+    font-size: 38px;
+  }
+
+  .benefitCard {
+    min-height: auto;
+  }
+}
 
   .benefits {
     padding: 70px 16px;
@@ -622,6 +738,144 @@ export default function Home() {
     font-size: 13px;
   }
 }
+  .premiumCarsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 46px;
+}
+
+.premiumCarCard {
+  position: relative;
+  overflow: hidden;
+  border-radius: 34px;
+  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.035));
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 24px 70px rgba(0,0,0,.35);
+  transition: .3s;
+}
+
+.premiumCarCard:hover {
+  transform: translateY(-10px);
+  border-color: rgba(96,165,250,.45);
+}
+
+.carTag {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  z-index: 2;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: rgba(4,8,20,.75);
+  border: 1px solid rgba(255,255,255,.16);
+  backdrop-filter: blur(10px);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.premiumCarImg {
+  width: 100%;
+  height: 285px;
+  object-fit: cover;
+  display: block;
+}
+
+.premiumCarBody {
+  padding: 30px;
+}
+
+.premiumCarBody h3 {
+  font-size: 32px;
+  margin: 0 0 10px;
+  font-weight: 900;
+}
+
+.premiumPrice {
+  color: #60a5fa;
+  font-size: 28px;
+  font-weight: 900;
+  margin-bottom: 18px;
+}
+
+.premiumCarBody p {
+  color: rgba(255,255,255,.68);
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.miniBenefits {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 22px 0;
+}
+
+.miniBenefits span {
+  padding: 9px 12px;
+  border-radius: 999px;
+  background: rgba(96,165,250,.12);
+  color: #bfdbfe;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.premiumCarBtn {
+  display: inline-block;
+  padding: 16px 26px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: white;
+  font-weight: 900;
+  box-shadow: 0 16px 40px rgba(37,99,235,.32);
+  transition: .25s;
+}
+
+.premiumCarBtn:hover {
+  transform: translateY(-3px);
+}
+
+.premiumCalc {
+  margin-top: 38px;
+  padding: 38px;
+  border-radius: 34px;
+  background: linear-gradient(135deg, rgba(37,99,235,.18), rgba(255,255,255,.04));
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+.premiumCalc span {
+  color: #60a5fa;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.premiumCalc strong {
+  display: block;
+  margin-top: 12px;
+  font-size: 42px;
+  color: #60a5fa;
+}
+
+.premiumCalc p {
+  color: rgba(255,255,255,.68);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .premiumCarsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .premiumCarImg {
+    height: 240px;
+  }
+
+  .premiumCalc strong {
+    font-size: 32px;
+  }
+}
       `}</style>
 
       <main>
@@ -672,87 +926,117 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="conditions" className="benefits">
+       <section id="conditions" className="benefits">
   <div className="container">
     <div className="sectionTop">
-      <span>ПОЧЕМУ ВЫБИРАЮТ ТЕЛЕПАРК</span>
+      <span className="sectionBadge">ПОЧЕМУ ВЫБИРАЮТ ТЕЛЕПАРК</span>
 
-      <h2>Простые условия — без скрытых сложностей</h2>
+      <h2>
+        Условия, с которыми
+        <br />
+        удобно начать
+      </h2>
 
       <p>
-        Подберём автомобиль под ваши задачи: работа, такси,
-        доставка, семья или личное пользование.
+        Без лишней бюрократии: подберём автомобиль, рассчитаем платёж
+        и согласуем условия под вашу задачу.
       </p>
     </div>
 
     <div className="benefitGrid">
-      <div className="benefitCard">
-        <div className="benefitIcon">💳</div>
-        <h3>Без взноса</h3>
-        <p>Начните пользоваться автомобилем уже сегодня</p>
-      </div>
-
-      <div className="benefitCard">
-        <div className="benefitIcon">⚡</div>
-        <h3>Одобрение сразу</h3>
-        <p>Быстрое рассмотрение заявки без долгих ожиданий</p>
-      </div>
-
-      <div className="benefitCard">
-        <div className="benefitIcon">📅</div>
-        <h3>16–24 месяца</h3>
-        <p>Гибкий срок выкупа под ваш бюджет</p>
-      </div>
-
-      <div className="benefitCard">
-        <div className="benefitIcon">🚗</div>
-        <h3>Авто сегодня</h3>
-        <p>Уезжайте на машине уже в день обращения</p>
-      </div>
+      {[
+        ["01", "0 ₽ взнос", "Начните пользоваться авто без крупного первого платежа"],
+        ["02", "16–24 мес.", "Комфортный срок выкупа под ваш бюджет"],
+        ["03", "Решение сразу", "Быстро рассматриваем заявку и предлагаем варианты"],
+        ["04", "21+ лет", "Простые условия оформления для водителей"],
+      ].map(([num, title, text]) => (
+        <div className="benefitCard" key={num}>
+          <div className="benefitNumber">{num}</div>
+          <h3>{title}</h3>
+          <p>{text}</p>
+        </div>
+      ))}
     </div>
   </div>
 </section>
 
-        <section id="cars">
-          <div className="container">
-            <h2>Автомобили в наличии</h2>
-            <p className="muted">Подберём автомобиль под ваши задачи и бюджет.</p>
+       <section id="cars">
+  <div className="container">
+    <div className="sectionTop">
+      <span className="sectionBadge">АВТОМОБИЛИ В НАЛИЧИИ</span>
 
-            <div className="grid3">
-              {cars.map(([name, img, text, price]) => (
-                <div className="card" key={name}>
-                  <img src={img} className="carImg" alt={name} />
-                  <div className="carBody">
-                    <h3>{name}</h3>
-                    <div className="price">{price}</div>
-                    <p>{text}</p>
-                    <a href="#contact" className="btn primary">Оставить заявку</a>
-                  </div>
-                </div>
-              ))}
+      <h2>
+        Авто можно забрать
+        <br />
+        уже сегодня
+      </h2>
+
+      <p>
+        Подберём автомобиль под вашу задачу: работа, такси, доставка,
+        семья или личные поездки.
+      </p>
+    </div>
+
+    <div className="premiumCarsGrid">
+      {[
+        [
+          "Geely Coolray",
+          "/images/cars/col.jpg",
+          "Комфортный городской кроссовер для семьи, работы и ежедневных поездок.",
+          "2 950 ₽/сутки",
+          "Популярный выбор",
+        ],
+        [
+          "Kia Rio",
+          "/images/cars/rio.jpg",
+          "Экономичный автомобиль для такси, доставки и личного использования.",
+          "2 950 ₽/сутки",
+          "Для работы",
+        ],
+        [
+          "Hongqi H5",
+          "/images/cars/hon.jpg",
+          "Премиальный бизнес-седан для комфортных поездок и статуса.",
+          "4 950 ₽/сутки",
+          "Premium",
+        ],
+      ].map(([name, img, text, price, tag]) => (
+        <div className="premiumCarCard" key={name}>
+          <div className="carTag">{tag}</div>
+
+          <img src={img} className="premiumCarImg" alt={name} />
+
+          <div className="premiumCarBody">
+            <h3>{name}</h3>
+            <div className="premiumPrice">{price}</div>
+            <p>{text}</p>
+
+            <div className="miniBenefits">
+              <span>0 ₽ взнос</span>
+              <span>Решение сразу</span>
             </div>
 
-            <div className="calc">
-              <div className="muted">Пример расчёта платежа</div>
-              <strong>от 79 000 ₽/мес</strong>
-              <p className="muted">Точный платёж зависит от автомобиля, срока и условий договора.</p>
-            </div>
+            <a href="#contact" className="premiumCarBtn">
+              Забрать сегодня
+            </a>
           </div>
-        </section>
+        </div>
+      ))}
+    </div>
 
-        <section id="steps">
-          <div className="container">
-            <h2>Как это работает</h2>
-            <div className="grid4">
-              {["Оставляете заявку", "Подбираем авто", "Согласовываем условия", "Вы садитесь за руль"].map((s, i) => (
-                <div className="card condition" key={s}>
-                  <strong>0{i + 1}</strong>
-                  <span>{s}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+    <div className="premiumCalc">
+      <span>СТАРТ УЖЕ СЕГОДНЯ</span>
+      <strong>от 2 950 ₽/сутки</strong>
+      <p>
+        Без первоначального взноса. Подберём автомобиль и быстро согласуем
+        условия под вашу задачу.
+      </p>
+      <a href="#contact" className="premiumCarBtn">
+        Подобрать авто
+      </a>
+    </div>
+  </div>
+</section>
 
         <section id="contact">
           <div className="container">
