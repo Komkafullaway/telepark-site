@@ -261,35 +261,145 @@ export default function Home() {
         }
 
         .contactBox {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 28px;
-          padding: 36px;
-          border-radius: 32px;
-          background: white;
-          color: #050816;
-        }
+  position: relative;
+  overflow: hidden;
+  border-radius: 42px;
+  padding: 70px;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 60px;
+  margin-top: 40px;
+  background-image:
+    linear-gradient(rgba(4,8,20,.84), rgba(4,8,20,.9)),
+    url("/images/form-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: 0 25px 80px rgba(0,0,0,.5);
+}
 
-        .form { display: grid; gap: 12px; }
+.contactBox::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(59,130,246,.22), transparent 38%);
+  pointer-events: none;
+}
 
-        .form input, .form select, .form textarea {
-          width: 100%;
-          padding: 16px;
-          border: 1px solid #ddd;
-          border-radius: 16px;
-          font-size: 16px;
-        }
+.contactBox > * {
+  position: relative;
+  z-index: 2;
+}
 
-        .formLink {
-          text-align: center;
-          border: 0;
-          border-radius: 16px;
-          padding: 16px;
-          background: #2563eb;
-          color: white;
-          font-weight: 900;
-          cursor: pointer;
-        }
+.contactBox h2 {
+  font-size: 68px;
+  line-height: .95;
+  margin: 0 0 18px;
+  font-weight: 900;
+  letter-spacing: -2px;
+  color: white;
+}
+
+.contactBox h2::after {
+  content: " и мы подберём лучший вариант";
+  display: block;
+  color: #3b82f6;
+}
+
+.contactBox p {
+  color: rgba(255,255,255,.82);
+  font-size: 22px;
+  line-height: 1.6;
+  max-width: 520px;
+}
+
+.contactBox p::after {
+  content: " Ответим на вопросы и рассчитаем условия аренды с выкупом за несколько минут.";
+  display: block;
+  margin-top: 16px;
+  color: rgba(255,255,255,.68);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form input,
+.form textarea,
+.form select {
+  width: 100%;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.08);
+  backdrop-filter: blur(14px);
+  color: white;
+  border-radius: 22px;
+  padding: 22px 26px;
+  font-size: 18px;
+  outline: none;
+  transition: .25s;
+}
+
+.form input::placeholder,
+.form textarea::placeholder {
+  color: rgba(255,255,255,.55);
+}
+
+.form select {
+  color: white;
+}
+
+.form select option {
+  background: #08111f;
+  color: white;
+}
+
+.form input:focus,
+.form textarea:focus,
+.form select:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 4px rgba(59,130,246,.15);
+}
+
+.form textarea {
+  min-height: 150px;
+  resize: none;
+}
+
+.formLink {
+  height: 74px;
+  border: none;
+  border-radius: 24px;
+  font-size: 20px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: .25s;
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: white;
+  box-shadow: 0 15px 40px rgba(37,99,235,.35);
+}
+
+.formLink:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 55px rgba(37,99,235,.45);
+}
+
+@media (max-width: 980px) {
+  .contactBox {
+    grid-template-columns: 1fr;
+    padding: 40px 24px;
+    gap: 30px;
+  }
+
+  .contactBox h2 {
+    font-size: 44px;
+  }
+
+  .contactBox p {
+    font-size: 18px;
+  }
+}
 
         .floating {
           position: fixed;
