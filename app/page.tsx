@@ -2,6 +2,8 @@ const TELEGRAM_LINK = "https://t.me/teleparkgdel";
 const MAX_LINK =
   "https://max.ru/u/f9LHodD0cOKruk9OJpcGonTJy_oV88aEq84lB67ECiRtZ5w0t2uVTA5_LP4";
 const PHONE_LINK = "tel:+79013711584";
+const FORM_ENDPOINT =
+  "https://script.google.com/macros/s/AKfycbwXgg5KBMb6DWffFsGH5r1NJngX0yV18CM_T_Fuu-7vc8RQ8g45uVQ47w3EU6sefgaJ/exec";
 
 export default function Home() {
   const cars = [
@@ -437,20 +439,48 @@ export default function Home() {
                 <p>Заполните форму или напишите нам в Telegram / MAX.</p>
               </div>
 
-              <form className="form">
-                <input placeholder="Ваше имя" />
-                <input placeholder="Телефон" />
-                <select>
-                  <option>Какой автомобиль интересует?</option>
-                  <option>Geely Coolray</option>
-                  <option>Kia Rio</option>
-                  <option>Hongqi H5</option>
-                </select>
-                <textarea placeholder="Комментарий" />
-                <a className="formLink" href={TELEGRAM_LINK} target="_blank">
-                  Отправить в Telegram
-                </a>
-              </form>
+              <form
+  className="form"
+  action={FORM_ENDPOINT}
+  method="POST"
+>
+  <input
+    name="name"
+    placeholder="Ваше имя"
+    required
+  />
+
+  <input
+    name="phone"
+    placeholder="Телефон"
+    required
+  />
+
+  <select
+    name="car"
+    required
+  >
+    <option value="">
+      Какой автомобиль интересует?
+    </option>
+
+    <option>Geely Coolray</option>
+    <option>Kia Rio</option>
+    <option>Hongqi H5</option>
+  </select>
+
+  <textarea
+    name="comment"
+    placeholder="Комментарий"
+  />
+
+  <button
+    type="submit"
+    className="formLink"
+  >
+    Отправить заявку
+  </button>
+</form>
             </div>
           </div>
         </section>
