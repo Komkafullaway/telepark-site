@@ -431,6 +431,197 @@ export default function Home() {
           .hero p { font-size: 18px; }
           .actions .call { display: none; }
         }
+          /* =========================
+   MOBILE OPTIMIZATION
+========================= */
+
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .header {
+    position: sticky;
+  }
+
+  .nav {
+    padding: 10px 14px;
+  }
+
+  .logo {
+    width: 44px;
+    height: 44px;
+  }
+
+  .brand-title {
+    font-size: 18px;
+  }
+
+  .brand-sub {
+    font-size: 10px;
+  }
+
+  .actions {
+    gap: 6px;
+  }
+
+  .iconBtn {
+    width: 42px;
+    height: 42px;
+  }
+
+  .hero {
+    min-height: 92vh;
+    background-position: center;
+  }
+
+  .heroOverlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(4,8,20,.78),
+      rgba(4,8,20,.9)
+    );
+  }
+
+  .heroContent {
+    padding: 110px 18px 50px;
+  }
+
+  h1 {
+    font-size: 42px;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+
+  .hero p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .btns {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  section {
+    padding: 52px 0;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  h2 {
+    font-size: 34px;
+    line-height: 1.05;
+  }
+
+  .grid3,
+  .grid4,
+  .benefitGrid,
+  .bottomBenefits {
+    grid-template-columns: 1fr !important;
+  }
+
+  .card {
+    border-radius: 22px;
+  }
+
+  .carImg {
+    height: 230px;
+  }
+
+  .carBody {
+    padding: 22px;
+  }
+
+  .carBody h3 {
+    font-size: 26px;
+  }
+
+  .benefits {
+    padding: 70px 16px;
+  }
+
+  .sectionTop h2 {
+    font-size: 34px;
+    line-height: 1.08;
+  }
+
+  .sectionTop p {
+    font-size: 16px;
+  }
+
+  .benefitCard {
+    min-height: auto;
+    padding: 28px 22px;
+  }
+
+  .benefitCard h3 {
+    font-size: 26px;
+  }
+
+  .benefitCard p {
+    font-size: 16px;
+  }
+
+  .contactBox {
+    margin-top: 30px;
+    padding: 28px 18px;
+    border-radius: 28px;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    background-position: center;
+  }
+
+  .contactBox h2 {
+    font-size: 36px;
+    line-height: 1.05;
+  }
+
+  .contactBox p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .form input,
+  .form textarea,
+  .form select {
+    padding: 17px 18px;
+    font-size: 16px;
+    border-radius: 18px;
+  }
+
+  .form textarea {
+    min-height: 110px;
+  }
+
+  .formLink {
+    height: 62px;
+    font-size: 17px;
+    border-radius: 18px;
+  }
+
+  .floating {
+    right: 14px;
+    bottom: 14px;
+    gap: 8px;
+  }
+
+  .floating .iconBtn {
+    width: 46px;
+    height: 46px;
+  }
+
+  footer {
+    padding: 26px 16px 90px;
+    font-size: 13px;
+  }
+}
       `}</style>
 
       <main>
