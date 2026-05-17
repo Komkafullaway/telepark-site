@@ -371,24 +371,46 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="conditions">
-          <div className="container">
-            <h2>Условия аренды</h2>
-            <div className="grid4">
-              {[
-                ["0%", "без первоначального взноса"],
-                ["16–24 мес.", "срок выкупа"],
-                ["Сразу", "рассмотрение"],
-                ["21+", "возраст водителя"],
-              ].map(([a, b]) => (
-                <div className="card condition" key={a}>
-                  <strong>{a}</strong>
-                  <span>{b}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <section id="conditions" className="benefits">
+  <div className="container">
+    <div className="sectionTop">
+      <span>ПОЧЕМУ ВЫБИРАЮТ ТЕЛЕПАРК</span>
+
+      <h2>Простые условия — без скрытых сложностей</h2>
+
+      <p>
+        Подберём автомобиль под ваши задачи: работа, такси,
+        доставка, семья или личное пользование.
+      </p>
+    </div>
+
+    <div className="benefitGrid">
+      <div className="benefitCard">
+        <div className="benefitIcon">💳</div>
+        <h3>Без взноса</h3>
+        <p>Начните пользоваться автомобилем уже сегодня</p>
+      </div>
+
+      <div className="benefitCard">
+        <div className="benefitIcon">⚡</div>
+        <h3>Одобрение сразу</h3>
+        <p>Быстрое рассмотрение заявки без долгих ожиданий</p>
+      </div>
+
+      <div className="benefitCard">
+        <div className="benefitIcon">📅</div>
+        <h3>16–24 месяца</h3>
+        <p>Гибкий срок выкупа под ваш бюджет</p>
+      </div>
+
+      <div className="benefitCard">
+        <div className="benefitIcon">🚗</div>
+        <h3>Авто сегодня</h3>
+        <p>Уезжайте на машине уже в день обращения</p>
+      </div>
+    </div>
+  </div>
+</section>
 
         <section id="cars">
           <div className="container">
