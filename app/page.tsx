@@ -6,12 +6,6 @@ const FORM_ENDPOINT =
   "https://script.google.com/macros/s/AKfycbwXgg5KBMb6DWffFsGH5r1NJngX0yV18CM_T_Fuu-7vc8RQ8g45uVQ47w3EU6sefgaJ/exec";
 
 export default function Home() {
-  const cars = [
-    ["Geely Coolray", "/images/cars/col.jpg", "Современный городской кроссовер для семьи и работы.", "от 79 000 ₽/мес"],
-    ["Kia Rio", "/images/cars/rio.jpg", "Экономичный автомобиль для такси, доставки и личных поездок.", "от 59 000 ₽/мес"],
-    ["Hongqi H5", "/images/cars/hon.jpg", "Премиальный седан для комфортных поездок и бизнеса.", "от 99 000 ₽/мес"],
-  ];
-
   const ContactIcons = () => (
     <>
       <a className="iconBtn" href={TELEGRAM_LINK} target="_blank">
@@ -123,13 +117,12 @@ export default function Home() {
         .heroOverlay {
           position: absolute;
           inset: 0;
-          background:
-            linear-gradient(
-              to right,
-              rgba(4,8,20,.92) 5%,
-              rgba(4,8,20,.62) 45%,
-              rgba(4,8,20,.35) 100%
-            );
+          background: linear-gradient(
+            to right,
+            rgba(4,8,20,.92) 5%,
+            rgba(4,8,20,.62) 45%,
+            rgba(4,8,20,.35) 100%
+          );
         }
 
         .heroContent {
@@ -193,20 +186,6 @@ export default function Home() {
 
         .muted { color: rgba(255,255,255,.55); font-size: 18px; }
 
-        .grid4 {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 20px;
-          margin-top: 36px;
-        }
-
-        .grid3 {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 28px;
-          margin-top: 42px;
-        }
-
         .card {
           background: rgba(255,255,255,.035);
           border: 1px solid rgba(255,255,255,.1);
@@ -218,188 +197,367 @@ export default function Home() {
 
         .card:hover { transform: translateY(-6px); border-color: rgba(96,165,250,.35); }
 
-        .condition { padding: 28px; }
-
-        .condition strong {
-          color: #60a5fa;
-          font-size: 34px;
-          display: block;
-          margin-bottom: 10px;
+        .benefits {
+          position: relative;
+          padding: 110px 20px;
+          overflow: hidden;
         }
 
-        .carImg {
-          width: 100%;
-          height: 280px;
-          object-fit: cover;
+        .benefits::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background:
+            linear-gradient(rgba(4,8,20,.90), rgba(4,8,20,.95)),
+            url("/images/hero-bg.jpg");
+          background-size: cover;
+          background-position: center;
+          z-index: -2;
         }
 
-        .carBody { padding: 28px; }
+        .sectionTop {
+          text-align: center;
+          max-width: 900px;
+          margin: 0 auto 56px;
+        }
 
-        .price {
+        .sectionBadge {
+          display: inline-block;
           color: #60a5fa;
-          font-size: 22px;
+          font-size: 13px;
           font-weight: 900;
-          margin: 12px 0;
+          letter-spacing: 2px;
+          margin-bottom: 18px;
         }
 
-        .carBody h3 { font-size: 30px; margin: 0 0 10px; }
-        .carBody p { color: rgba(255,255,255,.6); line-height: 1.6; }
+        .sectionTop h2 {
+          font-size: 58px;
+          line-height: 1;
+          margin: 0 0 22px;
+          font-weight: 900;
+          letter-spacing: -2px;
+        }
 
-        .calc {
-          margin-top: 36px;
-          padding: 32px;
-          border-radius: 28px;
-          background: linear-gradient(135deg, rgba(37,99,235,.18), rgba(255,255,255,.04));
+        .sectionTop p {
+          color: rgba(255,255,255,.72);
+          font-size: 20px;
+          line-height: 1.6;
+          max-width: 760px;
+          margin: auto;
+        }
+
+        .benefitGrid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 22px;
+        }
+
+        .benefitCard {
+          position: relative;
+          min-height: 260px;
+          padding: 34px;
+          border-radius: 30px;
+          background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.035));
           border: 1px solid rgba(255,255,255,.1);
+          overflow: hidden;
+          transition: .25s;
+          backdrop-filter: blur(14px);
         }
 
-        .calc strong {
-          font-size: 34px;
+        .benefitCard:hover {
+          transform: translateY(-8px);
+          border-color: rgba(96,165,250,.45);
+          box-shadow: 0 20px 60px rgba(0,0,0,.35);
+        }
+
+        .benefitNumber {
           color: #60a5fa;
+          font-size: 15px;
+          font-weight: 900;
+          letter-spacing: 1px;
+          margin-bottom: 42px;
+        }
+
+        .benefitCard h3 {
+          font-size: 30px;
+          line-height: 1.05;
+          margin: 0 0 16px;
+          font-weight: 900;
+        }
+
+        .benefitCard p {
+          color: rgba(255,255,255,.68);
+          font-size: 17px;
+          line-height: 1.55;
+        }
+
+        .premiumCarsGrid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 28px;
+          margin-top: 46px;
+        }
+
+        .premiumCarCard {
+          position: relative;
+          overflow: hidden;
+          border-radius: 34px;
+          background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.035));
+          border: 1px solid rgba(255,255,255,.12);
+          box-shadow: 0 24px 70px rgba(0,0,0,.35);
+          transition: .3s;
+        }
+
+        .premiumCarCard:hover {
+          transform: translateY(-10px);
+          border-color: rgba(96,165,250,.45);
+          box-shadow: 0 35px 80px rgba(0,0,0,.45);
+        }
+
+        .carTag {
+          position: absolute;
+          top: 18px;
+          left: 18px;
+          z-index: 3;
+          padding: 10px 16px;
+          border-radius: 999px;
+          background: rgba(4,8,20,.78);
+          border: 1px solid rgba(255,255,255,.16);
+          backdrop-filter: blur(14px);
+          font-size: 13px;
+          font-weight: 900;
+          color: white;
+        }
+
+        .premiumCarImg {
+          width: 100%;
+          height: 290px;
+          object-fit: cover;
           display: block;
-          margin-top: 10px;
+        }
+
+        .premiumCarBody {
+          padding: 30px;
+        }
+
+        .carYear {
+          display: inline-flex;
+          padding: 8px 14px;
+          border-radius: 999px;
+          background: rgba(96,165,250,.12);
+          color: #bfdbfe;
+          font-size: 13px;
+          font-weight: 900;
+          margin-bottom: 14px;
+        }
+
+        .premiumCarBody h3 {
+          font-size: 34px;
+          line-height: 1.05;
+          margin: 0 0 10px;
+          font-weight: 900;
+        }
+
+        .premiumPrice {
+          color: #60a5fa;
+          font-size: 30px;
+          font-weight: 900;
+          margin-bottom: 18px;
+        }
+
+        .premiumCarBody p {
+          color: rgba(255,255,255,.68);
+          font-size: 17px;
+          line-height: 1.65;
+          min-height: 82px;
+        }
+
+        .miniBenefits {
+          display: flex;
+          gap: 10px;
+          flex-wrap: wrap;
+          margin: 24px 0;
+        }
+
+        .miniBenefits span {
+          padding: 10px 14px;
+          border-radius: 999px;
+          background: rgba(96,165,250,.12);
+          color: #bfdbfe;
+          font-size: 13px;
+          font-weight: 800;
+        }
+
+        .premiumCarBtn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 62px;
+          border-radius: 18px;
+          text-decoration: none;
+          background: linear-gradient(135deg, #2563eb, #3b82f6);
+          color: white;
+          font-size: 17px;
+          font-weight: 900;
+          box-shadow: 0 16px 40px rgba(37,99,235,.32);
+          transition: .25s;
+        }
+
+        .premiumCarBtn:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 22px 50px rgba(37,99,235,.42);
+        }
+
+        .premiumCalc {
+          margin-top: 42px;
+          padding: 44px;
+          border-radius: 34px;
+          background: linear-gradient(135deg, rgba(37,99,235,.18), rgba(255,255,255,.04));
+          border: 1px solid rgba(255,255,255,.12);
+        }
+
+        .premiumCalc span {
+          color: #60a5fa;
+          font-size: 13px;
+          font-weight: 900;
+          letter-spacing: 2px;
+        }
+
+        .premiumCalc strong {
+          display: block;
+          margin-top: 14px;
+          margin-bottom: 16px;
+          font-size: 48px;
+          line-height: 1;
+          color: #60a5fa;
+        }
+
+        .premiumCalc p {
+          color: rgba(255,255,255,.72);
+          font-size: 18px;
+          line-height: 1.7;
+          max-width: 700px;
+        }
+
+        .premiumCalc .premiumCarBtn {
+          margin-top: 24px;
+          max-width: 320px;
         }
 
         .contactBox {
-  position: relative;
-  overflow: hidden;
-  border-radius: 42px;
-  padding: 70px;
-  display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: 60px;
-  margin-top: 40px;
-  background-image:
-    linear-gradient(rgba(4,8,20,.84), rgba(4,8,20,.9)),
-    url("/images/form-bg.jpg");
-  background-size: cover;
-  background-position: center;
-  border: 1px solid rgba(255,255,255,.14);
-  box-shadow: 0 25px 80px rgba(0,0,0,.5);
-}
+          position: relative;
+          overflow: hidden;
+          border-radius: 42px;
+          padding: 70px;
+          display: grid;
+          grid-template-columns: 1fr 1.1fr;
+          gap: 60px;
+          margin-top: 40px;
+          background-image:
+            linear-gradient(rgba(4,8,20,.84), rgba(4,8,20,.9)),
+            url("/images/form-bg.jpg");
+          background-size: cover;
+          background-position: center;
+          border: 1px solid rgba(255,255,255,.14);
+          box-shadow: 0 25px 80px rgba(0,0,0,.5);
+        }
 
-.contactBox::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top right, rgba(59,130,246,.22), transparent 38%);
-  pointer-events: none;
-}
+        .contactBox::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: radial-gradient(circle at top right, rgba(59,130,246,.22), transparent 38%);
+          pointer-events: none;
+        }
 
-.contactBox > * {
-  position: relative;
-  z-index: 2;
-}
+        .contactBox > * {
+          position: relative;
+          z-index: 2;
+        }
 
-.contactBox h2 {
-  font-size: 68px;
-  line-height: .95;
-  margin: 0 0 18px;
-  font-weight: 900;
-  letter-spacing: -2px;
-  color: white;
-}
+        .contactBox h2 {
+          font-size: 68px;
+          line-height: .95;
+          margin: 0 0 18px;
+          font-weight: 900;
+          letter-spacing: -2px;
+          color: white;
+        }
 
-.contactBox h2::after {
-  content: " и мы подберём лучший вариант";
-  display: block;
-  color: #3b82f6;
-}
+        .contactBox h2::after {
+          content: " и мы подберём лучший вариант";
+          display: block;
+          color: #3b82f6;
+        }
 
-.contactBox p {
-  color: rgba(255,255,255,.82);
-  font-size: 22px;
-  line-height: 1.6;
-  max-width: 520px;
-}
+        .contactBox p {
+          color: rgba(255,255,255,.82);
+          font-size: 22px;
+          line-height: 1.6;
+          max-width: 520px;
+        }
 
-.contactBox p::after {
-  content: " Ответим на вопросы и рассчитаем условия аренды с выкупом за несколько минут.";
-  display: block;
-  margin-top: 16px;
-  color: rgba(255,255,255,.68);
-}
+        .contactBox p::after {
+          content: " Ответим на вопросы и рассчитаем условия аренды с выкупом за несколько минут.";
+          display: block;
+          margin-top: 16px;
+          color: rgba(255,255,255,.68);
+        }
 
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
+        .form {
+          display: flex;
+          flex-direction: column;
+          gap: 18px;
+        }
 
-.form input,
-.form textarea,
-.form select {
-  width: 100%;
-  border: 1px solid rgba(255,255,255,.18);
-  background: rgba(255,255,255,.08);
-  backdrop-filter: blur(14px);
-  color: white;
-  border-radius: 22px;
-  padding: 22px 26px;
-  font-size: 18px;
-  outline: none;
-  transition: .25s;
-}
+        .form input,
+        .form textarea,
+        .form select {
+          width: 100%;
+          border: 1px solid rgba(255,255,255,.18);
+          background: rgba(255,255,255,.08);
+          backdrop-filter: blur(14px);
+          color: white;
+          border-radius: 22px;
+          padding: 22px 26px;
+          font-size: 18px;
+          outline: none;
+          transition: .25s;
+        }
 
-.form input::placeholder,
-.form textarea::placeholder {
-  color: rgba(255,255,255,.55);
-}
+        .form input::placeholder,
+        .form textarea::placeholder {
+          color: rgba(255,255,255,.55);
+        }
 
-.form select {
-  color: white;
-}
+        .form select option {
+          background: #08111f;
+          color: white;
+        }
 
-.form select option {
-  background: #08111f;
-  color: white;
-}
+        .form textarea {
+          min-height: 150px;
+          resize: none;
+        }
 
-.form input:focus,
-.form textarea:focus,
-.form select:focus {
-  border-color: #60a5fa;
-  box-shadow: 0 0 0 4px rgba(59,130,246,.15);
-}
+        .formLink {
+          height: 74px;
+          border: none;
+          border-radius: 24px;
+          font-size: 20px;
+          font-weight: 900;
+          cursor: pointer;
+          transition: .25s;
+          background: linear-gradient(135deg, #2563eb, #3b82f6);
+          color: white;
+          box-shadow: 0 15px 40px rgba(37,99,235,.35);
+        }
 
-.form textarea {
-  min-height: 150px;
-  resize: none;
-}
-
-.formLink {
-  height: 74px;
-  border: none;
-  border-radius: 24px;
-  font-size: 20px;
-  font-weight: 900;
-  cursor: pointer;
-  transition: .25s;
-  background: linear-gradient(135deg, #2563eb, #3b82f6);
-  color: white;
-  box-shadow: 0 15px 40px rgba(37,99,235,.35);
-}
-
-.formLink:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 25px 55px rgba(37,99,235,.45);
-}
-
-@media (max-width: 980px) {
-  .contactBox {
-    grid-template-columns: 1fr;
-    padding: 40px 24px;
-    gap: 30px;
-  }
-
-  .contactBox h2 {
-    font-size: 44px;
-  }
-
-  .contactBox p {
-    font-size: 18px;
-  }
-}
+        .formLink:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 25px 55px rgba(37,99,235,.45);
+        }
 
         .floating {
           position: fixed;
@@ -423,459 +581,84 @@ export default function Home() {
           to { opacity: 1; transform: translateY(0); }
         }
 
+        @media (max-width: 1100px) {
+          .premiumCarsGrid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
         @media (max-width: 900px) {
-          .heroContent { padding-top: 130px; }
-          .grid3, .grid4, .contactBox { grid-template-columns: 1fr; }
           .links { display: none; }
+          .heroContent { padding-top: 130px; }
           h1 { font-size: 52px; }
           .hero p { font-size: 18px; }
           .actions .call { display: none; }
+          .benefitGrid { grid-template-columns: 1fr; }
+          .sectionTop h2 { font-size: 38px; }
+          .benefitCard { min-height: auto; }
+          .contactBox {
+            grid-template-columns: 1fr;
+            padding: 40px 24px;
+            gap: 30px;
+          }
         }
-          /* =========================
-   MOBILE OPTIMIZATION
-========================= */
 
-@media (max-width: 768px) {
-  body {
-    overflow-x: hidden;
-  }
-
-  .header {
-    position: sticky;
-  }
-
-  .nav {
-    padding: 10px 14px;
-  }
-
-  .logo {
-    width: 44px;
-    height: 44px;
-  }
-
-  .brand-title {
-    font-size: 18px;
-  }
-
-  .brand-sub {
-    font-size: 10px;
-  }
-
-  .actions {
-    gap: 6px;
-  }
-
-  .iconBtn {
-    width: 42px;
-    height: 42px;
-  }
-
-  .hero {
-    min-height: 92vh;
-    background-position: center;
-  }
-
-  .heroOverlay {
-    background: linear-gradient(
-      to bottom,
-      rgba(4,8,20,.78),
-      rgba(4,8,20,.9)
-    );
-  }
-
-  .heroContent {
-    padding: 110px 18px 50px;
-  }
-
-  h1 {
-    font-size: 42px;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-
-  .hero p {
-    font-size: 16px;
-    line-height: 1.6;
-  }
-
-  .btns {
-    flex-direction: column;
-  }
-
-  .btn {
-    width: 100%;
-    text-align: center;
-  }
-
-  section {
-    padding: 52px 0;
-  }
-
-  .container {
-    padding: 0 16px;
-  }
-
-  h2 {
-    font-size: 34px;
-    line-height: 1.05;
-  }
-
-  .grid3,
-  .grid4,
-  .benefitGrid,
-  .bottomBenefits {
-    grid-template-columns: 1fr !important;
-  }
-
-  .card {
-    border-radius: 22px;
-  }
-
-  .carImg {
-    height: 230px;
-  }
-
-  .carBody {
-    padding: 22px;
-  }
-
-  .carBody h3 {
-    font-size: 26px;
-  }
-.benefits {
-  position: relative;
-  padding: 110px 20px;
-  overflow: hidden;
-}
-
-.benefits::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(
-      rgba(4,8,20,.90),
-      rgba(4,8,20,.95)
-    ),
-    url("/images/hero-bg.jpg");
-
-  background-size: cover;
-  background-position: center;
-  z-index: -2;
-}
-
-.sectionTop {
-  text-align: center;
-  max-width: 900px;
-  margin: 0 auto 56px;
-}
-
-.sectionBadge {
-  display: inline-block;
-  color: #60a5fa;
-  font-size: 13px;
-  font-weight: 900;
-  letter-spacing: 2px;
-  margin-bottom: 18px;
-}
-
-.sectionTop h2 {
-  font-size: 58px;
-  line-height: 1;
-  margin: 0 0 22px;
-  font-weight: 900;
-  letter-spacing: -2px;
-}
-
-.sectionTop p {
-  color: rgba(255,255,255,.72);
-  font-size: 20px;
-  line-height: 1.6;
-  max-width: 760px;
-  margin: auto;
-}
-
-.benefitGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 22px;
-}
-
-.benefitCard {
-  position: relative;
-  min-height: 260px;
-  padding: 34px;
-  border-radius: 30px;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,.09),
-      rgba(255,255,255,.035)
-    );
-  border: 1px solid rgba(255,255,255,.1);
-  overflow: hidden;
-  transition: .25s;
-  backdrop-filter: blur(14px);
-}
-
-.benefitCard:hover {
-  transform: translateY(-8px);
-  border-color: rgba(96,165,250,.45);
-  box-shadow: 0 20px 60px rgba(0,0,0,.35);
-}
-
-.benefitNumber {
-  color: #60a5fa;
-  font-size: 15px;
-  font-weight: 900;
-  letter-spacing: 1px;
-  margin-bottom: 42px;
-}
-
-.benefitCard h3 {
-  font-size: 30px;
-  line-height: 1.05;
-  margin: 0 0 16px;
-  font-weight: 900;
-}
-
-.benefitCard p {
-  color: rgba(255,255,255,.68);
-  font-size: 17px;
-  line-height: 1.55;
-}
-
-@media (max-width: 900px) {
-  .benefitGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .sectionTop h2 {
-    font-size: 38px;
-  }
-
-  .benefitCard {
-    min-height: auto;
-  }
-}
-
-  .benefits {
-    padding: 70px 16px;
-  }
-
-  .sectionTop h2 {
-    font-size: 34px;
-    line-height: 1.08;
-  }
-
-  .sectionTop p {
-    font-size: 16px;
-  }
-
-  .benefitCard {
-    min-height: auto;
-    padding: 28px 22px;
-  }
-
-  .benefitCard h3 {
-    font-size: 26px;
-  }
-
-  .benefitCard p {
-    font-size: 16px;
-  }
-
-  .contactBox {
-    margin-top: 30px;
-    padding: 28px 18px;
-    border-radius: 28px;
-    grid-template-columns: 1fr;
-    gap: 24px;
-    background-position: center;
-  }
-
-  .contactBox h2 {
-    font-size: 36px;
-    line-height: 1.05;
-  }
-
-  .contactBox p {
-    font-size: 16px;
-    line-height: 1.5;
-  }
-
-  .form input,
-  .form textarea,
-  .form select {
-    padding: 17px 18px;
-    font-size: 16px;
-    border-radius: 18px;
-  }
-
-  .form textarea {
-    min-height: 110px;
-  }
-
-  .formLink {
-    height: 62px;
-    font-size: 17px;
-    border-radius: 18px;
-  }
-
-  .floating {
-    right: 14px;
-    bottom: 14px;
-    gap: 8px;
-  }
-
-  .floating .iconBtn {
-    width: 46px;
-    height: 46px;
-  }
-
-  footer {
-    padding: 26px 16px 90px;
-    font-size: 13px;
-  }
-}
-  .premiumCarsGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-  margin-top: 46px;
-}
-
-.premiumCarCard {
-  position: relative;
-  overflow: hidden;
-  border-radius: 34px;
-  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.035));
-  border: 1px solid rgba(255,255,255,.12);
-  box-shadow: 0 24px 70px rgba(0,0,0,.35);
-  transition: .3s;
-}
-
-.premiumCarCard:hover {
-  transform: translateY(-10px);
-  border-color: rgba(96,165,250,.45);
-}
-
-.carTag {
-  position: absolute;
-  top: 18px;
-  left: 18px;
-  z-index: 2;
-  padding: 9px 14px;
-  border-radius: 999px;
-  background: rgba(4,8,20,.75);
-  border: 1px solid rgba(255,255,255,.16);
-  backdrop-filter: blur(10px);
-  font-size: 13px;
-  font-weight: 900;
-}
-
-.premiumCarImg {
-  width: 100%;
-  height: 285px;
-  object-fit: cover;
-  display: block;
-}
-
-.premiumCarBody {
-  padding: 30px;
-}
-
-.premiumCarBody h3 {
-  font-size: 32px;
-  margin: 0 0 10px;
-  font-weight: 900;
-}
-
-.premiumPrice {
-  color: #60a5fa;
-  font-size: 28px;
-  font-weight: 900;
-  margin-bottom: 18px;
-}
-
-.premiumCarBody p {
-  color: rgba(255,255,255,.68);
-  font-size: 17px;
-  line-height: 1.55;
-}
-
-.miniBenefits {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin: 22px 0;
-}
-
-.miniBenefits span {
-  padding: 9px 12px;
-  border-radius: 999px;
-  background: rgba(96,165,250,.12);
-  color: #bfdbfe;
-  font-size: 13px;
-  font-weight: 800;
-}
-
-.premiumCarBtn {
-  display: inline-block;
-  padding: 16px 26px;
-  border-radius: 18px;
-  background: linear-gradient(135deg, #2563eb, #3b82f6);
-  color: white;
-  font-weight: 900;
-  box-shadow: 0 16px 40px rgba(37,99,235,.32);
-  transition: .25s;
-}
-
-.premiumCarBtn:hover {
-  transform: translateY(-3px);
-}
-
-.premiumCalc {
-  margin-top: 38px;
-  padding: 38px;
-  border-radius: 34px;
-  background: linear-gradient(135deg, rgba(37,99,235,.18), rgba(255,255,255,.04));
-  border: 1px solid rgba(255,255,255,.12);
-}
-
-.premiumCalc span {
-  color: #60a5fa;
-  font-size: 13px;
-  font-weight: 900;
-  letter-spacing: 2px;
-}
-
-.premiumCalc strong {
-  display: block;
-  margin-top: 12px;
-  font-size: 42px;
-  color: #60a5fa;
-}
-
-.premiumCalc p {
-  color: rgba(255,255,255,.68);
-  font-size: 18px;
-  line-height: 1.6;
-}
-
-@media (max-width: 900px) {
-  .premiumCarsGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .premiumCarImg {
-    height: 240px;
-  }
-
-  .premiumCalc strong {
-    font-size: 32px;
-  }
-}
+        @media (max-width: 768px) {
+          body { overflow-x: hidden; }
+          .header { position: sticky; }
+          .nav { padding: 10px 14px; }
+          .logo { width: 44px; height: 44px; }
+          .brand-title { font-size: 18px; }
+          .brand-sub { font-size: 10px; }
+          .actions { gap: 6px; }
+          .iconBtn { width: 42px; height: 42px; }
+          .hero { min-height: 92vh; background-position: center; }
+          .heroOverlay { background: linear-gradient(to bottom, rgba(4,8,20,.78), rgba(4,8,20,.9)); }
+          .heroContent { padding: 110px 18px 50px; }
+          h1 { font-size: 42px; line-height: 1; letter-spacing: -1px; }
+          .hero p { font-size: 16px; line-height: 1.6; }
+          .btns { flex-direction: column; }
+          .btn { width: 100%; text-align: center; }
+          section { padding: 52px 0; }
+          .container { padding: 0 16px; }
+          h2 { font-size: 34px; line-height: 1.05; }
+          .benefits { padding: 70px 16px; }
+          .sectionTop h2 { font-size: 34px; line-height: 1.08; }
+          .sectionTop p { font-size: 16px; }
+          .benefitCard { padding: 28px 22px; }
+          .benefitCard h3 { font-size: 26px; }
+          .benefitCard p { font-size: 16px; }
+          .premiumCarsGrid { grid-template-columns: 1fr; gap: 22px; }
+          .premiumCarImg { height: 240px; }
+          .premiumCarBody { padding: 22px; }
+          .premiumCarBody h3 { font-size: 28px; }
+          .premiumPrice { font-size: 24px; }
+          .premiumCalc { padding: 28px 22px; }
+          .premiumCalc strong { font-size: 34px; }
+          .premiumCalc .premiumCarBtn { max-width: 100%; }
+          .contactBox {
+            margin-top: 30px;
+            padding: 28px 18px;
+            border-radius: 28px;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            background-position: center;
+          }
+          .contactBox h2 { font-size: 36px; line-height: 1.05; }
+          .contactBox p { font-size: 16px; line-height: 1.5; }
+          .form input,
+          .form textarea,
+          .form select {
+            padding: 17px 18px;
+            font-size: 16px;
+            border-radius: 18px;
+          }
+          .form textarea { min-height: 110px; }
+          .formLink { height: 62px; font-size: 17px; border-radius: 18px; }
+          .floating { right: 14px; bottom: 14px; gap: 8px; }
+          .floating .iconBtn { width: 46px; height: 46px; }
+          footer { padding: 26px 16px 90px; font-size: 13px; }
+        }
       `}</style>
 
       <main>
@@ -892,7 +675,7 @@ export default function Home() {
             <nav className="links">
               <a href="#conditions">Условия</a>
               <a href="#cars">Авто</a>
-              <a href="#steps">Как работает</a>
+              <a href="#contact">Заявка</a>
             </nav>
 
             <div className="actions">
@@ -926,117 +709,101 @@ export default function Home() {
           </div>
         </section>
 
-       <section id="conditions" className="benefits">
-  <div className="container">
-    <div className="sectionTop">
-      <span className="sectionBadge">ПОЧЕМУ ВЫБИРАЮТ ТЕЛЕПАРК</span>
+        <section id="conditions" className="benefits">
+          <div className="container">
+            <div className="sectionTop">
+              <span className="sectionBadge">ПОЧЕМУ ВЫБИРАЮТ ТЕЛЕПАРК</span>
 
-      <h2>
-        Условия, с которыми
-        <br />
-        удобно начать
-      </h2>
+              <h2>
+                Условия, с которыми
+                <br />
+                удобно начать
+              </h2>
 
-      <p>
-        Без лишней бюрократии: подберём автомобиль, рассчитаем платёж
-        и согласуем условия под вашу задачу.
-      </p>
-    </div>
-
-    <div className="benefitGrid">
-      {[
-        ["01", "0 ₽ взнос", "Начните пользоваться авто без крупного первого платежа"],
-        ["02", "16–24 мес.", "Комфортный срок выкупа под ваш бюджет"],
-        ["03", "Решение сразу", "Быстро рассматриваем заявку и предлагаем варианты"],
-        ["04", "21+ лет", "Простые условия оформления для водителей"],
-      ].map(([num, title, text]) => (
-        <div className="benefitCard" key={num}>
-          <div className="benefitNumber">{num}</div>
-          <h3>{title}</h3>
-          <p>{text}</p>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
-
-       <section id="cars">
-  <div className="container">
-    <div className="sectionTop">
-      <span className="sectionBadge">АВТОМОБИЛИ В НАЛИЧИИ</span>
-
-      <h2>
-        Авто можно забрать
-        <br />
-        уже сегодня
-      </h2>
-
-      <p>
-        Подберём автомобиль под вашу задачу: работа, такси, доставка,
-        семья или личные поездки.
-      </p>
-    </div>
-
-    <div className="premiumCarsGrid">
-      {[
-        [
-          "Geely Coolray",
-          "/images/cars/col.jpg",
-          "Комфортный городской кроссовер для семьи, работы и ежедневных поездок.",
-          "2 950 ₽/сутки",
-          "Популярный выбор",
-        ],
-        [
-          "Kia Rio",
-          "/images/cars/rio.jpg",
-          "Экономичный автомобиль для такси, доставки и личного использования.",
-          "2 950 ₽/сутки",
-          "Для работы",
-        ],
-        [
-          "Hongqi H5",
-          "/images/cars/hon.jpg",
-          "Премиальный бизнес-седан для комфортных поездок и статуса.",
-          "4 950 ₽/сутки",
-          "Premium",
-        ],
-      ].map(([name, img, text, price, tag]) => (
-        <div className="premiumCarCard" key={name}>
-          <div className="carTag">{tag}</div>
-
-          <img src={img} className="premiumCarImg" alt={name} />
-
-          <div className="premiumCarBody">
-            <h3>{name}</h3>
-            <div className="premiumPrice">{price}</div>
-            <p>{text}</p>
-
-            <div className="miniBenefits">
-              <span>0 ₽ взнос</span>
-              <span>Решение сразу</span>
+              <p>
+                Без лишней бюрократии: подберём автомобиль, рассчитаем платёж
+                и согласуем условия под вашу задачу.
+              </p>
             </div>
 
-            <a href="#contact" className="premiumCarBtn">
-              Забрать сегодня
-            </a>
+            <div className="benefitGrid">
+              {[
+                ["01", "0 ₽ взнос", "Начните пользоваться авто без крупного первого платежа"],
+                ["02", "16–24 мес.", "Комфортный срок выкупа под ваш бюджет"],
+                ["03", "Решение сразу", "Быстро рассматриваем заявку и предлагаем варианты"],
+                ["04", "21+ лет", "Простые условия оформления для водителей"],
+              ].map(([num, title, text]) => (
+                <div className="benefitCard" key={num}>
+                  <div className="benefitNumber">{num}</div>
+                  <h3>{title}</h3>
+                  <p>{text}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
+        </section>
 
-    <div className="premiumCalc">
-      <span>СТАРТ УЖЕ СЕГОДНЯ</span>
-      <strong>от 2 950 ₽/сутки</strong>
-      <p>
-        Без первоначального взноса. Подберём автомобиль и быстро согласуем
-        условия под вашу задачу.
-      </p>
-      <a href="#contact" className="premiumCarBtn">
-        Подобрать авто
-      </a>
-    </div>
-  </div>
-</section>
+        <section id="cars">
+          <div className="container">
+            <div className="sectionTop">
+              <span className="sectionBadge">АВТОМОБИЛИ В НАЛИЧИИ</span>
+
+              <h2>
+                Авто можно забрать
+                <br />
+                уже сегодня
+              </h2>
+
+              <p>
+                Подберём автомобиль под вашу задачу: работа, такси, доставка,
+                семья или личные поездки.
+              </p>
+            </div>
+
+            <div className="premiumCarsGrid">
+              {[
+                ["Geely Coolray", "2022 год", "/images/cars/col.jpg", "Комфортный городской кроссовер для семьи, работы и ежедневных поездок.", "2 950 ₽/сутки", "Популярный выбор"],
+                ["Kia Rio", "2022 год", "/images/cars/rio.jpg", "Экономичный автомобиль для такси, доставки и личного использования.", "2 950 ₽/сутки", "Для работы"],
+                ["Hyundai Solaris", "2021 год", "/images/solaris/solaris.jpg", "Надёжный и экономичный автомобиль для работы, такси и ежедневных поездок.", "2 500 ₽/сутки", "Экономичный"],
+                ["Hongqi H5", "2023 год", "/images/cars/hon.jpg", "Премиальный бизнес-седан для комфортных поездок и статуса.", "4 950 ₽/сутки", "Premium"],
+              ].map(([name, year, img, text, price, tag]) => (
+                <div className="premiumCarCard" key={name}>
+                  <div className="carTag">{tag}</div>
+
+                  <img src={img} className="premiumCarImg" alt={name} />
+
+                  <div className="premiumCarBody">
+                    <div className="carYear">{year}</div>
+                    <h3>{name}</h3>
+                    <div className="premiumPrice">{price}</div>
+                    <p>{text}</p>
+
+                    <div className="miniBenefits">
+                      <span>0 ₽ взнос</span>
+                      <span>Решение сразу</span>
+                    </div>
+
+                    <a href="#contact" className="premiumCarBtn">
+                      Забрать сегодня
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="premiumCalc">
+              <span>СТАРТ УЖЕ СЕГОДНЯ</span>
+              <strong>от 2 500 ₽/сутки</strong>
+              <p>
+                Без первоначального взноса. Подберём автомобиль и быстро согласуем
+                условия под вашу задачу.
+              </p>
+              <a href="#contact" className="premiumCarBtn">
+                Подобрать авто
+              </a>
+            </div>
+          </div>
+        </section>
 
         <section id="contact">
           <div className="container">
@@ -1046,48 +813,24 @@ export default function Home() {
                 <p>Заполните форму или напишите нам в Telegram / MAX.</p>
               </div>
 
-              <form
-  className="form"
-  action={FORM_ENDPOINT}
-  method="POST"
->
-  <input
-    name="name"
-    placeholder="Ваше имя"
-    required
-  />
+              <form className="form" action={FORM_ENDPOINT} method="POST">
+                <input name="name" placeholder="Ваше имя" required />
+                <input name="phone" placeholder="Телефон" required />
 
-  <input
-    name="phone"
-    placeholder="Телефон"
-    required
-  />
+                <select name="car" required>
+                  <option value="">Какой автомобиль интересует?</option>
+                  <option>Geely Coolray</option>
+                  <option>Kia Rio</option>
+                  <option>Hyundai Solaris</option>
+                  <option>Hongqi H5</option>
+                </select>
 
-  <select
-    name="car"
-    required
-  >
-    <option value="">
-      Какой автомобиль интересует?
-    </option>
+                <textarea name="comment" placeholder="Комментарий" />
 
-    <option>Geely Coolray</option>
-    <option>Kia Rio</option>
-    <option>Hongqi H5</option>
-  </select>
-
-  <textarea
-    name="comment"
-    placeholder="Комментарий"
-  />
-
-  <button
-    type="submit"
-    className="formLink"
-  >
-    Отправить заявку
-  </button>
-</form>
+                <button type="submit" className="formLink">
+                  Отправить заявку
+                </button>
+              </form>
             </div>
           </div>
         </section>
