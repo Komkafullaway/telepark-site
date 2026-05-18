@@ -923,6 +923,61 @@ export default function Home() {
           .floating .iconBtn { width: 46px; height: 46px; }
           footer { padding: 26px 16px 90px; font-size: 13px; }
         }
+          .reviewsVideo {
+  padding: 90px 0;
+}
+
+.videoGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  margin-top: 50px;
+}
+
+.videoCard {
+  overflow: hidden;
+  border-radius: 30px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.1);
+  transition: .3s;
+}
+
+.videoCard:hover {
+  transform: translateY(-6px);
+  border-color: rgba(96,165,250,.4);
+}
+
+.videoCard video {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  display: block;
+}
+
+.videoInfo {
+  padding: 22px;
+}
+
+.videoInfo strong {
+  display: block;
+  font-size: 22px;
+  margin-bottom: 8px;
+  font-weight: 900;
+}
+
+.videoInfo span {
+  color: rgba(255,255,255,.65);
+  font-size: 15px;
+}
+
+.videoGrid {
+  grid-template-columns: 1fr;
+}
+
+  .videoCard video {
+    height: 500px;
+  }
+}
       `}</style>
 
       <main>
@@ -1146,7 +1201,92 @@ export default function Home() {
 
   </div>
 </section>
-        
+        {/* ВИДЕО КЛИЕНТОВ */}
+<section className="reviewsVideo">
+  <div className="container">
+
+    <div className="sectionTop">
+      <span className="sectionBadge">
+        РЕАЛЬНЫЕ КЛИЕНТЫ
+      </span>
+
+      <h2>
+        Люди реально уезжают
+        <br />
+        на авто в день обращения
+      </h2>
+
+      <p>
+        Реальные автомобили, реальные клиенты Телепарк.
+        Без банка, скрытых условий и долгих ожиданий.
+      </p>
+    </div>
+
+    <div className="videoGrid">
+
+      {/* Atlas */}
+      <div className="videoCard">
+        <video autoPlay muted loop playsInline>
+          <source src="/videos/Atlas1.MOV" />
+        </video>
+
+        <div className="videoInfo">
+          <strong>Geely Atlas Pro</strong>
+          <span>🔥 Клиент забрал авто сегодня</span>
+        </div>
+      </div>
+
+      {/* Coolray */}
+      <div className="videoCard">
+        <video autoPlay muted loop playsInline>
+          <source src="/videos/Coolray1.MP4" />
+        </video>
+
+        <div className="videoInfo">
+          <strong>Geely Coolray</strong>
+          <span>👨‍👩‍👧 Семейный автомобиль</span>
+        </div>
+      </div>
+
+      {/* Rio */}
+      <div className="videoCard">
+        <video autoPlay muted loop playsInline>
+          <source src="/videos/Rio1.MP4" />
+        </video>
+
+        <div className="videoInfo">
+          <strong>Kia Rio</strong>
+          <span>🚕 Авто для такси и работы</span>
+        </div>
+      </div>
+
+      {/* Solaris */}
+      <div className="videoCard">
+        <video autoPlay muted loop playsInline>
+          <source src="/videos/Solaris1.MP4" />
+        </video>
+
+        <div className="videoInfo">
+          <strong>Hyundai Solaris</strong>
+          <span>⚡ Выдали в день обращения</span>
+        </div>
+      </div>
+
+      {/* Tiggo */}
+      <div className="videoCard">
+        <video autoPlay muted loop playsInline>
+          <source src="/videos/Tigo1.MP4" />
+        </video>
+
+        <div className="videoInfo">
+          <strong>Chery Tiggo 7 Pro</strong>
+          <span>💎 Комфортный городской кроссовер</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
         <section id="contact">
           <div className="container">
