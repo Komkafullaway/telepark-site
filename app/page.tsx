@@ -892,41 +892,46 @@ export default function Home() {
   body { overflow-x: hidden; }
   .header { position: sticky; }
 
-  .header .actions {
-    display: none;
-  }
+ .header .actions {
+  display: none;
+}
 
-  .nav {
-    grid-template-columns: 1fr;
-  }
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 18px;
+}
+
+.brand {
+  width: 100%;
+}
 
 .headerTrust {
   display: flex;
-  order: 3;
-  grid-column: 1 / -1;
   width: 100%;
-  margin-top: 8px;
-  padding-top: 8px;
+  margin: 0;
+  padding-top: 10px;
   border-top: 1px solid rgba(255,255,255,.1);
+  align-items: flex-start;
+  text-align: left;
 }
 
 .headerInfo {
-  justify-content: flex-start;
-  gap: 8px 12px;
+  display: grid;
+  gap: 6px;
 }
 
 .headerInfo span,
 .headerInfo a {
-  font-size: 11px;
+  font-size: 13px;
+  line-height: 1.25;
 }
 
 .headerMini {
-  font-size: 10px;
-  text-align: left;
-}
-
-.actions .call {
-  display: none;
+  font-size: 11px;
+  line-height: 1.35;
 }
           .nav { padding: 10px 14px; }
           .logo { width: 44px; height: 44px; }
