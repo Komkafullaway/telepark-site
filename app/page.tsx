@@ -888,12 +888,17 @@ export default function Home() {
           }
         }
 
-        @media (max-width: 768px) {
-          body { overflow-x: hidden; }
-          .header { position: sticky; }
-          .nav {
-  grid-template-columns: 1fr auto;
-}
+     @media (max-width: 768px) {
+  body { overflow-x: hidden; }
+  .header { position: sticky; }
+
+  .header .actions {
+    display: none;
+  }
+
+  .nav {
+    grid-template-columns: 1fr;
+  }
 
 .headerTrust {
   display: flex;
