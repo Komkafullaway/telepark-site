@@ -820,9 +820,9 @@ export default function Home() {
                 <select name="car" required>
                   <option value="">Какой автомобиль интересует?</option>
                   <option>Geely Coolray</option>
-                  <option>Kia Rio</option>
-                  <option>Hyundai Solaris</option>
-                  <option>Hongqi H5</option>
+<option>Kia Rio</option>
+<option>Hyundai Solaris</option>
+<option>Hongqi H5</option>
                 </select>
 
                 <textarea name="comment" placeholder="Комментарий" />
