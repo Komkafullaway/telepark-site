@@ -578,8 +578,29 @@ export default function Home() {
 @media (max-width: 900px) {
 
   .headerTrust {
-    display: none;
-  }
+  display: flex;
+  order: 3;
+  grid-column: 1 / -1;
+  width: 100%;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+
+.headerInfo {
+  justify-content: flex-start;
+  gap: 8px 12px;
+}
+
+.headerInfo span,
+.headerInfo a {
+  font-size: 11px;
+}
+
+.headerMini {
+  font-size: 10px;
+  text-align: left;
+}
 
   .links {
     display: none;
@@ -870,6 +891,38 @@ export default function Home() {
         @media (max-width: 768px) {
           body { overflow-x: hidden; }
           .header { position: sticky; }
+          .nav {
+  grid-template-columns: 1fr auto;
+}
+
+.headerTrust {
+  display: flex;
+  order: 3;
+  grid-column: 1 / -1;
+  width: 100%;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+
+.headerInfo {
+  justify-content: flex-start;
+  gap: 8px 12px;
+}
+
+.headerInfo span,
+.headerInfo a {
+  font-size: 11px;
+}
+
+.headerMini {
+  font-size: 10px;
+  text-align: left;
+}
+
+.actions .call {
+  display: none;
+}
           .nav { padding: 10px 14px; }
           .logo { width: 44px; height: 44px; }
           .brand-title { font-size: 18px; }
