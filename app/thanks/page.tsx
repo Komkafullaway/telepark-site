@@ -47,11 +47,12 @@ export default async function ThanksPage({
   searchParams: Promise<{ car?: string }>;
 }) {
   const params = await searchParams;
-  const selectedCar = params?.car || "Hyundai Solaris";
 
-  console.log("CAR:", params?.car);
+const selectedCar = params?.car || "Hyundai Solaris";
+const clientName = params?.name || "";
+const requestId = params?.request || "TP-" + Date.now().toString().slice(-6);
 
-  const plan = plans[selectedCar] || plans["Hyundai Solaris"];
+const plan = plans[selectedCar] || plans["Hyundai Solaris"];
   return (
     <>
       <style>{`
@@ -216,9 +217,13 @@ export default async function ThanksPage({
           </h1>
 
           <p className="lead">
-            Менеджер Телепарк свяжется с вами в течение 10–15 минут.
-            Ниже — предварительный график платежей по выбранному автомобилю.
-          </p>
+  {clientName ? `${clientName}, ваша заявка принята.` : "Ваша заявка принята."}
+  <br />
+  Номер заявки: <b>{requestId}</b>
+  <br />
+  Менеджер Телепарк свяжется с вами в ближайшее время.
+  Ниже — предварительный график платежей по выбранному автомобилю.
+</p>
 
           <div className="plan">
             <div className="box">
