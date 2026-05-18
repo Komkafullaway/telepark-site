@@ -46,6 +46,111 @@ export default function Home() {
           max-width: 1200px;
           margin: auto;
         }
+          .headerTrust {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-left: 24px;
+}
+
+.headerInfo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.headerInfo span,
+.headerInfo a {
+  color: rgba(255,255,255,.88);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.headerInfo a {
+  transition: .2s;
+}
+
+.headerInfo a:hover {
+  color: #60a5fa;
+}
+
+.headerMini {
+  color: rgba(255,255,255,.55);
+  font-size: 12px;
+  font-weight: 500;
+}
+          .headerTrust {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-left: 24px;
+}
+.headerTrust {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-left: 24px;
+}
+
+.headerInfo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.headerInfo span,
+.headerInfo a {
+  color: rgba(255,255,255,.88);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.headerInfo a {
+  transition: .2s;
+}
+
+.headerInfo a:hover {
+  color: #60a5fa;
+}
+
+.headerMini {
+  color: rgba(255,255,255,.55);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.headerInfo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.headerInfo span,
+.headerInfo a {
+  color: rgba(255,255,255,.88);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.headerInfo a {
+  transition: .2s;
+}
+
+.headerInfo a:hover {
+  color: #60a5fa;
+}
+
+.headerMini {
+  color: rgba(255,255,255,.55);
+  font-size: 12px;
+  font-weight: 500;
+}
 
         .brand { display: flex; align-items: center; gap: 14px; }
 
@@ -67,7 +172,7 @@ export default function Home() {
           color: rgba(255,255,255,.76);
           font-size: 14px;
         }
-
+          
         .actions { display: flex; gap: 10px; align-items: center; }
 
         .iconBtn {
@@ -291,103 +396,262 @@ export default function Home() {
           line-height: 1.55;
         }
 
-        .premiumCarsGrid {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 28px;
-          margin-top: 46px;
-        }
+        /* ===== АВТОМОБИЛИ ===== */
 
-        .premiumCarCard {
-          position: relative;
-          overflow: hidden;
-          border-radius: 34px;
-          background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.035));
-          border: 1px solid rgba(255,255,255,.12);
-          box-shadow: 0 24px 70px rgba(0,0,0,.35);
-          transition: .3s;
-        }
+.premiumCarsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 46px;
+}
 
-        .premiumCarCard:hover {
-          transform: translateY(-10px);
-          border-color: rgba(96,165,250,.45);
-          box-shadow: 0 35px 80px rgba(0,0,0,.45);
-        }
+.premiumCarCard {
+  position: relative;
+  overflow: hidden;
+  border-radius: 36px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.08),
+      rgba(255,255,255,.035)
+    );
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 24px 70px rgba(0,0,0,.35);
+  transition: .3s;
+}
 
-        .carTag {
-          position: absolute;
-          top: 18px;
-          left: 18px;
-          z-index: 3;
-          padding: 10px 16px;
-          border-radius: 999px;
-          background: rgba(4,8,20,.78);
-          border: 1px solid rgba(255,255,255,.16);
-          backdrop-filter: blur(14px);
-          font-size: 13px;
-          font-weight: 900;
-          color: white;
-        }
+.premiumCarCard:hover {
+  transform: translateY(-8px);
+  border-color: rgba(96,165,250,.45);
+}
 
-        .premiumCarImg {
-          width: 100%;
-          height: 290px;
-          object-fit: cover;
-          display: block;
-        }
+.carTag {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 3;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: rgba(4,8,20,.78);
+  border: 1px solid rgba(255,255,255,.16);
+  backdrop-filter: blur(14px);
+  font-size: 13px;
+  font-weight: 900;
+  color: white;
+}
 
-        .premiumCarBody {
-          padding: 30px;
-        }
+.premiumCarImg {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+}
 
-        .carYear {
-          display: inline-flex;
-          padding: 8px 14px;
-          border-radius: 999px;
-          background: rgba(96,165,250,.12);
-          color: #bfdbfe;
-          font-size: 13px;
-          font-weight: 900;
-          margin-bottom: 14px;
-        }
+.premiumCarBody {
+  padding: 34px;
+}
 
-        .premiumCarBody h3 {
-          font-size: 34px;
-          line-height: 1.05;
-          margin: 0 0 10px;
-          font-weight: 900;
-        }
+.carYear {
+  display: inline-flex;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(96,165,250,.12);
+  color: #bfdbfe;
+  font-size: 13px;
+  font-weight: 900;
+  margin-bottom: 18px;
+}
 
-        .premiumPrice {
-          color: #60a5fa;
-          font-size: 30px;
-          font-weight: 900;
-          margin-bottom: 18px;
-        }
+.premiumCarBody h3 {
+  font-size: 42px;
+  line-height: .95;
+  margin: 0 0 18px;
+  font-weight: 900;
+}
 
-        .premiumCarBody p {
-          color: rgba(255,255,255,.68);
-          font-size: 17px;
-          line-height: 1.65;
-          min-height: 82px;
-        }
+.premiumPrice {
+  color: #60a5fa;
+  font-size: 36px;
+  font-weight: 900;
+  margin-bottom: 26px;
+}
 
-        .miniBenefits {
-          display: flex;
-          gap: 10px;
-          flex-wrap: wrap;
-          margin: 24px 0;
-        }
+.carList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px;
+  display: grid;
+  gap: 14px;
+}
 
-        .miniBenefits span {
-          padding: 10px 14px;
-          border-radius: 999px;
-          background: rgba(96,165,250,.12);
-          color: #bfdbfe;
-          font-size: 13px;
-          font-weight: 800;
-        }
+.carList li {
+  position: relative;
+  padding-left: 24px;
+  color: rgba(255,255,255,.82);
+  font-size: 16px;
+  line-height: 1.6;
+}
 
+.carList li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #60a5fa;
+  box-shadow: 0 0 12px rgba(96,165,250,.6);
+}
+
+.premiumCarBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 68px;
+  border-radius: 22px;
+  background: linear-gradient(135deg,#2563eb,#3b82f6);
+  color: white;
+  font-size: 18px;
+  font-weight: 900;
+  transition: .25s;
+}
+
+.premiumCarBtn:hover {
+  transform: translateY(-4px);
+}
+
+.answerTime {
+  margin-top: 12px;
+  text-align: center;
+  color: rgba(255,255,255,.5);
+  font-size: 13px;
+}
+
+.premiumCalc {
+  margin-top: 44px;
+  padding: 48px;
+  border-radius: 36px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(37,99,235,.18),
+      rgba(255,255,255,.04)
+    );
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+.premiumCalc span {
+  color: #60a5fa;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.premiumCalc strong {
+  display: block;
+  margin-top: 14px;
+  margin-bottom: 16px;
+  font-size: 50px;
+  line-height: 1;
+  color: #60a5fa;
+}
+
+.premiumCalc p {
+  color: rgba(255,255,255,.72);
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 760px;
+}
+
+.premiumCalc .premiumCarBtn {
+  margin-top: 24px;
+  max-width: 340px;
+}
+
+/* МОБИЛКА */
+
+@media (max-width: 900px) {
+
+  .headerTrust {
+    display: none;
+  }
+
+  .links {
+    display: none;
+  }
+
+  .heroContent {
+    padding-top: 130px;
+  }
+
+  h1 {
+    font-size: 52px;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+
+  .actions .call {
+    display: none;
+  }
+
+  .benefitGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .sectionTop h2 {
+    font-size: 38px;
+  }
+
+  .benefitCard {
+    min-height: auto;
+  }
+
+  .premiumCarsGrid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .premiumCarImg {
+    height: 240px;
+  }
+
+  .premiumCarBody {
+    padding: 24px;
+  }
+
+  .premiumCarBody h3 {
+    font-size: 32px;
+  }
+
+  .premiumPrice {
+    font-size: 28px;
+  }
+
+  .carList li {
+    font-size: 15px;
+  }
+
+  .premiumCalc {
+    padding: 28px 22px;
+  }
+
+  .premiumCalc strong {
+    font-size: 34px;
+  }
+
+  .contactBox {
+    grid-template-columns: 1fr;
+    padding: 40px 24px;
+    gap: 30px;
+  }
+}
         .premiumCarBtn {
           display: flex;
           align-items: center;
@@ -663,27 +927,54 @@ export default function Home() {
 
       <main>
         <header className="header">
-          <div className="nav">
-            <div className="brand">
-              <img src="/logo/telepark-logo.jpg" className="logo" alt="Телепарк" />
-              <div>
-                <div className="brand-title">Телепарк</div>
-                <div className="brand-sub">Аренда авто под выкуп</div>
-              </div>
-            </div>
+  <div className="nav">
 
-            <nav className="links">
-              <a href="#conditions">Условия</a>
-              <a href="#cars">Авто</a>
-              <a href="#contact">Заявка</a>
-            </nav>
+    <div className="brand">
+      <img
+        src="/logo/telepark-logo.jpg"
+        className="logo"
+        alt="Телепарк"
+      />
 
-            <div className="actions">
-              <ContactIcons />
-              <a className="call" href={PHONE_LINK}>Позвонить</a>
-            </div>
-          </div>
-        </header>
+      <div>
+        <div className="brand-title">Телепарк</div>
+        <div className="brand-sub">
+          Аренда авто под выкуп
+        </div>
+      </div>
+    </div>
+
+    <div className="headerTrust">
+      <div className="headerInfo">
+        <span>
+          📍 Санкт-Петербург, пр-т Обуховской Обороны, 271
+        </span>
+
+        <span>
+          🚇 м. Обухово
+        </span>
+
+        <a href="tel:+79013711584">
+          ☎ +7 901 371 1584
+        </a>
+      </div>
+
+      <div className="headerMini">
+        Работаем ежедневно • Быстрое одобрение • Авто в день обращения
+      </div>
+    </div>
+
+    <div className="actions">
+      <ContactIcons />
+
+      <a className="call" href="#contact">
+        Получить расчёт
+      </a>
+    </div>
+
+  </div>
+</header>
+        
 
         <section className="hero">
           <div className="heroOverlay" />
@@ -744,66 +1035,118 @@ export default function Home() {
         </section>
 
         <section id="cars">
-          <div className="container">
-            <div className="sectionTop">
-              <span className="sectionBadge">АВТОМОБИЛИ В НАЛИЧИИ</span>
+  <div className="container">
+    <div className="sectionTop">
+      <span className="sectionBadge">АВТОМОБИЛИ В НАЛИЧИИ</span>
 
-              <h2>
-                Авто можно забрать
-                <br />
-                уже сегодня
-              </h2>
+      <h2>
+        Выберите авто
+        <br />
+        и заберите уже сегодня
+      </h2>
 
-              <p>
-                Подберём автомобиль под вашу задачу: работа, такси, доставка,
-                семья или личные поездки.
-              </p>
-            </div>
+      <p>
+        Реальные автомобили, понятный платёж и быстрый подбор условий под вашу задачу.
+      </p>
+    </div>
 
-            <div className="premiumCarsGrid">
-              {[
-                ["Geely Coolray", "2022 год", "/images/cars/col.jpg", "Комфортный городской кроссовер для семьи, работы и ежедневных поездок.", "2 950 ₽/сутки", "Популярный выбор"],
-                ["Kia Rio", "2022 год", "/images/cars/rio.jpg", "Экономичный автомобиль для такси, доставки и личного использования.", "2 950 ₽/сутки", "Для работы"],
-                ["Hyundai Solaris", "2021 год", "/images/solaris/solaris.jpg", "Надёжный и экономичный автомобиль для работы, такси и ежедневных поездок.", "2 500 ₽/сутки", "Экономичный"],
-                ["Hongqi H5", "2023 год", "/images/cars/hon.jpg", "Премиальный бизнес-седан для комфортных поездок и статуса.", "4 950 ₽/сутки", "Premium"],
-              ].map(([name, year, img, text, price, tag]) => (
-                <div className="premiumCarCard" key={name}>
-                  <div className="carTag">{tag}</div>
+    <div className="premiumCarsGrid">
+      {[
+        {
+          name: "Geely Coolray",
+          year: "2022 • АКПП",
+          img: "/images/cars/col.jpg",
+          price: "2 950 ₽ / сутки",
+          tag: "Популярный выбор",
+          text: [
+  " Полный выкуп через 18 месяцев",
+  " Без первоначального взноса",
+  " ОСАГО + КАСКО включены",
+  " Без скрытых платежей",
+  " Без ограничений по пробегу",
+  " Высокий шанс одобрения",
+],
+          button: "Рассчитать платёж",
+        },
+        {
+          name: "Kia Rio",
+          year: "2022 • АКПП",
+          img: "/images/cars/rio.jpg",
+          price: "2 950 ₽ / сутки",
+          tag: "Для такси и работы",
+          text: [
+  " Подходит для такси и доставки",
+  " Без первоначального взноса",
+  " Полный выкуп через 16 месяцев",
+  " Без ограничений пробега",
+  " Все расходы понятны заранее",
+  " Одобрение даже после отказа банка",
+],
+          button: "Подобрать условия",
+        },
+        {
+          name: "Hyundai Solaris",
+          year: "2021 • АКПП",
+          img: "/images/solaris/solaris.jpg",
+          price: "2 500 ₽ / сутки",
+          tag: "Самый выгодный",
+          text: [
+  " Самый выгодный платёж",
+  " Без первоначального взноса",
+  " Полный выкуп через 16 месяцев",
+  " Для работы и личных поездок",
+  " ОСАГО + КАСКО включены",
+],
+          button: "Рассчитать платёж",
+        },
+        {
+          name: "Hongqi H5",
+          year: "2023 • АКПП",
+          img: "/images/cars/hon.jpg",
+          price: "4 950 ₽ / сутки",
+          tag: "Premium",
+          text: [
+  " Премиум-седан без кредита",
+  " Без первого взноса",
+  " Полный выкуп через 24 месяца",
+  " Полная страховка включена",
+  " Без залогов и депозитов",
+],
+          button: "Получить условия",
+        },
+      ].map((car) => (
+        <div className="premiumCarCard" key={car.name}>
+          <div className="carTag">{car.tag}</div>
 
-                  <img src={img} className="premiumCarImg" alt={name} />
+          <img src={car.img} className="premiumCarImg" alt={car.name} />
 
-                  <div className="premiumCarBody">
-                    <div className="carYear">{year}</div>
-                    <h3>{name}</h3>
-                    <div className="premiumPrice">{price}</div>
-                    <p>{text}</p>
+          <div className="premiumCarBody">
+            <div className="carYear">{car.year}</div>
 
-                    <div className="miniBenefits">
-                      <span>0 ₽ взнос</span>
-                      <span>Решение сразу</span>
-                    </div>
+            <h3>{car.name}</h3>
 
-                    <a href="#contact" className="premiumCarBtn">
-                      Забрать сегодня
-                    </a>
-                  </div>
-                </div>
+            <div className="premiumPrice">{car.price}</div>
+
+            <ul className="carList">
+              {car.text.map((item) => (
+                <li key={item}>{item}</li>
               ))}
-            </div>
+            </ul>
 
-            <div className="premiumCalc">
-              <span>СТАРТ УЖЕ СЕГОДНЯ</span>
-              <strong>от 2 500 ₽/сутки</strong>
-              <p>
-                Без первоначального взноса. Подберём автомобиль и быстро согласуем
-                условия под вашу задачу.
-              </p>
-              <a href="#contact" className="premiumCarBtn">
-                Подобрать авто
-              </a>
-            </div>
+            <a href="#contact" className="premiumCarBtn">
+              {car.button}
+            </a>
+
+            <div className="answerTime">Ответ за 15 минут</div>
           </div>
-        </section>
+        </div>
+      ))}
+    </div>
+
+
+  </div>
+</section>
+        
 
         <section id="contact">
           <div className="container">
