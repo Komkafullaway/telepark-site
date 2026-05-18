@@ -1270,18 +1270,18 @@ export default function Home() {
 
     <div className="sectionTop">
       <span className="sectionBadge">
-        РЕАЛЬНЫЕ КЛИЕНТЫ
+        РЕАЛЬНЫЕ КЛИЕНТЫ ТЕЛЕПАРК
       </span>
 
       <h2>
-        Люди реально уезжают
+        Люди реально получают
         <br />
-        на авто в день обращения
+        автомобили в день обращения
       </h2>
 
       <p>
-        Реальные автомобили, реальные клиенты Телепарк.
-        Без банка, скрытых условий и долгих ожиданий.
+        Реальные выдачи автомобилей в Санкт-Петербурге.
+        Без банка, скрытых условий и долгого ожидания.
       </p>
     </div>
 
@@ -1294,20 +1294,108 @@ export default function Home() {
         </video>
 
         <div className="videoInfo">
-          <strong>Geely Atlas Pro</strong>
-          <span>🔥 Клиент забрал авто сегодня</span>
+          <strong>Георгий • Geely Atlas Pro</strong>
+
+          <p>
+            «Нужен был автомобиль для семьи. Банк
+            не одобрил кредит, здесь всё сделали
+            быстро — вечером уже уехал на машине.»
+          </p>
+
+          <span>📍 Санкт-Петербург</span>
         </div>
       </div>
 
-      {/* Coolray */}
+      {/* Coolray 1 */}
       <div className="videoCard">
         <video autoPlay muted loop playsInline>
           <source src="/videos/Coolray1.MP4" />
         </video>
 
         <div className="videoInfo">
-          <strong>Geely Coolray</strong>
-          <span>👨‍👩‍👧 Семейный автомобиль</span>
+          <strong>Александр • Geely Coolray</strong>
+
+          <p>
+            «Искал семейную машину без кредита.
+            Всё прозрачно, быстро оформили —
+            реально уехал в этот же день.»
+          </p>
+
+          <span>🚘 Забрал авто сегодня</span>
+        </div>
+      </div>
+
+      {/* Coolray 2 */}
+      <div className="videoCard">
+        <video autoPlay muted loop playsInline>
+          <source src="/videos/Coolray2.MP4" />
+        </video>
+
+        <div className="videoInfo">
+          <strong>Игорь • Geely Coolray</strong>
+
+          <p>
+            «Понравилось, что без скрытых условий.
+            Всё объяснили, платёж понятный —
+            рекомендую.»
+          </p>
+
+          <span>🔥 Одобрение за 20 минут</span>
+        </div>
+      </div>
+
+      {/* Coolray 3 */}
+      <div className="videoCard">
+        <video autoPlay muted loop playsInline>
+          <source src="/videos/Coolray3.MP4" />
+        </video>
+
+        <div className="videoInfo">
+          <strong>Дмитрий • Geely Coolray</strong>
+
+          <p>
+            «Долго искал вариант без банков.
+            Здесь реально помогли — условия
+            адекватные, машина супер.»
+          </p>
+
+          <span>👨‍👩‍👧 Для семьи</span>
+        </div>
+      </div>
+
+      {/* Coolray 4 */}
+      <div className="videoCard">
+        <video autoPlay muted loop playsInline>
+          <source src="/videos/Coolray4.MP4" />
+        </video>
+
+        <div className="videoInfo">
+          <strong>Максим • Geely Coolray</strong>
+
+          <p>
+            «Оставил заявку утром, вечером уже
+            оформляли документы. Всё быстро.»
+          </p>
+
+          <span>⚡ Авто в день обращения</span>
+        </div>
+      </div>
+
+      {/* H5 */}
+      <div className="videoCard">
+        <video autoPlay muted loop playsInline>
+          <source src="/videos/H51.MP4" />
+        </video>
+
+        <div className="videoInfo">
+          <strong>Роман • Hongqi H5</strong>
+
+          <p>
+            «Не хотел кредит. Подобрали H5,
+            всё официально, машина очень радует.»
+          </p>
+
+          <span>✨ Premium сегмент</span>
         </div>
       </div>
 
@@ -1318,20 +1406,51 @@ export default function Home() {
         </video>
 
         <div className="videoInfo">
-          <strong>Kia Rio</strong>
-          <span>🚕 Авто для такси и работы</span>
+          <strong>Артём • Kia Rio</strong>
+
+          <p>
+            «Нужна была машина для работы в такси.
+            Всё быстро оформили, сразу начал
+            работать.»
+          </p>
+
+          <span>🚕 Для такси</span>
         </div>
       </div>
 
-      {/* Solaris */}
+      {/* Solaris 1 */}
       <div className="videoCard">
         <video autoPlay muted loop playsInline>
           <source src="/videos/Solaris1.MP4" />
         </video>
 
         <div className="videoInfo">
-          <strong>Hyundai Solaris</strong>
-          <span>⚡ Выдали в день обращения</span>
+          <strong>Виктор • Hyundai Solaris</strong>
+
+          <p>
+            «Нужен был простой и надёжный авто.
+            Одобрили быстро, забрал без проблем.»
+          </p>
+
+          <span>🔥 Самый выгодный платёж</span>
+        </div>
+      </div>
+
+      {/* Solaris 2 */}
+      <div className="videoCard">
+        <video autoPlay muted loop playsInline>
+          <source src="/videos/Solaris2.MP4" />
+        </video>
+
+        <div className="videoInfo">
+          <strong>Сергей • Hyundai Solaris</strong>
+
+          <p>
+            «Приехал посмотреть — в итоге
+            уехал на машине в этот же день.»
+          </p>
+
+          <span>⚡ Выдали сегодня</span>
         </div>
       </div>
 
@@ -1342,8 +1461,14 @@ export default function Home() {
         </video>
 
         <div className="videoInfo">
-          <strong>Chery Tiggo 7 Pro</strong>
-          <span>💎 Комфортный городской кроссовер</span>
+          <strong>Олег • Chery Tiggo 7 Pro</strong>
+
+          <p>
+            «Хотел комфортный кроссовер без кредита.
+            Всё объяснили, условия понятные.»
+          </p>
+
+          <span>💎 Комфортный кроссовер</span>
         </div>
       </div>
 
