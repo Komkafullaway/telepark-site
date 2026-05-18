@@ -44,8 +44,12 @@ const plans: Record<string, any> = {
 export default async function ThanksPage({
   searchParams,
 }: {
-  searchParams: Promise<{ car?: string }>;
-}) {
+  searchParams: Promise<{
+    car?: string;
+    name?: string;
+    request?: string;
+  }>;
+})  {
   const params = await searchParams;
 
 const selectedCar = params?.car || "Hyundai Solaris";
