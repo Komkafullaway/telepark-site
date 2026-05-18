@@ -100,6 +100,44 @@ const plan = plans[selectedCar] || plans["Hyundai Solaris"];
           box-shadow: 0 0 55px rgba(34,197,94,.45);
           margin-bottom: 24px;
         }
+          .successTop {
+  margin-bottom: 18px;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(34,197,94,.14);
+  border: 1px solid rgba(34,197,94,.25);
+  color: #86efac;
+  font-size: 14px;
+  font-weight: 900;
+  margin-bottom: 22px;
+}
+
+.requestBox {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 22px;
+  padding: 18px 22px;
+  border-radius: 22px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.1);
+}
+
+.requestBox span {
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.requestBox small {
+  color: rgba(255,255,255,.62);
+  font-size: 13px;
+}
 
         h1 {
           font-size: 62px;
@@ -212,26 +250,46 @@ const plan = plans[selectedCar] || plans["Hyundai Solaris"];
 
       <main className="page">
         <section className="card">
-          <div className="check">✓</div>
+          
 
-          <h1>
-            Заявка
-            <br />
-            принята
-          </h1>
+          <div className="successTop">
+  <div className="status">
+    ✓ Заявка успешно принята
+  </div>
+
+  <h1>
+    {clientName
+      ? `${clientName}, спасибо за обращение`
+      : "Спасибо за обращение"}
+  </h1>
+
+  <div className="requestBox">
+    <span>№ {requestId}</span>
+    <small>Статус: передано менеджеру</small>
+  </div>
+</div>
 
           <p className="lead">
-  {clientName ? `${clientName}, ваша заявка принята.` : "Ваша заявка принята."}
+  Ваш запрос уже в обработке.
+
   <br />
-  Номер заявки: <b>{requestId}</b>
   <br />
-  Менеджер Телепарк свяжется с вами в ближайшее время.
-  Ниже — предварительный график платежей по выбранному автомобилю.
+
+  В ближайшее время менеджер Телепарк
+  свяжется с вами, ответит на вопросы
+  и подробно расскажет о доступных
+  условиях получения автомобиля.
+
+  <br />
+  <br />
+
+  Ниже — предварительный расчёт
+  по выбранному автомобилю.
 </p>
 
           <div className="plan">
             <div className="box">
-              <small>ПРЕДВАРИТЕЛЬНЫЙ РАСЧЁТ</small>
+              <small>ВАШ ПРЕДВАРИТЕЛЬНЫЙ РАСЧЁТ</small>
               <div className="carName">{plan.name}</div>
               <div className="day">{plan.day}/сутки</div>
               <p className="note">
