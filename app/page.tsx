@@ -174,6 +174,17 @@ export default function Home() {
         }
           
         .actions { display: flex; gap: 10px; align-items: center; }
+        .phoneTop {
+  color: rgba(255,255,255,.92);
+  font-weight: 900;
+  font-size: 15px;
+  white-space: nowrap;
+  transition: .2s;
+}
+
+.phoneTop:hover {
+  color: #60a5fa;
+}
 
         .iconBtn {
           width: 52px;
@@ -198,16 +209,22 @@ export default function Home() {
         }
 
         .call {
-          background: #16a34a;
-          padding: 13px 18px;
-          border-radius: 999px;
-          font-weight: 900;
-          font-size: 14px;
-          transition: .2s;
-        }
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: white;
+  padding: 15px 22px;
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 14px;
+  border: none;
+  transition: .2s;
+  white-space: nowrap;
+  box-shadow: 0 14px 34px rgba(37,99,235,.35);
+}
 
-        .call:hover { transform: translateY(-2px); background: #22c55e; }
-
+.call:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(37,99,235,.45);
+}
         .hero {
           position: relative;
           min-height: 100vh;
@@ -1041,6 +1058,63 @@ export default function Home() {
     height: 500px;
   }
 }
+  .stepsSection {
+  padding: 110px 0;
+  background:
+    linear-gradient(
+      180deg,
+      #07101d 0%,
+      #0b1526 100%
+    );
+}
+
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 50px;
+}
+
+.stepCard {
+  padding: 36px;
+  border-radius: 34px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.06),
+      rgba(255,255,255,.03)
+    );
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+.stepNumber {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #2563eb;
+  font-size: 18px;
+  font-weight: 900;
+  margin-bottom: 22px;
+}
+
+.stepCard h3 {
+  font-size: 28px;
+  margin-bottom: 14px;
+}
+
+.stepCard p {
+  color: rgba(255,255,255,.72);
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  .stepsGrid {
+    grid-template-columns: 1fr;
+  }
+}
       `}</style>
 
       <main>
@@ -1055,9 +1129,12 @@ export default function Home() {
       />
 
       <div>
-        <div className="brand-title">Телепарк</div>
+        <div className="brand-title">
+          Телепарк
+        </div>
+
         <div className="brand-sub">
-          Аренда авто под выкуп
+          Авто под выкуп в СПб
         </div>
       </div>
     </div>
@@ -1065,20 +1142,12 @@ export default function Home() {
     <div className="headerTrust">
       <div className="headerInfo">
         <span>
-          📍 Санкт-Петербург, пр-т Обуховской Обороны, 271
+          📍Санкт-Петербург, пр-т. Обуховской Обороны, 271 • м. Обухово
         </span>
 
-        <span>
-          🚇 м. Обухово
-        </span>
-
-        <a href="tel:+79013711584">
+        <a href={PHONE_LINK}>
           ☎ +7 901 371 1584
         </a>
-      </div>
-
-      <div className="headerMini">
-        Работаем ежедневно • Быстрое одобрение • Авто в день обращения
       </div>
     </div>
 
@@ -1095,28 +1164,118 @@ export default function Home() {
         
 
         <section className="hero">
-          <div className="heroOverlay" />
-          <div className="heroContent">
-            <div className="badge">Авто сегодня — выкуп постепенно</div>
+  <div className="heroOverlay" />
 
-            <h1>
-              Аренда авто
-              <br />
-              под выкуп
-            </h1>
+  <div className="heroContent">
+    <div className="badge">
+      Авто сегодня • без кредита • от 0 ₽ взноса
+    </div>
 
-            <p>
-              Телепарк подберёт автомобиль под вашу задачу: такси, доставка,
-              семья или личные поездки. Без первоначального взноса,
-              прозрачный договор и возможность досрочного выкупа.
-            </p>
+    <h1>
+      Получите авто
+      <br />
+      под выкуп уже сегодня
+    </h1>
 
-            <div className="btns">
-              <a href="#contact" className="btn primary">Получить подбор авто</a>
-              <a href="#cars" className="btn secondary">Смотреть автомобили</a>
-            </div>
-          </div>
-        </section>
+    <p>
+      Подберём автомобиль для такси, работы, семьи или личных поездок.
+      Решение за 15 минут, выдача в день обращения — даже если банк отказал.
+    </p>
+
+    <div className="btns">
+      <a href="#contact" className="btn primary">
+        Оставить заявку
+      </a>
+
+      <a href="#cars" className="btn secondary">
+        Авто в наличии
+      </a>
+    </div>
+
+    <div className="heroTrust">
+      <span>99% одобрения </span>
+      <span>Официальный договор </span>
+      <span>ОСАГО + КАСКО </span>
+      <span>Без скрытых платежей </span>
+    </div>
+  </div>
+</section>
+<section className="stepsSection">
+  <div className="container">
+
+    <div className="sectionTop">
+      <span className="sectionBadge">
+        КАК ЭТО РАБОТАЕТ
+      </span>
+
+      <h2>
+        Получить авто проще,
+        <br />
+        чем кажется
+      </h2>
+
+      <p>
+        Без банка, долгих ожиданий
+        и сложных схем.
+      </p>
+    </div>
+
+    <div className="stepsGrid">
+
+      <div className="stepCard">
+        <div className="stepNumber">
+          01
+        </div>
+
+        <h3>
+          Оставьте заявку
+        </h3>
+
+        <p>
+          Подберём автомобиль
+          под вашу задачу:
+          работа, такси,
+          семья или личные поездки.
+        </p>
+      </div>
+
+      <div className="stepCard">
+        <div className="stepNumber">
+          02
+        </div>
+
+        <h3>
+          Получите решение
+        </h3>
+
+        <p>
+          Обычно в течение
+          15 минут.
+          Без банка и долгих
+          ожиданий.
+        </p>
+      </div>
+
+      <div className="stepCard">
+        <div className="stepNumber">
+          03
+        </div>
+
+        <h3>
+          Заберите авто
+        </h3>
+
+        <p>
+          Большинство клиентов
+          уезжают на автомобиле
+          уже в день обращения.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
 
         <section id="conditions" className="benefits">
           <div className="container">
@@ -1130,9 +1289,15 @@ export default function Home() {
               </h2>
 
               <p>
-                Без лишней бюрократии: подберём автомобиль, рассчитаем платёж
-                и согласуем условия под вашу задачу.
-              </p>
+  Подберём автомобиль для такси, работы,
+  доставки или личного пользования.
+
+  <br />
+  <br />
+
+  Решение за 15 минут. Часто выдаём авто
+  в день обращения — даже если банк отказал.
+</p>
             </div>
 
             <div className="benefitGrid">
