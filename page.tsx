@@ -14,26 +14,6 @@ const FORM_ENDPOINT =
 
 const cars = [
   {
-  name: "TENET T7",
-  year: "2026",
-  gearbox: "АКПП",
-  img: "/images/Tenet/TenetNew.png",
-  price: "3 800 ₽",
-  month: "≈ 115 000 ₽ / месяц",
-  term: "48 месяцев",
-  tag: "🚀 ФЛАГМАН 2026",
-  tagClass: "flagship",
-  cta: "Получить условия",
-  features: [
-    "Уже доступен к выдаче",
-    "0 ₽ первоначальный взнос",
-    "ОСАГО + КАСКО в подарок",
-    "Без ограничений по пробегу",
-    "48 месяцев до выкупа",
-    "Одобрение 99%",
-  ],
-},
-  {
     name: "Geely Coolray",
     year: "2022",
     gearbox: "АКПП",
@@ -216,13 +196,13 @@ export default function Home() {
           max-width: 1480px; margin: auto; padding: 14px 28px;
           display: flex; align-items: center; justify-content: space-between; gap: 28px;
         }
-        .brand { display: flex; align-items: center; gap: 14px; min-width: 230px; }
+        .brand { display: flex; align-items: center; gap: 14px; min-width: 250px; }
         .logo { width: 58px; height: 58px; border-radius: 50%; object-fit: cover; background: white; }
         .brand-title { font-size: 28px; line-height: .9; font-weight: 950; letter-spacing: 1px; text-transform: uppercase; }
         .brand-sub { margin-top: 5px; font-size: 12px; color: rgba(255,255,255,.68); letter-spacing: 4px; text-transform: uppercase; }
-        .navLinks { flex: 1; display: flex; align-items: center; justify-content: center; gap: 34px; font-size: 16px; font-weight: 800; color: rgba(255,255,255,.86); }
-        .navLinks a { transition: .2s ease; white-space: nowrap; }
-        .navLinks a:hover { color: #2f7cff; transform: translateY(-1px); }
+        .headerTrust { flex: 1; display: flex; justify-content: center; }
+        .headerInfo { display: flex; align-items: center; gap: 28px; color: rgba(255,255,255,.88); font-size: 16px; font-weight: 700; }
+        .headerInfo a { font-size: 22px; font-weight: 950; }
         .actions { display: flex; align-items: center; gap: 12px; }
         .iconBtn {
           width: 48px; height: 48px; border-radius: 50%;
@@ -239,327 +219,176 @@ export default function Home() {
           font-weight: 950; box-shadow: 0 18px 40px rgba(37,99,235,.32);
         }
 
-     .hero {
+        .hero {
   position: relative;
-  min-height: 100vh;
-  background-image: url('/images/hero/hero-bg.png');
-  background-size: cover; /* ВАЖНО */
-  background-position: center center;
-  background-repeat: no-repeat;
+  min-height: 650px;
+  padding-top: 86px;
   overflow: hidden;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(2,7,17,.96) 0%,
-      rgba(2,7,17,.88) 27%,
-      rgba(2,7,17,.54) 43%,
-      rgba(2,7,17,.14) 63%,
-      rgba(2,7,17,.04) 100%
-    ),
-    url("/images/hero/HeroTenet2.png");
-
+  background-image: url('/images/hero-bg.jpg');
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
+  border-bottom: none;
 }
+        .hero::before {
+          content: ""; position: absolute; inset: 0;
+          background:
+            radial-gradient(circle at 78% 24%, rgba(59,130,246,.18), transparent 28%),
+            linear-gradient(90deg, rgba(2,7,17,.98) 0%, rgba(2,7,17,.86) 43%, rgba(2,7,17,.38) 100%),
+            linear-gradient(180deg, rgba(2,7,17,.10), rgba(2,7,17,.98));
+        }
+        .heroInner {
+          position: relative; z-index: 2; max-width: 1480px; margin: auto; padding: 48px 28px 58px;
+          display: grid; grid-template-columns: 1fr .98fr; gap: 34px; align-items: center;
+        }
+        .hero h1 {
+          margin: 0; max-width: 760px; font-size: 62px; line-height: .96; letter-spacing: -2px; font-weight: 950;
+        }
+        .hero h1 span { color: #1f6bff; }
+        .heroLead { margin: 16px 0 0; font-size: 22px; color: rgba(255,255,255,.92); }
+        .heroBenefits { display: grid; grid-template-columns: repeat(4, minmax(120px, 1fr)); gap: 18px; margin-top: 28px; max-width: 760px; }
+        .heroBenefit { display: flex; gap: 12px; align-items: flex-start; }
+        .heroIcon {
+          width: 44px; height: 44px; border-radius: 50%; flex: 0 0 auto;
+          display: grid; place-items: center; background: rgba(37,99,235,.15);
+          border: 1px solid rgba(59,130,246,.32); color: #3b82f6; font-size: 22px;
+        }
+        .heroBenefit strong { display: block; font-size: 15px; margin-bottom: 5px; }
+        .heroBenefit span { display: block; font-size: 13px; line-height: 1.35; color: rgba(255,255,255,.70); }
+        .btns { display: flex; gap: 18px; margin-top: 32px; flex-wrap: wrap; }
+        .btn {
+          height: 58px; min-width: 265px; border-radius: 12px;
+          display: inline-flex; align-items: center; justify-content: center;
+          font-size: 17px; font-weight: 950; transition: .22s;
+        }
+        .btn:hover { transform: translateY(-2px); }
+        .primary { background: linear-gradient(135deg,#0b5cff,#2f7cff); box-shadow: 0 18px 42px rgba(37,99,235,.32); }
+        .secondary { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.22); }
+        .hiddenPay { margin-top: 15px; text-align: center; max-width: 550px; color: rgba(255,255,255,.65); font-size: 14px; }
 
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(2,7,17,.04) 0%,
-      rgba(2,7,17,.10) 58%,
-      rgba(2,7,17,.52) 100%
-    );
-}
-
-.heroInner {
-  position: relative;
-  z-index: 2;
-  max-width: 1480px;
-  margin: auto;
-  padding: 58px 28px 22px;
-  display: grid;
-  grid-template-columns: 540px 1fr;
-  gap: 24px;
-  align-items: start;
-}
-
-.heroContent {
-  max-width: 540px;
-}
-.heroBadge {
-  display: inline-flex;
-  padding: 9px 18px;
-  border-radius: 999px;
-  background: rgba(245,158,11,.10);
-  border: 1px solid rgba(245,158,11,.48);
-  color: #fbbf24;
-  font-size: 13px;
-  font-weight: 950;
-  margin-bottom: 20px;
-}
-
-.hero h1 {
-  margin: 0;
-  max-width: 600px;
-  font-size: 44px;
-  line-height: 1.03;
-  letter-spacing: -1.5px;
-  font-weight: 950;
-  text-transform: uppercase;
-}
-
-.hero h1 span {
-  color: #1f6bff;
-}
-
-.heroLead {
-  margin: 16px 0 0;
-  font-size: 18px;
-  line-height: 1.45;
-  color: rgba(255,255,255,.9);
-}
-
-.heroBenefits {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px 18px;
-  margin-top: 24px;
-  max-width: 560px;
-}
-
-.heroBenefit {
-  display: grid;
-  grid-template-columns: 44px 1fr;
-  gap: 12px;
-  align-items: center;
-}
-
-.heroIcon {
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
-  display: grid;
-  place-items: center;
-  background: rgba(37,99,235,.20);
-  border: 1px solid rgba(59,130,246,.36);
-  font-size: 20px;
-}
-
-.heroBenefit strong {
-  display: block;
-  font-size: 14px;
-  margin-bottom: 4px;
-}
-
-.heroBenefit span {
-  display: block;
-  font-size: 12px;
-  line-height: 1.3;
-  color: rgba(255,255,255,.70);
-}
-
-.heroMiniCard {
-  margin-top: 24px;
-  width: 520px;
-  padding: 22px 26px;
-  border-radius: 20px;
-  background:
-    radial-gradient(circle at 100% 0%, rgba(37,99,235,.18), transparent 34%),
-    rgba(5,12,28,.78);
-  border: 1px solid rgba(59,130,246,.34);
-  backdrop-filter: blur(16px);
-}
-
-.btns {
-  display: flex;
-  gap: 14px;
-  margin-top: 22px;
-}
-
-.btn {
-  height: 52px;
-  min-width: 236px;
-  border-radius: 12px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 15px;
-  font-weight: 950;
-}
-
-.primary {
-  background: linear-gradient(135deg,#0b5cff,#2f7cff);
-}
-
-.secondary {
-  background: rgba(255,255,255,.05);
-  border: 1px solid rgba(255,255,255,.22);
-}
-
-.hiddenPay {
-  margin-top: 14px;
-  text-align: center;
-  max-width: 486px;
-  color: rgba(255,255,255,.72);
-  font-size: 13px;
-}
-
-.heroVisual,
-.heroCar,
-.neonRing {
-  display: none !important;
-}
-
-.heroTrust {
-  display: none;
-}
-
-        .miniTop {
-          width: fit-content;
-          padding: 7px 12px;
-          border-radius: 999px;
-          background: rgba(0,0,0,.35);
-          color: #fbbf24;
-          font-size: 12px;
-          font-weight: 950;
-          margin-bottom: 14px;
+        .heroVisual {
+          position: relative;
+          min-height: 520px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
-        .miniName {
-          font-size: 34px;
+        .exclusiveCard {
+          position: absolute;
+          top: 56px;
+          left: 34px;
+          z-index: 5;
+          width: 430px;
+          padding: 26px 28px;
+          border-radius: 24px;
+          background:
+            radial-gradient(circle at 18% 16%, rgba(37,99,235,.20), transparent 36%),
+            rgba(5,12,28,.66);
+          border: 1px solid rgba(59,130,246,.34);
+          backdrop-filter: blur(18px);
+          box-shadow:
+            0 24px 70px rgba(0,0,0,.48),
+            inset 0 1px 0 rgba(255,255,255,.08);
+        }
+
+        .exclusiveBadge {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          margin-bottom: 16px;
+          padding: 8px 14px;
+          border-radius: 999px;
+          background: rgba(37,99,235,.22);
+          border: 1px solid rgba(59,130,246,.36);
+          color: #9fc3ff;
+          font-size: 13px;
+          font-weight: 950;
+          letter-spacing: .4px;
+          text-transform: uppercase;
+        }
+
+        .exclusiveTitle {
+          font-size: 27px;
+          line-height: 1.05;
+          font-weight: 950;
+          text-transform: uppercase;
+        }
+
+        .exclusiveCarName {
+          margin-top: 8px;
+          font-size: 38px;
           line-height: 1;
           font-weight: 950;
-          letter-spacing: -.7px;
-        }
-
-        .miniAvailable {
-          width: fit-content;
-          margin-top: 12px;
-          padding: 9px 13px;
-          border-radius: 10px;
-          background: linear-gradient(135deg,#ffe08a,#fbbf24);
-          color: #111827;
-          font-size: 12px;
-          font-weight: 950;
-        }
-
-        .miniPrice {
-          margin-top: 18px;
-          font-size: 18px;
-          color: rgba(255,255,255,.72);
-        }
-
-        .miniPrice span {
           color: #2f7cff;
-          font-size: 40px;
-          font-weight: 950;
+          text-transform: uppercase;
+          text-shadow: 0 0 34px rgba(47,124,255,.28);
         }
 
-        .miniSub {
-          color: rgba(255,255,255,.70);
-          margin-top: 4px;
+        .exclusiveText {
+          margin-top: 14px;
+          color: rgba(255,255,255,.80);
           font-size: 17px;
+          font-weight: 800;
+        }
+
+        .exclusiveList {
+          margin-top: 18px;
+          display: grid;
+          gap: 10px;
+          color: rgba(255,255,255,.78);
+          font-size: 14px;
           font-weight: 700;
         }
 
-        .miniDivider {
-          height: 1px;
-          margin: 18px 0;
-          background: rgba(255,255,255,.12);
-        }
-
-        .miniBottom {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 18px;
-        }
-
-        .miniBottom div {
-          display: grid;
-          grid-template-columns: 36px 1fr;
-          gap: 10px;
-          align-items: center;
-          font-size: 13px;
-          color: rgba(255,255,255,.70);
-        }
-
-        .miniBottom span {
-          width: 36px;
-          height: 36px;
-          border-radius: 12px;
-          display: grid;
-          place-items: center;
-          color: #fbbf24;
-          background: rgba(245,158,11,.08);
-          border: 1px solid rgba(245,158,11,.28);
-        }
-
-        .miniBottom b {
-          display: block;
-          color: white;
-          font-size: 14px;
-        }
-
-        .btns {
-          display: flex;
-          gap: 14px;
-          margin-top: 24px;
-          flex-wrap: wrap;
-        }
-
-        .btn {
-          height: 54px;
-          min-width: 250px;
-          border-radius: 12px;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 16px;
+        .exclusiveList span::before {
+          content: "✓";
+          margin-right: 8px;
+          color: #22c55e;
           font-weight: 950;
-          transition: .22s;
         }
 
-        .btn:hover { transform: translateY(-2px); }
-        .primary { background: linear-gradient(135deg,#0b5cff,#2f7cff); box-shadow: 0 18px 42px rgba(37,99,235,.32); }
-        .secondary { background: rgba(255,255,255,.035); border: 1px solid rgba(255,255,255,.20); }
-        .hiddenPay { margin-top: 14px; text-align: center; max-width: 514px; color: rgba(255,255,255,.65); font-size: 13px; }
-
-        .heroVisual,
-        .heroCar,
-        .neonRing {
-          display: none !important;
+        .exclusiveCar {
+          position: absolute;
+          right: -90px;
+          bottom: -18px;
+          z-index: 4;
+          width: 810px;
+          max-width: 118%;
+          height: auto;
+          filter: drop-shadow(0 35px 70px rgba(0,0,0,.70));
         }
 
-        .heroTrust {
-          display: none;
+        .exclusiveGlow {
+          position: absolute;
+          right: 28px;
+          bottom: 28px;
+          width: 590px;
+          height: 150px;
+          border-radius: 50%;
+          background: radial-gradient(circle, rgba(47,124,255,.38), transparent 70%);
+          filter: blur(18px);
+          z-index: 1;
         }
 
-        section { padding: 42px 0; }
+        .exclusivePlatform {
+          position: absolute;
+          right: 70px;
+          bottom: 20px;
+          width: 560px;
+          height: 150px;
+          border-radius: 50%;
+          border: 1px solid rgba(47,124,255,.28);
+          transform: perspective(700px) rotateX(66deg);
+          box-shadow: 0 0 42px rgba(47,124,255,.25), inset 0 0 34px rgba(47,124,255,.12);
+          z-index: 2;
+        }
+
+        section { padding: 58px 0; }
         .sectionRow { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 18px; }
         h2 { margin: 0; font-size: 32px; line-height: 1; font-weight: 950; }
         .muted { color: rgba(255,255,255,.60); }
 
-        .carsGrid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 18px;
-}
+        .carsGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
         .carCard {
           overflow: hidden; border-radius: 18px; background: rgba(9,16,31,.86);
           border: 1px solid rgba(255,255,255,.08); box-shadow: 0 26px 60px rgba(0,0,0,.35);
@@ -579,25 +408,6 @@ export default function Home() {
         .carTag.blue { background: #2563eb; color:white; }
         .carTag.green { background: #16a34a; color:white; }
         .carTag.violet { background: #7c3aed; color:white; }
-        .carTag.flagship {
-          background: linear-gradient(135deg,#f59e0b,#facc15,#f97316);
-          color:#111827;
-          box-shadow: 0 0 22px rgba(245,158,11,.42), 0 8px 24px rgba(249,115,22,.22);
-        }
-        .flagshipCar {
-          position: relative;
-          transform: scale(1.025);
-          border: 1px solid rgba(245,158,11,.70) !important;
-          background:
-            radial-gradient(circle at 50% 0%, rgba(245,158,11,.15), transparent 34%),
-            linear-gradient(180deg, rgba(17,24,39,.98), rgba(4,8,20,.98)) !important;
-          box-shadow:
-            0 0 0 1px rgba(245,158,11,.22),
-            0 0 34px rgba(245,158,11,.22),
-            0 30px 80px rgba(0,0,0,.55) !important;
-          z-index: 4;
-        }
-        .flagshipCar:hover { transform: scale(1.04) translateY(-5px); }
         .heart { position:absolute; z-index:2; top:12px; right:12px; font-size:24px; color:white; opacity:.9; }
         .carBody { padding: 18px 18px 14px; }
         .carTitleRow { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
@@ -608,19 +418,12 @@ export default function Home() {
         .carPrice span { font-size: 16px; color:#fff; }
         .carMonth { margin-top: 2px; color: rgba(255,255,255,.76); font-size: 14px; font-weight: 700; }
         .termBadge {
-          float: none;
-          margin-top: 10px;
-          padding: 8px 10px;
-          border-radius: 10px;
-          border: 1px solid rgba(59,130,246,.24);
-          background: rgba(37,99,235,.08);
-          text-align: center;
-          font-size: 12px;
-          color: rgba(255,255,255,.78);
-          width: fit-content;
+          float: right; margin-top: -42px; padding: 8px 10px; border-radius: 10px;
+          border: 1px solid rgba(59,130,246,.24); background: rgba(37,99,235,.08);
+          text-align: center; font-size: 12px; color: rgba(255,255,255,.78);
         }
         .termBadge b { display:block; color:#3b82f6; font-size:13px; }
-        .featureGrid { clear: none; display:grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; margin-top: 18px; }
+        .featureGrid { clear: both; display:grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; margin-top: 18px; }
         .featureItem { display:flex; gap:7px; align-items:flex-start; color: rgba(255,255,255,.78); font-size: 12.5px; line-height:1.25; }
         .featureItem::before { content:"✓"; color:#22c55e; font-weight:950; }
         .carBtn {
@@ -1174,10 +977,7 @@ export default function Home() {
           .bottomBenefits { grid-template-columns: repeat(3,1fr); }
           .videoGrid { grid-template-columns: repeat(2,1fr); }
           .heroInner { grid-template-columns: 1fr; }
-          .heroVisual { height: 420px; }
-          .heroCar { right: 50%; transform: translateX(50%); width: 720px; bottom: 40px; }
-          .neonRing { right: 50%; transform: translateX(50%) perspective(900px) rotateX(72deg); bottom: 10px; }
-          .heroTrustGrid { grid-template-columns: repeat(2,1fr); }
+          .heroVisual { display:none; }
         }
         @media (max-width: 768px) {
           .header { position: sticky; }
@@ -1185,25 +985,16 @@ export default function Home() {
           .brand-title { font-size:22px; }
           .brand-sub { font-size:10px; }
           .logo { width:48px; height:48px; }
-          .navLinks { display:none; }
+          .headerTrust { justify-content:flex-start; }
+          .headerInfo { display:grid; gap:5px; font-size:12px; }
+          .headerInfo a { font-size:15px; }
           .actions { display:none; }
-          .hero { min-height:auto; }
-          .heroInner { padding:42px 18px 24px; gap: 20px; }
+          .hero { min-height:auto; padding-top:0; }
+          .heroInner { padding:42px 18px 48px; }
           .hero h1 { font-size:42px; letter-spacing:-1px; }
-          .heroLead { font-size:18px; line-height:1.45; }
-          .heroOfferRow { grid-template-columns: 1fr; }
-          .heroMiniCard { width: 100%; }
-          .miniBottom { grid-template-columns: 1fr; }
-          .heroBenefits { gap:14px; }
+          .heroLead { font-size:17px; line-height:1.5; }
+          .heroBenefits { grid-template-columns:1fr 1fr; gap:14px; }
           .heroBenefit span { font-size:12px; }
-          .heroVisual { height: 330px; }
-          .heroCar { width: 560px; bottom: 30px; }
-          .neonRing { width: 430px; height: 105px; bottom: 0; }
-
-        .heroTrust { padding: 0 18px 30px; }
-          .heroTrustGrid { grid-template-columns: 1fr; }
-          .heroTrustItem { border-right:0; border-bottom: 1px solid rgba(255,255,255,.07); }
-          .heroTrustItem:last-child { border-bottom: 0; }
           .btn { width:100%; min-width:0; }
           .carsGrid, .stepsGrid, .benefitGrid, .videoGrid, .contactBox { grid-template-columns:1fr; }
           .sectionRow { align-items:flex-start; flex-direction:column; }
@@ -1246,161 +1037,73 @@ export default function Home() {
         }
       `}</style>
 
-      <main id="top">
+      <main>
         <header className="header">
           <div className="nav">
-            <a className="brand" href="#top" aria-label="Телепарк">
+            <div className="brand">
               <img src="/logo/telepark-logo.jpg" className="logo" alt="Телепарк" />
               <div>
                 <div className="brand-title">ТЕЛЕПАРК</div>
                 <div className="brand-sub">авто под выкуп</div>
               </div>
-            </a>
+            </div>
 
-            <nav className="navLinks" aria-label="Главное меню">
-              <a href="#cars">Авто</a>
-              <a href="#conditions">Условия</a>
-              <a href="#steps">Как это работает</a>
-              <a href="#reviews">Отзывы</a>
-              <a href="#faq">FAQ</a>
-              <a href="#contact">Контакты</a>
-            </nav>
+            <div className="headerTrust">
+              <div className="headerInfo">
+                <span>📍 Санкт-Петербург, пр-т. Обуховской обороны 271</span>
+                <a href={PHONE_LINK}>+7 901 371 1584</a>
+              </div>
+            </div>
 
             <div className="actions">
               <ContactIcons />
-              <a className="call" href="#contact">Подобрать авто</a>
+              <a className="call" href="#contact">Перезвоните мне</a>
             </div>
           </div>
         </header>
 
         <section className="hero">
           <div className="heroInner">
-            <div className="heroContent">
-              
+            <div>
+              <h1>Авто под выкуп<br />в <span>Санкт-Петербурге</span></h1>
+              <p className="heroLead">Без банка • Без первоначального взноса • Всё включено</p>
 
-              <h1>
-                Авто под выкуп<br />
-                в <span>Санкт-Петербурге</span>
-              </h1>
-
-              <p className="heroLead">
-                Без банка • Без первоначального взноса • Всё включено
-              </p>
-
-              <div className="heroOfferRow">
-                <div className="heroBenefits">
-                  <div className="heroBenefit">
-                    <div className="heroIcon">🛡</div>
-                    <div>
-                      <strong>Одобрение 99%</strong>
-                      <span>Даже с плохой кредитной историей</span>
-                    </div>
-                  </div>
-
-                  <div className="heroBenefit">
-                    <div className="heroIcon">⏱</div>
-                    <div>
-                      <strong>Решение за 15 минут</strong>
-                      <span>Быстрое оформление и выдача авто</span>
-                    </div>
-                  </div>
-
-                  <div className="heroBenefit">
-                    <div className="heroIcon">🎁</div>
-                    <div>
-                      <strong>ОСАГО + КАСКО</strong>
-                      <span>В подарок на 1 год без доплат</span>
-                    </div>
-                  </div>
-
-                  <div className="heroBenefit">
-                    <div className="heroIcon">🏁</div>
-                    <div>
-                      <strong>Без ограничений по пробегу</strong>
-                      <span>Пробег не ограничен</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="heroMiniCard">
-                  <div className="miniTop">🔥 НОВОЕ ПОСТУПЛЕНИЕ</div>
-                  <div className="miniName">TENET T7</div>
-                  <div className="miniAvailable">УЖЕ ДОСТУПЕН К ВЫДАЧЕ</div>
-
-                  <div className="miniPrice">
-                    от <span>3 800 ₽</span> / сутки
-                  </div>
-
-                  <div className="miniSub">≈ 115 000 ₽ / месяц</div>
-
-                  <div className="miniDivider" />
-
-                  <div className="miniBottom">
-                    <div>
-                      <span>▣</span>
-                      <p><b>48 месяцев</b>до выкупа</p>
-                    </div>
-
-                    <div>
-                      <span>₽</span>
-                      <p><b>135 000 ₽</b>первоначальный взнос</p>
-                    </div>
-                  </div>
-                </div>
+              <div className="heroBenefits">
+                <div className="heroBenefit"><div className="heroIcon">🛡</div><div><strong>Одобрение 99%</strong><span>Даже с плохой кредитной историей</span></div></div>
+                <div className="heroBenefit"><div className="heroIcon">⏱</div><div><strong>Решение за 15 минут</strong><span>Быстрое оформление и выдача авто</span></div></div>
+                <div className="heroBenefit"><div className="heroIcon">🎁</div><div><strong>ОСАГО + КАСКО</strong><span>В подарок на 1 год без доплат</span></div></div>
+                <div className="heroBenefit"><div className="heroIcon">🏁</div><div><strong>Без ограничений по пробегу</strong><span>Пробег не ограничен</span></div></div>
               </div>
 
               <div className="btns">
                 <a href="#contact" className="btn primary">Подобрать автомобиль</a>
                 <a href="#cars" className="btn secondary">Рассчитать платёж</a>
               </div>
-
               <div className="hiddenPay">🔒 Никаких скрытых платежей и комиссий</div>
             </div>
 
             <div className="heroVisual">
+              <div className="exclusiveCard">
+                <div className="exclusiveBadge">🔥 Эксклюзив</div>
+                <div className="exclusiveTitle">Новое поступление</div>
+                <div className="exclusiveCarName">TENET T7</div>
+                <div className="exclusiveText">Уже доступен к выдаче</div>
+
+                <div className="exclusiveList">
+                  <span>0 ₽ первоначальный взнос</span>
+                  <span>Одобрение за 15 минут</span>
+                  <span>Без ограничений по пробегу</span>
+                </div>
+              </div>
+
+              <div className="exclusiveGlow" />
+              <div className="exclusivePlatform" />
+
               <img
-                className="heroCar"
+                className="exclusiveCar"
                 src="/images/hero/tenet-t7.png"
                 alt="TENET T7"
               />
-
-              <div className="neonRing" />
-            </div>
-          </div>
-
-          <div className="heroTrust">
-            <div className="heroTrustGrid">
-              <div className="heroTrustItem">
-                <div className="heroTrustIcon">🛡</div>
-                <div>
-                  <strong>Прозрачные условия</strong>
-                  <span>Без скрытых платежей и комиссий</span>
-                </div>
-              </div>
-
-              <div className="heroTrustItem">
-                <div className="heroTrustIcon">▣</div>
-                <div>
-                  <strong>Официальный договор</strong>
-                  <span>Полная юридическая защита</span>
-                </div>
-              </div>
-
-              <div className="heroTrustItem">
-                <div className="heroTrustIcon">🚘</div>
-                <div>
-                  <strong>Авто в день обращения</strong>
-                  <span>Быстрая выдача без задержек</span>
-                </div>
-              </div>
-
-              <div className="heroTrustItem">
-                <div className="heroTrustIcon">🎧</div>
-                <div>
-                  <strong>Поддержка 24/7</strong>
-                  <span>Всегда на связи, поможем и подскажем</span>
-                </div>
-              </div>
             </div>
           </div>
         </section>
@@ -1416,13 +1119,8 @@ export default function Home() {
             </div>
 
             <div className="carsGrid">
-              {cars.map((car) => (
-                <article
-                  className={`carCard ${
-                    car.name === "TENET T7" ? "flagshipCar" : ""
-                  }`}
-                  key={car.name}
-                >
+              {cars.map((car, index) => (
+                <article className={`carCard ${index === 0 ? "featured" : ""}`} key={car.name}>
                   <div className="carImageWrap">
                     <img src={car.img} className="carImage" alt={car.name} />
                     <div className={`carTag ${car.tagClass}`}>{car.tag}</div>
@@ -1489,7 +1187,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="stepsSection" id="steps">
+        <section className="stepsSection">
           <div className="container">
             <div className="sectionTop">
               <span className="sectionBadge">КАК ЭТО РАБОТАЕТ</span>
@@ -1530,7 +1228,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="reviewsVideo" id="reviews">
+        <section className="reviewsVideo">
           <div className="container">
             <div className="sectionTop">
               <span className="sectionBadge">РЕАЛЬНЫЕ КЛИЕНТЫ ТЕЛЕПАРК</span>
@@ -1771,7 +1469,6 @@ export default function Home() {
 
                 <select name="car" required defaultValue="">
                   <option value="">Какой автомобиль интересует?</option>
-                  <option>TENET T7</option>
                   <option>Geely Coolray</option>
                   <option>Kia Rio</option>
                   <option>Hyundai Solaris</option>
