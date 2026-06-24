@@ -183,7 +183,7 @@ const faqs = [
 ];
 
 export default function Home() {
-  const [phone, setPhone] = useState("+7 ");
+  const [phone, setPhone] = useState("+7");
   const ContactIcons = () => (
     <>
       <a className="iconBtn" href={TELEGRAM_LINK} target="_blank" rel="noreferrer">
@@ -1263,6 +1263,461 @@ background-position: right -60px bottom;
   background-size: cover;
   background-position: center;
 }
+
+
+        /* MOBILE SITE FIX v2 — адаптив для всего сайта, без скрытия блоков */
+        .mobileActions { display: none; }
+
+        @media (max-width: 768px) {
+          :root { --mobile-pad: 18px; }
+
+          html, body { width: 100%; overflow-x: hidden; }
+          body { background: #050607; }
+          .container { width: 100%; padding: 0 var(--mobile-pad); }
+          section { padding: 44px 0; }
+
+          .header {
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+            background: rgba(5,6,7,.92);
+            border-bottom: 1px solid rgba(255,255,255,.08);
+            backdrop-filter: blur(18px);
+          }
+          .nav {
+            height: 72px;
+            padding: 10px var(--mobile-pad);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+          }
+          .brand { min-width: 0; gap: 10px; }
+          .logo3d { width: 46px; height: 46px; }
+          .brand-title { font-size: 20px; line-height: .92; letter-spacing: .2px; }
+          .brand-sub { margin-top: 4px; font-size: 8px; letter-spacing: 2.6px; }
+          .navLinks, .actions { display: none !important; }
+          .mobileActions { display: flex; margin-left: auto; gap: 10px; }
+          .mobileRoundBtn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            color: var(--lime);
+            background: rgba(255,255,255,.045);
+            border: 1px solid rgba(255,255,255,.12);
+            font-family: inherit;
+            font-size: 24px;
+            font-weight: 950;
+            cursor: pointer;
+            padding: 0;
+          }
+
+          .menuOverlay {
+            position: fixed;
+            inset: 72px 0 0;
+            z-index: 9998;
+            background: transparent;
+          }
+
+          .mobileMenuNative {
+  position: absolute;
+  top: 12px;
+  right: var(--mobile-pad);
+  z-index: 9999;
+  width: min(270px, calc(100vw - 36px));
+  padding: 12px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  border-radius: 18px;
+  background: rgba(10,12,14,.98);
+  border: 1px solid rgba(200,255,47,.18);
+  box-shadow: 0 20px 50px rgba(0,0,0,.55);
+  backdrop-filter: blur(20px);
+}
+
+
+          .mobileMenuNative a {
+            display: block;
+            padding: 14px 16px;
+            border-radius: 12px;
+            background: rgba(255,255,255,.04);
+            border: 1px solid rgba(255,255,255,.06);
+            color: #fff;
+            font-size: 15px;
+            font-weight: 800;
+            text-align: left;
+          }
+
+          .mobileMenuNative a:hover {
+            border-color: rgba(200,255,47,.25);
+            color: var(--lime);
+          }
+
+          .hero {
+            min-height: auto;
+            padding-top: 0;
+            background:
+              linear-gradient(180deg, rgba(5,6,7,.22), rgba(5,6,7,.90) 76%, #050607 100%),
+              linear-gradient(90deg, rgba(5,6,7,.95), rgba(5,6,7,.45)),
+              url('/images/hero/HeroTenet2.png');
+            background-size: auto 610px;
+            background-position: 56% top;
+            background-repeat: no-repeat;
+          }
+          .hero::before { background: radial-gradient(circle at 72% 34%, rgba(200,255,47,.22), transparent 30%); }
+          .hero::after { height: 70px; }
+          .heroInner {
+            padding: 36px var(--mobile-pad) 20px;
+            display: block;
+          }
+          .heroContent { max-width: none; }
+          .hero h1 {
+            max-width: 340px;
+            font-size: 42px;
+            line-height: .98;
+            letter-spacing: -1.4px;
+            text-transform: none;
+          }
+          .heroLead { max-width: 330px; margin-top: 14px; font-size: 16px; line-height: 1.45; }
+          .heroOfferRow { margin-top: 96px; }
+          .heroBenefits { grid-template-columns: 1fr; gap: 10px; max-width: 330px; }
+          .heroBenefit {
+            grid-template-columns: 48px 1fr;
+            gap: 12px;
+            padding: 0;
+            background: transparent;
+            border: 0;
+          }
+          .heroBenefit:nth-child(n+4) { display: none; }
+          .heroIcon { width: 48px; height: 48px; border-radius: 14px; }
+          .heroBenefit strong { font-size: 14px; }
+          .heroBenefit span { color: var(--lime); font-weight: 900; }
+          .heroMiniCard { display: none !important; }
+          .btns { margin-top: 24px; display: grid; gap: 12px; }
+          .btn { width: 100%; min-width: 0; height: 64px; border-radius: 14px; }
+          .hiddenPay { max-width: none; margin-top: 12px; font-size: 13px; }
+
+          .heroTrust { padding: 8px var(--mobile-pad) 24px; }
+          .heroTrustGrid { grid-template-columns: repeat(2, 1fr); border-radius: 18px; }
+          .heroTrustItem {
+            display: block;
+            text-align: center;
+            padding: 16px 10px;
+            border-right: 1px solid rgba(255,255,255,.06);
+            border-bottom: 1px solid rgba(255,255,255,.06);
+          }
+          .heroTrustItem:nth-child(even) { border-right: 0; }
+          .heroTrustIcon { width: 48px; height: 48px; margin: 0 auto 9px; border-radius: 50%; }
+          .heroTrustItem strong { font-size: 15px; }
+          .heroTrustItem span { display: block; margin-top: 5px; font-size: 12px; line-height: 1.35; }
+
+          .sectionRow { display: block; margin-bottom: 20px; }
+          .sectionRow h2, h2 { font-size: 28px; line-height: 1.08; letter-spacing: -.5px; }
+          .sectionRow .muted, .sectionTop p { font-size: 14px; line-height: 1.55; }
+          .sectionTop { margin-bottom: 24px; text-align: left; }
+          .sectionTop h2 { font-size: 30px; }
+          .sectionBadge { margin-bottom: 12px; }
+
+          .carsGrid { grid-template-columns: 1fr; gap: 16px; }
+          .flagshipCar { transform: none; }
+          .flagshipCar:hover { transform: translateY(-3px); }
+          .carCard { border-radius: 18px; overflow: hidden; }
+          .carImageWrap { height: 230px; }
+          .carBody { padding: 18px; }
+          .carTitleRow { align-items: flex-start; }
+          .carBody h3 { font-size: 24px; }
+          .carPrice { font-size: 28px; }
+          .termBadge { margin-top: 10px; }
+          .featureGrid { grid-template-columns: 1fr 1fr; gap: 10px; }
+          .featureItem { font-size: 12px; }
+          .carBtn { height: 50px; }
+
+          .bottomBenefits { grid-template-columns: 1fr; border-radius: 18px; }
+          .bottomBenefit { padding: 16px; border-right: 0; border-bottom: 1px solid rgba(255,255,255,.06); }
+          .bottomBenefit:last-child { border-bottom: 0; }
+
+          .stepsGrid, .benefitGrid, .videoGrid, .faqGrid, .faqTrust, .faqCta, .contactsBox, .contactBox {
+            grid-template-columns: 1fr;
+          }
+          .stepsGrid, .benefitGrid, .videoGrid, .faqGrid { gap: 16px; }
+          .stepCard, .benefitCard { padding: 22px; border-radius: 20px; }
+          .stepCard h3, .benefitCard h3 { font-size: 22px; }
+
+          .videoCard { border-radius: 20px; }
+          .videoCard video { height: 520px; }
+          .videoInfo { padding: 16px; }
+
+          .faqSection { padding: 48px 0; }
+          .faqItem summary { min-height: 64px; padding: 0 18px; font-size: 15px; }
+          .faqAnswer { padding: 0 18px 18px; font-size: 14px; }
+          .faqTrustItem { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.07); }
+          .faqTrustItem:last-child { border-bottom: 0; }
+          .faqCta { padding: 20px; }
+          .faqCta h3 { font-size: 22px; }
+          .faqCtaBtn { width: 100%; }
+
+          .contactsSection { margin: 44px auto; padding: 0 var(--mobile-pad); }
+          .contactsBox { padding: 18px; border-radius: 22px; gap: 18px; }
+          .contactsSection h2 { font-size: 28px; }
+          .contactItem { grid-template-columns: 44px 1fr; padding: 14px; }
+          .contactItem span { width: 44px; height: 44px; }
+          .mapPlaceholder { min-height: 260px; border-radius: 18px; }
+
+          #contact { padding: 44px 0; background-position: center bottom; background-size: cover; }
+          .contactBox { padding: 20px; border-radius: 24px; gap: 22px; }
+          .contactInfo { min-height: 0; padding: 0; }
+          .contactBox h2 { margin-top: 28px; font-size: 32px; line-height: 1.08; }
+          .contactBox p { font-size: 15px; }
+          .contactBenefits { grid-template-columns: 1fr; gap: 14px; }
+          .contactBenefit { text-align: left; display: flex; align-items: center; gap: 12px; }
+          .contactBenefitIcon { margin: 0; width: 48px; height: 48px; min-width: 48px; }
+          .messengerButtons { grid-template-columns: 1fr; gap: 12px; }
+          .form { padding-left: 0; border-left: 0; gap: 12px; }
+          .formField, .phoneField, .form select, .form textarea { min-height: 60px; border-radius: 14px; font-size: 15px; }
+          .formLink { min-height: 62px; font-size: 18px; }
+          .policyText { font-size: 12px; }
+
+          .floating {
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 10px var(--mobile-pad) max(10px, env(safe-area-inset-bottom));
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            background: rgba(5,6,7,.94);
+            border-top: 1px solid rgba(255,255,255,.09);
+            backdrop-filter: blur(18px);
+          }
+          .floating .iconBtn {
+            width: 100%;
+            height: 56px;
+            border-radius: 14px;
+            font-size: 0;
+            overflow: hidden;
+          }
+          .floating .iconBtn img { width: 28px; height: 28px; object-fit: contain; }
+          .floating .iconBtn:nth-child(2) { display: none; }
+          .floating .iconBtn:first-child {
+            background: linear-gradient(135deg, var(--lime), var(--lime-2));
+            color: #050607;
+          }
+          .floating .iconBtn:first-child::after { content: "Telegram"; font-size: 16px; font-weight: 950; margin-left: 8px; color: #050607; }
+          .floating .iconBtn:last-child::after { content: "Позвонить"; font-size: 16px; font-weight: 950; margin-left: 8px; color: #fff; }
+          footer { padding: 26px 18px 92px; font-size: 12px; }
+        }
+
+        @media (max-width: 390px) {
+          :root { --mobile-pad: 14px; }
+          .hero h1 { font-size: 36px; }
+          .heroOfferRow { margin-top: 72px; }
+          .carImageWrap { height: 205px; }
+          .videoCard video { height: 470px; }
+        }
+@media (max-width: 768px) {
+  .header {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99999;
+  }
+
+  .hero {
+    padding-top: 92px !important;
+  }
+}
+
+/* FINAL MOBILE MENU FIX */
+@media (max-width: 768px) {
+  .header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 999999 !important;
+  }
+
+  .nav,
+  .mobileActions,
+  .mobileRoundBtn {
+    position: relative !important;
+    z-index: 1000001 !important;
+    pointer-events: auto !important;
+  }
+
+  .mobileRoundBtn {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    border: 1px solid rgba(255,255,255,.12) !important;
+  }
+
+  .menuOverlay {
+    position: fixed !important;
+    inset: 72px 0 0 !important;
+    z-index: 1000000 !important;
+    background: transparent !important;
+  }
+
+  .mobileMenuNative {
+    position: fixed !important;
+    top: 84px !important;
+    right: 18px !important;
+    z-index: 1000002 !important;
+    width: min(270px, calc(100vw - 36px)) !important;
+    padding: 12px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    border-radius: 18px !important;
+    background: rgba(10,12,14,.98) !important;
+    border: 1px solid rgba(200,255,47,.18) !important;
+    box-shadow: 0 20px 50px rgba(0,0,0,.55) !important;
+    backdrop-filter: blur(20px) !important;
+  }
+
+  .mobileMenuNative a {
+    display: block !important;
+    padding: 14px 16px !important;
+    border-radius: 12px !important;
+    background: rgba(255,255,255,.04) !important;
+    border: 1px solid rgba(255,255,255,.06) !important;
+    color: #fff !important;
+    font-size: 15px !important;
+    font-weight: 800 !important;
+    text-align: left !important;
+  }
+
+  .hero {
+    padding-top: 92px !important;
+  }
+}
+
+
+/* FINAL CHECKBOX MOBILE MENU — работает даже без React-клика */
+@media (max-width: 768px) {
+  .header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 999999 !important;
+  }
+
+  .nav,
+  .mobileActions,
+  .mobileRoundBtn,
+  .mobileMenuButton {
+    position: relative !important;
+    z-index: 1000003 !important;
+    pointer-events: auto !important;
+  }
+
+  .mobileActions {
+    display: flex !important;
+    margin-left: auto !important;
+    gap: 10px !important;
+  }
+
+  .mobileMenuToggle {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  .mobileMenuButton {
+    cursor: pointer !important;
+    user-select: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+  }
+
+  .menuOverlay {
+    display: none !important;
+    position: fixed !important;
+    inset: 72px 0 0 0 !important;
+    z-index: 1000000 !important;
+    background: transparent !important;
+  }
+
+  .mobileMenuNative {
+    display: none !important;
+    position: fixed !important;
+    top: 84px !important;
+    right: 18px !important;
+    z-index: 1000002 !important;
+    width: min(270px, calc(100vw - 36px)) !important;
+    padding: 12px !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    border-radius: 18px !important;
+    background: rgba(10,12,14,.98) !important;
+    border: 1px solid rgba(200,255,47,.18) !important;
+    box-shadow: 0 20px 50px rgba(0,0,0,.55) !important;
+    backdrop-filter: blur(20px) !important;
+  }
+
+  .mobileMenuToggle:checked ~ .menuOverlay {
+    display: block !important;
+  }
+
+  .mobileMenuToggle:checked ~ .mobileMenuNative {
+    display: flex !important;
+  }
+
+  .mobileMenuNative a {
+    display: block !important;
+    padding: 14px 16px !important;
+    border-radius: 12px !important;
+    background: rgba(255,255,255,.04) !important;
+    border: 1px solid rgba(255,255,255,.06) !important;
+    color: #fff !important;
+    font-size: 15px !important;
+    font-weight: 800 !important;
+    text-align: left !important;
+  }
+
+  .hero {
+    padding-top: 92px !important;
+  }
+}
+  @media (max-width: 768px) {
+  .mobileMenuToggle {
+    display: none !important;
+  }
+
+  .menuOverlay {
+    display: none;
+    position: fixed !important;
+    inset: 72px 0 0 0 !important;
+    z-index: 999998 !important;
+    background: transparent !important;
+  }
+
+  .mobileMenuNative {
+    display: none !important;
+    position: fixed !important;
+    top: 84px !important;
+    right: 18px !important;
+    z-index: 999999 !important;
+  }
+
+  .mobileMenuToggle:checked ~ .menuOverlay {
+    display: block !important;
+  }
+
+  .mobileMenuToggle:checked ~ .mobileMenuNative {
+    display: flex !important;
+  }
+}
+
       `}</style>
 
       <main id="top">
@@ -1284,19 +1739,55 @@ background-position: right -60px bottom;
 </a>
 
             <nav className="navLinks" aria-label="Главное меню">
-              <a href="#cars">Авто</a>
-              <a href="#conditions">Условия</a>
-              <a href="#steps">Как это работает</a>
-              <a href="#reviews">Отзывы</a>
-              <a href="#faq">FAQ</a>
-              <a href="#contact">Контакты</a>
+  <a onClick={() => document.getElementById("mobileMenuToggle")?.click()} href="#cars">Авто</a>
+<a onClick={() => document.getElementById("mobileMenuToggle")?.click()} href="#conditions">Условия</a>
+<a onClick={() => document.getElementById("mobileMenuToggle")?.click()} href="#steps">Как это работает</a>
+<a onClick={() => document.getElementById("mobileMenuToggle")?.click()} href="#reviews">Отзывы</a>
+<a onClick={() => document.getElementById("mobileMenuToggle")?.click()} href="#faq">FAQ</a>
+<a onClick={() => document.getElementById("mobileMenuToggle")?.click()} href="#contacts">Контакты</a>
             </nav>
 
             <div className="actions">
               <ContactIcons />
               <a className="call" href="#contact">Подобрать авто</a>
             </div>
+
+            <div className="mobileActions" aria-label="Быстрые действия">
+              <a className="mobileRoundBtn" href={PHONE_LINK} aria-label="Позвонить">
+                ☎
+              </a>
+
+              <input
+                id="mobileMenuToggle"
+                className="mobileMenuToggle"
+                type="checkbox"
+                aria-hidden="true"
+              />
+
+              <label
+                className="mobileRoundBtn mobileMenuButton"
+                htmlFor="mobileMenuToggle"
+                aria-label="Открыть меню"
+              >
+                ☰
+                </label>
+              <nav className="mobileMenuNative" aria-label="Мобильное меню">
+                <a onClick={() => { const el = document.getElementById("mobileMenuToggle") as HTMLInputElement | null; if (el) el.checked = false; }} href="#cars">Авто</a>
+                <a onClick={() => { const el = document.getElementById("mobileMenuToggle") as HTMLInputElement | null; if (el) el.checked = false; }} href="#conditions">Условия</a>
+                <a onClick={() => { const el = document.getElementById("mobileMenuToggle") as HTMLInputElement | null; if (el) el.checked = false; }} href="#steps">Как это работает</a>
+                <a onClick={() => { const el = document.getElementById("mobileMenuToggle") as HTMLInputElement | null; if (el) el.checked = false; }} href="#reviews">Отзывы</a>
+                <a onClick={() => { const el = document.getElementById("mobileMenuToggle") as HTMLInputElement | null; if (el) el.checked = false; }} href="#faq">FAQ</a>
+                <a onClick={() => { const el = document.getElementById("mobileMenuToggle") as HTMLInputElement | null; if (el) el.checked = false; }} href="#contacts">Контакты</a>
+              </nav>
+              <label
+  className="menuOverlay"
+  htmlFor="mobileMenuToggle"
+  aria-label="Закрыть меню"
+/>
+            </div>
           </div>
+
+          
         </header>
 
         <section className="hero">
@@ -1835,58 +2326,43 @@ background-position: right -60px bottom;
   required
   value={phone}
   minLength={18}
-  placeholder="(999) 999-99-99"
-    onChange={(e) => {
-      let value = e.target.value.replace(/\D/g, "");
+  maxLength={18}
+  placeholder="+7 (999) 999-99-99"
+  onChange={(e) => {
+    let digits = e.target.value.replace(/\D/g, "");
 
-      // если вставили +7 — убираем лишнюю 7
-      if (value.startsWith("7")) {
-        value = value.slice(1);
-      }
+    if (digits.startsWith("7") || digits.startsWith("8")) {
+      digits = digits.slice(1);
+    }
 
-      // максимум 10 цифр после +7
-      value = value.substring(0, 10);
+    digits = digits.slice(0, 10);
 
-      let formatted = "+7 ";
+    const p1 = digits.slice(0, 3);
+    const p2 = digits.slice(3, 6);
+    const p3 = digits.slice(6, 8);
+    const p4 = digits.slice(8, 10);
 
-      if (value.length > 0) {
-        formatted += `(${value.substring(0, 3)}`;
-      }
+    let formatted = "+7";
 
-      if (value.length >= 4) {
-        formatted += `) ${value.substring(3, 6)}`;
-      }
+    if (p1) formatted += ` (${p1}`;
+    if (p1.length === 3) formatted += ")";
+    if (p2) formatted += ` ${p2}`;
+    if (p3) formatted += `-${p3}`;
+    if (p4) formatted += `-${p4}`;
 
-      if (value.length >= 7) {
-        formatted += `-${value.substring(6, 8)}`;
-      }
-
-      if (value.length >= 9) {
-        formatted += `-${value.substring(8, 10)}`;
-      }
-
-      setPhone(formatted);
-    }}
-    onKeyDown={(e) => {
-      // нельзя удалить +7
-      if (
-        (e.key === "Backspace" || e.key === "Delete") &&
-        phone.length <= 3
-      ) {
-        e.preventDefault();
-      }
-    }}
-    style={{
-      flex: 1,
-      border: "none",
-      background: "transparent",
-      color: "white",
-      fontSize: "17px",
-      fontWeight: 700,
-      outline: "none",
-      fontFamily: "inherit",
-    }}
-  />
+    setPhone(formatted);
+  }}
+  style={{
+    flex: 1,
+    border: "none",
+    background: "transparent",
+    color: "white",
+    fontSize: "17px",
+    fontWeight: 700,
+    outline: "none",
+    fontFamily: "inherit",
+  }}
+/>
 </div>
 
                 <select name="car" required defaultValue="">
