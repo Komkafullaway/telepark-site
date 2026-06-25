@@ -184,6 +184,7 @@ const faqs = [
 
 export default function Home() {
   const [phone, setPhone] = useState("+7");
+  const [leadModalOpen, setLeadModalOpen] = useState(false);
   const ContactIcons = () => (
     <>
       <a className="iconBtn" href={TELEGRAM_LINK} target="_blank" rel="noreferrer">
@@ -1484,32 +1485,27 @@ background-position: right -60px bottom;
           .policyText { font-size: 12px; }
 
           .floating {
-            left: 0;
-            right: 0;
-            bottom: 0;
-            padding: 10px var(--mobile-pad) max(10px, env(safe-area-inset-bottom));
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            background: rgba(5,6,7,.94);
-            border-top: 1px solid rgba(255,255,255,.09);
-            backdrop-filter: blur(18px);
-          }
-          .floating .iconBtn {
-            width: 100%;
-            height: 56px;
-            border-radius: 14px;
-            font-size: 0;
-            overflow: hidden;
-          }
-          .floating .iconBtn img { width: 28px; height: 28px; object-fit: contain; }
-          .floating .iconBtn:nth-child(2) { display: none; }
-          .floating .iconBtn:first-child {
-            background: linear-gradient(135deg, var(--lime), var(--lime-2));
-            color: #050607;
-          }
-          .floating .iconBtn:first-child::after { content: "Telegram"; font-size: 16px; font-weight: 950; margin-left: 8px; color: #050607; }
-          .floating .iconBtn:last-child::after { content: "Позвонить"; font-size: 16px; font-weight: 950; margin-left: 8px; color: #fff; }
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10px var(--mobile-pad) max(10px, env(safe-area-inset-bottom));
+  background: rgba(5,6,7,.94);
+  border-top: 1px solid rgba(255,255,255,.09);
+  backdrop-filter: blur(18px);
+}
+
+.floatingCta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 58px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--lime), var(--lime-2));
+  color: #050607;
+  font-size: 18px;
+  font-weight: 950;
+}
           footer { padding: 26px 18px 92px; font-size: 12px; }
         }
 
@@ -1715,6 +1711,203 @@ background-position: right -60px bottom;
 
   .mobileMenuToggle:checked ~ .mobileMenuNative {
     display: flex !important;
+  }
+}
+  .leadModalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000000;
+  background: rgba(0,0,0,.78);
+  backdrop-filter: blur(14px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 16px;
+}
+
+.leadModal {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  padding: 28px 18px 20px;
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(200,255,47,.10), transparent 32%),
+    linear-gradient(180deg, rgba(18,22,25,.98), rgba(7,8,9,.98));
+  border: 1px solid rgba(200,255,47,.26);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.04) inset,
+    0 0 34px rgba(200,255,47,.14),
+    0 30px 90px rgba(0,0,0,.70);
+}
+
+.leadModal::after {
+  content: "";
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: -1px;
+  height: 1px;
+  background: var(--lime);
+  box-shadow: 0 0 22px rgba(200,255,47,.9);
+}
+
+.leadModalClose {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(200,255,47,.18);
+  border-radius: 50%;
+  background: rgba(255,255,255,.07);
+  color: white;
+  font-size: 34px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.leadModalCarIcon {
+  margin-bottom: 12px;
+  color: var(--lime);
+  font-size: 28px;
+  filter: drop-shadow(0 0 14px rgba(200,255,47,.35));
+}
+
+.leadModal h2 {
+  margin: 0 50px 12px 0;
+  font-size: 34px;
+  line-height: 1.04;
+  font-weight: 950;
+  letter-spacing: -.8px;
+}
+
+.leadModal h2 span {
+  display: block;
+  color: var(--lime);
+}
+
+.leadModalText {
+  margin: 0 0 20px;
+  color: rgba(255,255,255,.70);
+  font-size: 17px;
+  line-height: 1.45;
+}
+
+.leadModalForm {
+  padding: 0 !important;
+  border-left: 0 !important;
+  gap: 12px !important;
+}
+
+.leadInput {
+  min-height: 62px !important;
+  border-radius: 16px !important;
+  background: rgba(255,255,255,.045) !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+}
+
+.leadInput:focus,
+.leadInput:focus-within {
+  border-color: rgba(200,255,47,.34) !important;
+  box-shadow: 0 0 24px rgba(200,255,47,.10) !important;
+}
+
+.leadModalSubmit {
+  margin-top: 6px;
+  width: 100%;
+  min-height: 66px;
+  border: 0;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--lime), var(--lime-2));
+  color: #050607;
+  font-size: 20px;
+  font-weight: 950;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  cursor: pointer;
+  box-shadow: 0 0 28px rgba(200,255,47,.22);
+}
+
+.leadModalSubmit span {
+  font-size: 28px;
+}
+
+.leadModalTrust {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.leadModalTrust div {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 8px;
+  align-items: start;
+  color: rgba(255,255,255,.70);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.leadModalTrust b {
+  color: var(--lime);
+  font-size: 22px;
+  line-height: 1;
+}
+
+.leadModalRating {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,.10);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: center;
+}
+
+.leadModalRating span {
+  color: #ffd84d;
+  letter-spacing: 3px;
+  font-size: 17px;
+}
+
+.leadModalRating p {
+  margin: 0;
+  color: rgba(255,255,255,.72);
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.leadModalPolicy {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,.10);
+  color: rgba(255,255,255,.58);
+  font-size: 12px;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.leadModalPolicy a {
+  color: var(--lime);
+  font-weight: 800;
+}
+
+@media (max-width: 390px) {
+  .leadModal {
+    padding: 24px 14px 18px;
+    border-radius: 26px;
+  }
+
+  .leadModal h2 {
+    font-size: 30px;
+  }
+
+  .leadModalTrust {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -2321,48 +2514,38 @@ background-position: right -60px bottom;
   <span>RU</span>
 
   <input
-  name="phone"
-  type="tel"
-  required
-  value={phone}
-  minLength={18}
-  maxLength={18}
-  placeholder="+7 (999) 999-99-99"
-  onChange={(e) => {
-    let digits = e.target.value.replace(/\D/g, "");
+    name="phone"
+    type="tel"
+    required
+    value={phone}
+    minLength={18}
+    maxLength={18}
+    placeholder="+7 (999) 999-99-99"
+    onChange={(e) => {
+      let digits = e.target.value.replace(/\D/g, "");
 
-    if (digits.startsWith("7") || digits.startsWith("8")) {
-      digits = digits.slice(1);
-    }
+      if (digits.startsWith("7") || digits.startsWith("8")) {
+        digits = digits.slice(1);
+      }
 
-    digits = digits.slice(0, 10);
+      digits = digits.slice(0, 10);
 
-    const p1 = digits.slice(0, 3);
-    const p2 = digits.slice(3, 6);
-    const p3 = digits.slice(6, 8);
-    const p4 = digits.slice(8, 10);
+      const p1 = digits.slice(0, 3);
+      const p2 = digits.slice(3, 6);
+      const p3 = digits.slice(6, 8);
+      const p4 = digits.slice(8, 10);
 
-    let formatted = "+7";
+      let formatted = "+7";
 
-    if (p1) formatted += ` (${p1}`;
-    if (p1.length === 3) formatted += ")";
-    if (p2) formatted += ` ${p2}`;
-    if (p3) formatted += `-${p3}`;
-    if (p4) formatted += `-${p4}`;
+      if (p1) formatted += ` (${p1}`;
+      if (p1.length === 3) formatted += ")";
+      if (p2) formatted += ` ${p2}`;
+      if (p3) formatted += `-${p3}`;
+      if (p4) formatted += `-${p4}`;
 
-    setPhone(formatted);
-  }}
-  style={{
-    flex: 1,
-    border: "none",
-    background: "transparent",
-    color: "white",
-    fontSize: "17px",
-    fontWeight: 700,
-    outline: "none",
-    fontFamily: "inherit",
-  }}
-/>
+      setPhone(formatted);
+    }}
+  />
 </div>
 
                 <select name="car" required defaultValue="">
@@ -2396,11 +2579,159 @@ background-position: right -60px bottom;
             </div>
           </div>
         </section>
+        {leadModalOpen && (
+  <div className="leadModalOverlay" onClick={() => setLeadModalOpen(false)}>
+    <div className="leadModal" onClick={(e) => e.stopPropagation()}>
+      <button
+        type="button"
+        className="leadModalClose"
+        onClick={() => setLeadModalOpen(false)}
+        aria-label="Закрыть"
+      >
+        ×
+      </button>
+
+      <div className="leadModalCarIcon">🚗</div>
+
+      <h2>
+        Получите предложение
+        <span>за 15 минут</span>
+      </h2>
+
+      <p className="leadModalText">
+        Подберём автомобиль и рассчитаем ежемесячный платёж.
+      </p>
+
+      <form
+        className="form leadModalForm"
+        onSubmit={async (e) => {
+          e.preventDefault();
+
+          const digits = phone.replace(/\D/g, "");
+
+          if (digits.length !== 11) {
+            alert("Введите полный номер телефона");
+            return;
+          }
+
+          const form = e.currentTarget;
+          const formData = new FormData(form);
+
+          const request = "TP-" + Date.now().toString().slice(-6);
+          formData.append("request", request);
+
+          await fetch(FORM_ENDPOINT, {
+            method: "POST",
+            body: formData,
+            mode: "no-cors",
+          });
+
+          const name = String(formData.get("name") || "Спасибо");
+          const car = String(formData.get("car") || "автомобилю");
+
+          window.location.href =
+            `/thanks?name=${encodeURIComponent(name)}&car=${encodeURIComponent(car)}&request=${encodeURIComponent(request)}`;
+        }}
+      >
+        <input
+          className="formField leadInput"
+          name="name"
+          placeholder="Ваше имя"
+          required
+        />
+
+        <div className="phoneField leadInput">
+          <span>RU</span>
+
+          <input
+            name="phone"
+            type="tel"
+            required
+            value={phone}
+            minLength={18}
+            maxLength={18}
+            placeholder="+7 (999) 999-99-99"
+            onChange={(e) => {
+              let digits = e.target.value.replace(/\D/g, "");
+
+              if (digits.startsWith("7") || digits.startsWith("8")) {
+                digits = digits.slice(1);
+              }
+
+              digits = digits.slice(0, 10);
+
+              const p1 = digits.slice(0, 3);
+              const p2 = digits.slice(3, 6);
+              const p3 = digits.slice(6, 8);
+              const p4 = digits.slice(8, 10);
+
+              let formatted = "+7";
+
+              if (p1) formatted += ` (${p1}`;
+              if (p1.length === 3) formatted += ")";
+              if (p2) formatted += ` ${p2}`;
+              if (p3) formatted += `-${p3}`;
+              if (p4) formatted += `-${p4}`;
+
+              setPhone(formatted);
+            }}
+          />
+        </div>
+
+        <select className="leadInput" name="car" required defaultValue="">
+          <option value="">Какой автомобиль интересует?</option>
+          <option>TENET T7</option>
+          <option>Geely Coolray</option>
+          <option>Kia Rio</option>
+          <option>Hyundai Solaris</option>
+          <option>Hongqi H5</option>
+        </select>
+
+        <button type="submit" className="leadModalSubmit">
+          Получить предложение <span>→</span>
+        </button>
+
+        <div className="leadModalTrust">
+          <div>
+            <b>⚡</b>
+            <span>Ответим в течение 15 минут</span>
+          </div>
+
+          <div>
+            <b>🛡</b>
+            <span>Ваши данные защищены и не передаются третьим лицам</span>
+          </div>
+        </div>
+
+        <div className="leadModalRating">
+          <span>★★★★★</span>
+          <p>Более 50 автомобилей выдано клиентам</p>
+        </div>
+
+        <div className="leadModalPolicy">
+          Нажимая кнопку «Получить предложение», вы соглашаетесь с{" "}
+          <a href="/privacy" target="_blank">
+            политикой конфиденциальности
+          </a>{" "}
+          и{" "}
+          <a href="/consent" target="_blank">
+            обработкой персональных данных
+          </a>.
+        </div>
+      </form>
+    </div>
+  </div>
+)}
 
         <div className="floating">
-          <ContactIcons />
-          <a className="iconBtn" href={PHONE_LINK}>☎</a>
-        </div>
+  <button
+    type="button"
+    className="floatingCta"
+    onClick={() => setLeadModalOpen(true)}
+  >
+    Оставить заявку
+  </button>
+</div>
         
         <footer>© 2026 Телепарк — аренда авто под выкуп</footer>
       </main>
