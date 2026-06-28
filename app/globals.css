@@ -21,3 +21,77 @@ img { max-width: 100%; display: block; }
 
   z-index: 2;
 }
+.mobileOnly {
+  display: none;
+}
+
+.desktopOnly {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .mobileOnly {
+    display: block;
+  }
+
+  .desktopOnly {
+    display: none;
+  }
+}
+
+.mobileFixedCta {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobileFixedCta {
+    display: block;
+  }
+}
+/* ===== Mobile Header ===== */
+
+.mHeader {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: rgba(5, 6, 7, 0.92);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+.mBrand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.mBrand img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.mBrand strong {
+  display: block;
+  font-size: 20px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+}
+
+.mBrand strong span {
+  color: #c8ff2f;
+}
+
+.mBrand small {
+  display: block;
+  margin-top: 4px;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,.55);
+}
