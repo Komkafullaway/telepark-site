@@ -621,7 +621,7 @@ export default function MobileLanding() {
         <div className="tmReviews">
           {videos.map((video) => (
             <article className="tmReview" key={video[0]}>
-              <video controls playsInline preload="metadata" src={`/videos/${video[0]}`} />
+              <video autoPlay muted loop playsInline preload="metadata" src={`/videos/${video[0]}`} />
               <div className="tmReviewInfo">
                 <strong>{video[1]}</strong>
                 <small>{video[2]}</small>
