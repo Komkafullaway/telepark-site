@@ -93,7 +93,7 @@ const cars: Car[] = [
     short: "H5",
     year: "2023",
     gearbox: "АКПП",
-    img: "/New/Н5SPB.png",
+    img: "/New/H5SPB.png",
     price: "4 950 ₽",
     month: "≈ 148 500 ₽ / месяц",
     term: "24 месяца",
@@ -359,7 +359,7 @@ export default function MobileLanding() {
             linear-gradient(180deg, rgba(5,6,7,0) 0%, rgba(5,6,7,.10) 44%, rgba(5,6,7,.64) 78%, #050607 100%),
             url('/New/TenetSPB.png');
           background-size: cover;
-          background-position: center 35%;
+          background-position: center 18%;
           background-repeat: no-repeat;
         }
 
@@ -469,12 +469,20 @@ export default function MobileLanding() {
         .tmArrowLeft { left: 14px; }
         .tmArrowRight { right: 14px; }
 
-        .tmPrice { display: flex; align-items: end; gap: 6px; }
-        .tmPrice small { color: rgba(255,255,255,.70); font-weight: 900; margin-bottom: 8px; }
-        .tmPrice b { color: var(--tm-lime); font-size: 48px; line-height: .9; letter-spacing: -1.7px; font-weight: 950; text-shadow: 0 0 26px rgba(200,255,47,.46); }
-        .tmPrice span { color: rgba(255,255,255,.84); margin-bottom: 8px; font-weight: 900; }
-        .tmPriceOnPhoto { position: absolute; z-index: 3; left: 20px; right: 20px; bottom: 30px; padding: 16px 16px 18px; border-radius: 24px; background: linear-gradient(135deg, rgba(10,14,16,.72), rgba(10,14,16,.40)); border: 1px solid rgba(200,255,47,.18); backdrop-filter: blur(14px); box-shadow: 0 24px 60px rgba(0,0,0,.38); }
-        .tmMonth { margin: 14px 2px 0; color: rgba(255,255,255,.66); font-size: 16px; font-weight: 900; }
+        .tmCarOffer {
+          margin-top: 16px;
+          padding: 18px 18px 16px;
+          border-radius: 24px;
+          background:
+            radial-gradient(circle at 30% 20%, rgba(200,255,47,.16), transparent 45%),
+            linear-gradient(135deg, rgba(15,21,24,.94), rgba(6,8,9,.98));
+          border: 1px solid rgba(200,255,47,.18);
+          box-shadow: 0 18px 44px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04);
+        }
+        .tmCarOfferPrice { display: flex; align-items: flex-end; gap: 7px; }
+        .tmCarOfferPrice b { color: var(--tm-lime); font-size: 50px; line-height: .9; letter-spacing: -1.7px; font-weight: 950; text-shadow: 0 0 26px rgba(200,255,47,.46); }
+        .tmCarOfferPrice span { color: rgba(255,255,255,.84); margin-bottom: 7px; font-weight: 900; }
+        .tmMonth { margin-top: 10px; color: rgba(255,255,255,.66); font-size: 16px; font-weight: 900; }
 
         .tmCalcGrid { margin-top: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
         .tmCalcRow { min-height: 122px; padding: 15px; border-radius: 22px; display: flex; flex-direction: column; justify-content: space-between; background: radial-gradient(circle at 30% 18%, rgba(200,255,47,.10), transparent 38%), rgba(255,255,255,.035); border: 1px solid rgba(200,255,47,.13); box-shadow: inset 0 1px 0 rgba(255,255,255,.04); }
@@ -611,7 +619,7 @@ export default function MobileLanding() {
         @media (max-width: 390px) {
           .tmHero { padding-left: 14px; padding-right: 14px; min-height: 76svh; }
           .tmCarPhoto { min-height: 400px; }
-          .tmPrice b { font-size: 41px; }
+          .tmCarOfferPrice b { font-size: 42px; }
           .tmCalcGrid { grid-template-columns: 1fr; }
           .tmReview video { height: 330px; }
           .tmModal h2 { font-size: 35px; }
@@ -664,14 +672,15 @@ export default function MobileLanding() {
               <span>{selectedCar.badge}</span>
             </div>
 
-            <div className="tmPrice tmPriceOnPhoto">
-              <small>от</small>
+          </div>
+
+          <div className="tmCarOffer">
+            <div className="tmCarOfferPrice">
               <b>{selectedCar.price}</b>
               <span>/ сутки</span>
             </div>
+            <div className="tmMonth">{selectedCar.month}</div>
           </div>
-
-          <div className="tmMonth">{selectedCar.month}</div>
 
           <div className="tmCalcGrid">
             <div className="tmCalcRow">
@@ -775,7 +784,7 @@ export default function MobileLanding() {
           </a>
           <a className="tmContact" href={TELEGRAM_LINK} target="_blank" rel="noreferrer">
             <div className="tmContactIcon"><img src="/icons/telegram.png" alt="" /></div>
-            <div><strong>Telegram</strong><span>Написать менеджеру</span></div>
+            <div><strong>Telegram</strong><span>@teleparkgdel</span></div>
             <div className="tmContactArrow"><ChevronIcon /></div>
           </a>
           <a className="tmContact" href={MAX_LINK} target="_blank" rel="noreferrer">
@@ -785,12 +794,12 @@ export default function MobileLanding() {
           </a>
           <div className="tmContact">
             <div className="tmContactIcon"><MapPinIcon /></div>
-            <div><strong>Адрес офиса</strong><span>Санкт-Петербург, пр-т Обуховской Обороны, 271А</span></div>
+            <div><strong>Адрес офиса</strong><span>Санкт-Петербург, пр-т Обуховской Обороны, 271А, помещение 7-Н</span></div>
             <div className="tmContactArrow"><ChevronIcon /></div>
           </div>
           <div className="tmContact">
             <div className="tmContactIcon"><ClockIcon /></div>
-            <div><strong>Работаем ежедневно</strong><span>с 9:00 до 18:00</span></div>
+            <div><strong>Работаем ежедневно</strong><span>с 9:00 до 22:00</span></div>
             <div className="tmContactArrow"><ChevronIcon /></div>
           </div>
         </div>
@@ -825,7 +834,7 @@ export default function MobileLanding() {
               <div>
                 <strong>{selectedCar.name}</strong>
                 <div className="tmLeadBadge">{selectedCar.badge}</div>
-                <div className="tmLeadPrice">от <span>{selectedCar.price}</span> / сутки</div>
+                <div className="tmLeadPrice"><span>{selectedCar.price}</span> / сутки</div>
                 <small>{selectedCar.month}</small>
               </div>
             </div>
