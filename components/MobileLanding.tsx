@@ -242,21 +242,29 @@ export default function MobileLanding() {
         }
 
         .tmHero {
-          min-height: 100svh;
-          position: relative;
-          overflow: hidden;
-          padding: 104px 18px 18px;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          background:
-            linear-gradient(180deg, rgba(5,6,7,.10) 0%, rgba(5,6,7,.22) 42%, rgba(5,6,7,.78) 74%, #050607 100%),
-            linear-gradient(90deg, rgba(5,6,7,.80) 0%, rgba(5,6,7,.18) 54%, rgba(5,6,7,.32) 100%),
-            url('/images/HeroMobil.png');
-          background-size: cover;
-          background-position: center top;
-          background-repeat: no-repeat;
-        }
+  min-height: 88svh;
+  position: relative;
+  overflow: hidden;
+  padding: 104px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(5,6,7,0.00) 0%,
+      rgba(5,6,7,0.03) 30%,
+      rgba(5,6,7,0.22) 55%,
+      rgba(5,6,7,0.55) 78%,
+      rgba(5,6,7,0.88) 100%
+    ),
+    url('/images/HeroMobil.png');
+
+  background-size: cover;
+  background-position: center 18%;
+  background-repeat: no-repeat;
+}
 
         .tmHeroTop { position: relative; z-index: 2; }
         .tmBadge {
