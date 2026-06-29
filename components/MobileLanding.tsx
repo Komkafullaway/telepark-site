@@ -153,6 +153,7 @@ export default function MobileLanding() {
   const [selectedCarName, setSelectedCarName] = useState(cars[0].name);
 
   const selectedCar = cars[selectedIndex];
+
   const openLead = (carName = selectedCar.name) => {
     setSelectedCarName(carName);
     setLeadOpen(true);
@@ -160,6 +161,7 @@ export default function MobileLanding() {
 
   const nextCar = () => setSelectedIndex((value) => (value + 1) % cars.length);
   const prevCar = () => setSelectedIndex((value) => (value - 1 + cars.length) % cars.length);
+  const selectCar = (index: number) => setSelectedIndex(index);
   const scrollToId = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
@@ -171,26 +173,34 @@ export default function MobileLanding() {
 
         :root {
           --tm-bg: #050607;
-          --tm-graphite: #10161a;
-          --tm-graphite-2: #151c20;
+          --tm-card: #0d1215;
+          --tm-card-2: #131a1f;
           --tm-lime: #c8ff2f;
-          --tm-lime-2: #98df00;
+          --tm-lime-2: #95ea00;
           --tm-muted: rgba(255,255,255,.64);
-          --tm-line: rgba(200,255,47,.14);
+          --tm-line: rgba(200,255,47,.16);
         }
 
         * { box-sizing: border-box; }
-        html, body { margin: 0; background: var(--tm-bg); color: #fff; font-family: Manrope, Arial, sans-serif; overflow-x: hidden; }
+        html, body {
+          margin: 0;
+          background: var(--tm-bg);
+          color: #fff;
+          font-family: Manrope, Arial, sans-serif;
+          overflow-x: hidden;
+        }
         button, input, select { font-family: inherit; }
+        button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
         a { color: inherit; text-decoration: none; }
         img, video { display: block; max-width: 100%; }
 
         .tm {
           min-height: 100vh;
           background:
-            radial-gradient(circle at 50% -8%, rgba(200,255,47,.10), transparent 28%),
-            linear-gradient(180deg, #050607 0%, #070a0c 48%, #050607 100%);
-          padding-bottom: 118px;
+            radial-gradient(circle at 50% -10%, rgba(200,255,47,.15), transparent 26%),
+            radial-gradient(circle at 100% 20%, rgba(200,255,47,.08), transparent 34%),
+            linear-gradient(180deg, #050607 0%, #080d10 46%, #050607 100%);
+          padding-bottom: 132px;
         }
 
         .tmHeader {
@@ -204,7 +214,9 @@ export default function MobileLanding() {
           align-items: center;
           justify-content: space-between;
           padding: 12px 18px;
-          background: rgba(5,6,7,.74);
+          background:
+            linear-gradient(90deg, rgba(5,6,7,.96), rgba(10,14,16,.78)),
+            radial-gradient(circle at 85% 50%, rgba(200,255,47,.12), transparent 42%);
           border-bottom: 1px solid rgba(255,255,255,.08);
           backdrop-filter: blur(18px);
         }
@@ -212,7 +224,7 @@ export default function MobileLanding() {
         .tmBrand { display: flex; align-items: center; gap: 10px; }
         .tmBrand img { width: 44px; height: 44px; object-fit: contain; }
         .tmBrand strong { display: block; font-size: 21px; line-height: .9; font-weight: 950; letter-spacing: .2px; }
-        .tmBrand strong span { color: var(--tm-lime); text-shadow: 0 0 22px rgba(200,255,47,.45); }
+        .tmBrand strong span { color: var(--tm-lime); text-shadow: 0 0 24px rgba(200,255,47,.55); }
         .tmBrand small { display: block; margin-top: 5px; color: rgba(255,255,255,.54); font-size: 8px; letter-spacing: 2.8px; }
 
         .tmHeaderActions { display: flex; gap: 8px; align-items: center; }
@@ -222,101 +234,66 @@ export default function MobileLanding() {
           border-radius: 50%;
           display: grid;
           place-items: center;
-          border: 1px solid rgba(200,255,47,.18);
-          background: rgba(200,255,47,.07);
+          border: 1px solid rgba(200,255,47,.28);
+          background: rgba(200,255,47,.08);
           color: var(--tm-lime);
           font-size: 21px;
           font-weight: 950;
-          box-shadow: 0 0 22px rgba(200,255,47,.10), inset 0 1px 0 rgba(255,255,255,.05);
+          box-shadow: 0 0 28px rgba(200,255,47,.16), inset 0 1px 0 rgba(255,255,255,.05);
         }
         .tmHeaderCta {
           height: 48px;
-          padding: 0 15px;
+          padding: 0 19px;
           border: 0;
           border-radius: 999px;
           background: linear-gradient(135deg, var(--tm-lime), var(--tm-lime-2));
           color: #050607;
-          font-size: 13px;
+          font-size: 14px;
           font-weight: 950;
-          box-shadow: 0 0 26px rgba(200,255,47,.22);
+          box-shadow: 0 0 34px rgba(200,255,47,.28);
         }
 
         .tmHero {
-  min-height: 88svh;
-  position: relative;
-  overflow: hidden;
-  padding: 104px 18px 18px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+          min-height: 78svh;
+          position: relative;
+          overflow: hidden;
+          padding: 104px 18px 28px;
+          display: flex;
+          align-items: flex-start;
+          background:
+            linear-gradient(180deg, rgba(5,6,7,0) 0%, rgba(5,6,7,.10) 44%, rgba(5,6,7,.64) 78%, #050607 100%),
+            url('/images/HeroMobil.png');
+          background-size: cover;
+          background-position: center 16%;
+          background-repeat: no-repeat;
+        }
 
-  background:
-    linear-gradient(
-      180deg,
-      rgba(5,6,7,0.00) 0%,
-      rgba(5,6,7,0.03) 30%,
-      rgba(5,6,7,0.22) 55%,
-      rgba(5,6,7,0.55) 78%,
-      rgba(5,6,7,0.88) 100%
-    ),
-    url('/images/HeroMobil.png');
-
-  background-size: cover;
-  background-position: center 18%;
-  background-repeat: no-repeat;
-}
-
-        .tmHeroTop { position: relative; z-index: 2; }
+        .tmHeroTop { position: relative; z-index: 2; width: 100%; }
         .tmBadge {
           width: fit-content;
           padding: 9px 14px;
           border-radius: 999px;
           color: var(--tm-lime);
-          border: 1px solid rgba(200,255,47,.24);
-          background: rgba(200,255,47,.08);
+          border: 1px solid rgba(200,255,47,.30);
+          background: rgba(200,255,47,.09);
+          box-shadow: 0 0 28px rgba(200,255,47,.12);
           font-size: 11px;
           font-weight: 950;
         }
 
         .tmHero h1 {
-          margin: 20px 0 0;
-          max-width: 350px;
-          font-size: clamp(44px, 13vw, 60px);
-          line-height: .88;
-          letter-spacing: -2.2px;
+          margin: 18px 0 0;
+          max-width: 360px;
+          font-size: clamp(44px, 13vw, 62px);
+          line-height: .86;
+          letter-spacing: -2.4px;
           font-weight: 950;
+          text-shadow: 0 16px 40px rgba(0,0,0,.62);
         }
-        .tmHero h1 span { color: var(--tm-lime); text-shadow: 0 0 22px rgba(200,255,47,.36); }
-        .tmBullets { margin-top: 20px; display: grid; gap: 11px; }
-        .tmBullets div { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,.88); font-size: 15px; font-weight: 750; }
-        .tmBullets b { width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; color: var(--tm-lime); background: rgba(200,255,47,.08); border: 1px solid rgba(200,255,47,.22); font-size: 13px; }
-
-        .tmHeroBottom { position: relative; z-index: 3; display: grid; gap: 12px; }
-        .tmChooser {
-          padding: 16px;
-          border-radius: 24px;
-          background: rgba(12,17,20,.82);
-          border: 1px solid rgba(200,255,47,.18);
-          box-shadow: 0 24px 70px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.05);
-          backdrop-filter: blur(20px);
-        }
-        .tmChooser h2 { margin: 0 0 13px; font-size: 18px; line-height: 1.2; font-weight: 950; }
-        .tmCarTabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
-        .tmCarTabs button {
-          min-height: 58px;
-          border-radius: 16px;
-          border: 1px solid rgba(200,255,47,.13);
-          background: linear-gradient(180deg, rgba(21,28,32,.88), rgba(12,16,18,.88));
-          color: #fff;
-          font-size: 12px;
-          font-weight: 950;
-        }
-        .tmCarTabs button.active {
-          color: #050607;
-          background: linear-gradient(135deg, var(--tm-lime), var(--tm-lime-2));
-          box-shadow: 0 0 28px rgba(200,255,47,.24);
-        }
-        .tmAllCars { grid-column: span 4; min-height: 48px !important; }
+        .tmHero h1 span { color: var(--tm-lime); text-shadow: 0 0 26px rgba(200,255,47,.46); }
+        .tmBullets { margin-top: 22px; display: grid; gap: 11px; }
+        .tmBullets div { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,.92); font-size: 15px; font-weight: 850; text-shadow: 0 8px 20px rgba(0,0,0,.72); }
+        .tmBullets b { width: 25px; height: 25px; border-radius: 50%; display: grid; place-items: center; color: var(--tm-lime); background: rgba(200,255,47,.11); border: 1px solid rgba(200,255,47,.28); font-size: 13px; box-shadow: 0 0 20px rgba(200,255,47,.15); }
 
         .tmPrimary {
           width: 100%;
@@ -327,121 +304,224 @@ export default function MobileLanding() {
           background: linear-gradient(135deg, var(--tm-lime), var(--tm-lime-2));
           font-size: 17px;
           font-weight: 950;
-          box-shadow: 0 0 42px rgba(200,255,47,.30), 0 20px 55px rgba(200,255,47,.18);
+          box-shadow: 0 0 46px rgba(200,255,47,.36), 0 20px 55px rgba(200,255,47,.18);
         }
 
-        .tmSection { padding: 34px 18px; }
+        .tmSection { padding: 34px 18px; scroll-margin-top: 90px; }
         .tmKicker { color: var(--tm-lime); font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; font-weight: 950; }
         .tmSection h2 { margin: 8px 0 18px; font-size: 29px; line-height: 1.03; letter-spacing: -.8px; font-weight: 950; }
 
         .tmCarStage {
-          padding: 20px;
-          border-radius: 30px;
+          position: relative;
+          padding: 0 16px 18px;
+          border-radius: 34px;
           background:
-            radial-gradient(circle at 50% 30%, rgba(200,255,47,.10), transparent 34%),
-            linear-gradient(180deg, rgba(17,22,26,.94), rgba(7,8,9,.96));
-          border: 1px solid rgba(200,255,47,.18);
+            radial-gradient(circle at 50% 0%, rgba(200,255,47,.16), transparent 38%),
+            linear-gradient(180deg, rgba(16,22,26,.98), rgba(6,8,9,.99));
+          border: 1px solid rgba(200,255,47,.22);
           overflow: hidden;
+          box-shadow: 0 26px 80px rgba(0,0,0,.52), inset 0 1px 0 rgba(255,255,255,.04);
         }
-        .tmCarNav { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-        .tmArrow {
-          width: 42px;
-          height: 42px;
-          border-radius: 50%;
-          border: 1px solid rgba(255,255,255,.14);
-          background: rgba(255,255,255,.045);
-          color: #fff;
-          font-size: 24px;
-        }
-        .tmCarName { text-align: center; }
-        .tmCarName strong { display: block; font-size: 28px; font-weight: 950; line-height: 1; }
-        .tmCarName span { display: inline-block; margin-top: 8px; padding: 7px 10px; border-radius: 999px; color: var(--tm-lime); background: rgba(200,255,47,.08); border: 1px solid rgba(200,255,47,.18); font-size: 10px; font-weight: 950; text-transform: uppercase; }
 
-        .tmCarVisual { position: relative; margin: 18px -14px 0; min-height: 270px; display: grid; place-items: end center; }
-        .tmCarVisual::before {
+        .tmCarPhoto {
+          position: relative;
+          margin: 0 -16px;
+          min-height: 435px;
+          overflow: hidden;
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          border-radius: 34px 34px 0 0;
+          box-shadow: inset 0 -80px 80px rgba(5,6,7,.88);
+        }
+
+        .tmCarPhoto::before {
           content: "";
           position: absolute;
-          left: 50%;
-          bottom: 18px;
-          width: 280px;
-          height: 72px;
-          transform: translateX(-50%);
-          border-radius: 50%;
-          border: 2px solid rgba(200,255,47,.55);
-          box-shadow: 0 0 24px rgba(200,255,47,.36), inset 0 0 28px rgba(200,255,47,.16);
+          inset: 0;
+          background:
+            linear-gradient(180deg, rgba(5,6,7,.42) 0%, rgba(5,6,7,.05) 36%, rgba(5,6,7,.94) 100%),
+            radial-gradient(circle at 80% 72%, rgba(200,255,47,.22), transparent 42%);
+          pointer-events: none;
         }
-        .tmCarVisual img { position: relative; z-index: 2; width: 108%; max-width: none; height: 260px; object-fit: contain; filter: drop-shadow(0 30px 28px rgba(0,0,0,.68)); }
 
-        .tmPrice { margin-top: 12px; display: flex; align-items: end; gap: 6px; }
-        .tmPrice small { color: rgba(255,255,255,.68); font-weight: 800; margin-bottom: 8px; }
-        .tmPrice b { color: var(--tm-lime); font-size: 44px; line-height: .9; letter-spacing: -1.5px; font-weight: 950; text-shadow: 0 0 22px rgba(200,255,47,.36); }
-        .tmPrice span { color: rgba(255,255,255,.78); margin-bottom: 8px; font-weight: 800; }
-        .tmMonth { margin-top: 6px; color: rgba(255,255,255,.62); font-weight: 800; }
-
-        .tmCalc { margin-top: 16px; display: grid; gap: 10px; }
-        .tmCalcRow {
-          min-height: 68px;
-          padding: 14px;
-          border-radius: 18px;
-          display: grid;
-          grid-template-columns: 42px 1fr;
-          gap: 12px;
+        .tmCarPhotoTop {
+          position: absolute;
+          left: 20px;
+          right: 20px;
+          top: 24px;
+          z-index: 3;
+        }
+        .tmCarPhotoTop strong {
+          display: block;
+          font-size: clamp(36px, 11vw, 54px);
+          line-height: .92;
+          letter-spacing: -1.5px;
+          font-weight: 950;
+          text-transform: uppercase;
+          text-shadow: 0 18px 38px rgba(0,0,0,.72);
+        }
+        .tmCarPhotoTop span {
+          display: inline-flex;
           align-items: center;
-          background: rgba(255,255,255,.035);
-          border: 1px solid rgba(200,255,47,.10);
+          gap: 6px;
+          margin-top: 10px;
+          padding: 8px 12px;
+          border-radius: 999px;
+          color: var(--tm-lime);
+          background: rgba(5,6,7,.70);
+          border: 1px solid rgba(200,255,47,.30);
+          box-shadow: 0 0 28px rgba(200,255,47,.14);
+          font-size: 10px;
+          font-weight: 950;
+          text-transform: uppercase;
         }
-        .tmCalcIcon { width: 42px; height: 42px; border-radius: 14px; display: grid; place-items: center; color: var(--tm-lime); background: rgba(200,255,47,.07); border: 1px solid rgba(200,255,47,.18); font-size: 19px; }
-        .tmCalcRow strong { display: block; font-size: 16px; }
-        .tmCalcRow span { display: block; margin-top: 3px; color: var(--tm-muted); font-size: 12px; }
+        .tmCarPhotoTop span::before { content: "✦"; }
 
-        .tmMiniFeatures { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 14px; border-radius: 18px; overflow: hidden; border: 1px solid rgba(200,255,47,.10); }
-        .tmMiniFeatures div { padding: 12px 8px; text-align: center; background: rgba(255,255,255,.025); border-right: 1px solid rgba(255,255,255,.06); }
+        .tmArrow {
+          position: absolute;
+          z-index: 4;
+          top: 48%;
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          border: 1px solid rgba(200,255,47,.28);
+          background: rgba(5,6,7,.58);
+          color: #fff;
+          font-size: 30px;
+          display: grid;
+          place-items: center;
+          box-shadow: 0 0 24px rgba(0,0,0,.45), 0 0 22px rgba(200,255,47,.10);
+        }
+        .tmArrowLeft { left: 14px; }
+        .tmArrowRight { right: 14px; }
+
+        .tmPrice {
+          display: flex;
+          align-items: end;
+          gap: 6px;
+        }
+        .tmPrice small { color: rgba(255,255,255,.70); font-weight: 900; margin-bottom: 8px; }
+        .tmPrice b { color: var(--tm-lime); font-size: 48px; line-height: .9; letter-spacing: -1.7px; font-weight: 950; text-shadow: 0 0 26px rgba(200,255,47,.46); }
+        .tmPrice span { color: rgba(255,255,255,.84); margin-bottom: 8px; font-weight: 900; }
+
+        .tmPriceOnPhoto {
+          position: absolute;
+          z-index: 3;
+          left: 20px;
+          right: 20px;
+          bottom: 30px;
+          padding: 16px 16px 18px;
+          border-radius: 24px;
+          background: linear-gradient(135deg, rgba(10,14,16,.72), rgba(10,14,16,.40));
+          border: 1px solid rgba(200,255,47,.18);
+          backdrop-filter: blur(14px);
+          box-shadow: 0 24px 60px rgba(0,0,0,.38);
+        }
+
+        .tmMonth { margin: 14px 2px 0; color: rgba(255,255,255,.66); font-size: 16px; font-weight: 900; }
+
+        .tmCalcGrid {
+          margin-top: 16px;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 10px;
+        }
+        .tmCalcRow {
+          min-height: 122px;
+          padding: 15px;
+          border-radius: 22px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          background:
+            radial-gradient(circle at 30% 18%, rgba(200,255,47,.10), transparent 38%),
+            rgba(255,255,255,.035);
+          border: 1px solid rgba(200,255,47,.13);
+          box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+        }
+        .tmCalcIcon {
+          width: 48px;
+          height: 48px;
+          border-radius: 16px;
+          display: grid;
+          place-items: center;
+          color: var(--tm-lime);
+          background: rgba(200,255,47,.09);
+          border: 1px solid rgba(200,255,47,.22);
+          font-size: 23px;
+          box-shadow: 0 0 26px rgba(200,255,47,.12);
+        }
+        .tmCalcRow strong { display: block; margin-top: 10px; font-size: 20px; line-height: 1.1; }
+        .tmCalcRow span { display: block; margin-top: 5px; color: var(--tm-muted); font-size: 12px; line-height: 1.25; }
+
+        .tmMiniFeatures {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          margin-top: 12px;
+          border-radius: 22px;
+          overflow: hidden;
+          border: 1px solid rgba(200,255,47,.12);
+          background: rgba(255,255,255,.025);
+        }
+        .tmMiniFeatures div { padding: 15px 8px; text-align: center; border-right: 1px solid rgba(255,255,255,.06); }
         .tmMiniFeatures div:last-child { border-right: 0; }
-        .tmMiniFeatures b { display: block; color: var(--tm-lime); margin-bottom: 6px; }
-        .tmMiniFeatures span { color: rgba(255,255,255,.66); font-size: 10px; line-height: 1.25; font-weight: 800; }
+        .tmMiniFeatures b { display: block; color: var(--tm-lime); margin-bottom: 8px; font-size: 18px; text-shadow: 0 0 18px rgba(200,255,47,.30); }
+        .tmMiniFeatures span { color: rgba(255,255,255,.72); font-size: 10px; line-height: 1.35; font-weight: 850; }
+
+        .tmThumbs {
+          display: flex;
+          gap: 10px;
+          overflow-x: auto;
+          padding: 14px 2px 4px;
+          scroll-snap-type: x mandatory;
+        }
+        .tmThumbs::-webkit-scrollbar { display: none; }
+        .tmThumb {
+          flex: 0 0 108px;
+          min-height: 118px;
+          border-radius: 20px;
+          border: 1px solid rgba(255,255,255,.10);
+          background: rgba(255,255,255,.035);
+          color: rgba(255,255,255,.76);
+          overflow: hidden;
+          scroll-snap-align: start;
+          padding: 0;
+        }
+        .tmThumb.active {
+          border-color: rgba(200,255,47,.72);
+          color: var(--tm-lime);
+          box-shadow: 0 0 26px rgba(200,255,47,.18);
+        }
+        .tmThumbPic {
+          height: 74px;
+          background-size: cover;
+          background-position: center;
+          filter: saturate(.96) contrast(1.05);
+        }
+        .tmThumb span {
+          display: grid;
+          place-items: center;
+          min-height: 42px;
+          font-size: 11px;
+          font-weight: 950;
+          text-transform: uppercase;
+        }
 
         .tmBenefits { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
         .tmBenefit {
           min-height: 154px;
           padding: 18px 14px;
           border-radius: 22px;
-          background: linear-gradient(180deg, rgba(17,22,26,.86), rgba(9,12,14,.92));
-          border: 1px solid rgba(200,255,47,.11);
+          background:
+            radial-gradient(circle at 35% 10%, rgba(200,255,47,.08), transparent 42%),
+            linear-gradient(180deg, rgba(17,22,26,.86), rgba(9,12,14,.92));
+          border: 1px solid rgba(200,255,47,.12);
           box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
         }
-        .tmBenefitIcon { width: 48px; height: 48px; border-radius: 16px; display: grid; place-items: center; color: var(--tm-lime); background: rgba(200,255,47,.07); border: 1px solid rgba(200,255,47,.18); font-size: 26px; margin-bottom: 18px; }
+        .tmBenefitIcon { width: 48px; height: 48px; border-radius: 16px; display: grid; place-items: center; color: var(--tm-lime); background: rgba(200,255,47,.08); border: 1px solid rgba(200,255,47,.20); font-size: 26px; margin-bottom: 18px; box-shadow: 0 0 24px rgba(200,255,47,.10); }
         .tmBenefit strong { display: block; font-size: 15px; line-height: 1.18; }
         .tmBenefit span { display: block; margin-top: 7px; color: rgba(255,255,255,.56); font-size: 11px; line-height: 1.35; }
-
-        .tmStory {
-          border-radius: 28px;
-          padding: 14px;
-          background: linear-gradient(180deg, rgba(17,22,26,.92), rgba(7,8,9,.96));
-          border: 1px solid rgba(200,255,47,.14);
-        }
-        .tmStoryVideo { position: relative; overflow: hidden; border-radius: 22px; background: #111; }
-        .tmStoryVideo video { width: 100%; height: 500px; object-fit: cover; }
-        .tmPlay {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          transform: translate(-50%, -50%);
-          width: 74px;
-          height: 74px;
-          border-radius: 50%;
-          display: grid;
-          place-items: center;
-          background: var(--tm-lime);
-          color: #050607;
-          font-size: 28px;
-          font-weight: 950;
-          box-shadow: 0 0 42px rgba(200,255,47,.45);
-          pointer-events: none;
-        }
-        .tmStoryInfo { padding: 16px 4px 2px; }
-        .tmStoryInfo strong { display: block; font-size: 20px; }
-        .tmStars { margin-top: 5px; color: var(--tm-lime); letter-spacing: 2px; }
-        .tmStoryInfo p { margin: 10px 0 0; color: rgba(255,255,255,.66); line-height: 1.5; font-size: 14px; }
 
         .tmReviews { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 8px; scroll-snap-type: x mandatory; }
         .tmReviews::-webkit-scrollbar { display: none; }
@@ -458,6 +538,7 @@ export default function MobileLanding() {
         .tmReviewInfo { padding: 14px 4px 2px; }
         .tmReview strong { display: block; font-size: 18px; }
         .tmReview small { display: block; margin-top: 4px; color: rgba(255,255,255,.55); }
+        .tmStars { margin-top: 5px; color: var(--tm-lime); letter-spacing: 2px; text-shadow: 0 0 18px rgba(200,255,47,.28); }
         .tmReview p { margin: 10px 0 0; color: rgba(255,255,255,.70); font-size: 13px; line-height: 1.45; }
 
         .tmFaq { display: grid; gap: 10px; }
@@ -493,10 +574,10 @@ export default function MobileLanding() {
           z-index: 999;
           padding: 10px;
           border-radius: 24px;
-          background: rgba(8,11,13,.88);
-          border: 1px solid rgba(200,255,47,.18);
+          background: rgba(8,11,13,.90);
+          border: 1px solid rgba(200,255,47,.20);
           backdrop-filter: blur(20px);
-          box-shadow: 0 22px 70px rgba(0,0,0,.62);
+          box-shadow: 0 22px 70px rgba(0,0,0,.62), 0 0 38px rgba(200,255,47,.10);
         }
         .tmNavRow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 9px; }
         .tmNavRow button { display: grid; place-items: center; gap: 2px; min-height: 44px; border: 0; border-radius: 14px; background: transparent; color: rgba(255,255,255,.62); font-size: 10px; font-weight: 850; }
@@ -519,11 +600,11 @@ export default function MobileLanding() {
         .tmPolicy a { color: var(--tm-lime); font-weight: 850; }
 
         @media (max-width: 390px) {
-          .tmHero { padding-left: 14px; padding-right: 14px; background-size: cover; }
-          .tmCarTabs { gap: 7px; }
-          .tmCarTabs button { font-size: 11px; min-height: 54px; }
-          .tmStoryVideo video { height: 450px; }
-          .tmPrice b { font-size: 39px; }
+          .tmHero { padding-left: 14px; padding-right: 14px; min-height: 76svh; }
+          .tmCarPhoto { min-height: 400px; }
+          .tmPrice b { font-size: 41px; }
+          .tmCalcGrid { grid-template-columns: 1fr; }
+          .tmReview video { height: 330px; }
         }
       `}</style>
 
@@ -551,54 +632,76 @@ export default function MobileLanding() {
             <div><b>✓</b>Решение за 15 минут</div>
             <div><b>✓</b>Авто сегодня</div>
           </div>
-                </div>
+        </div>
       </section>
 
       <section className="tmSection" id="tmCars">
         <div className="tmKicker">Выбор автомобиля</div>
-        <h2>Условия по выбранному авто</h2>
+        <h2>Выберите авто и получите условия</h2>
 
         <div className="tmCarStage">
-          <div className="tmCarNav">
-            <button className="tmArrow" type="button" onClick={prevCar}>‹</button>
-            <div className="tmCarName">
+          <div className="tmCarPhoto" style={{ backgroundImage: `url(${selectedCar.img})` }}>
+            <button className="tmArrow tmArrowLeft" type="button" onClick={prevCar}>‹</button>
+            <button className="tmArrow tmArrowRight" type="button" onClick={nextCar}>›</button>
+
+            <div className="tmCarPhotoTop">
               <strong>{selectedCar.name}</strong>
               <span>{selectedCar.badge}</span>
             </div>
-            <button className="tmArrow" type="button" onClick={nextCar}>›</button>
+
+            <div className="tmPrice tmPriceOnPhoto">
+              <small>от</small>
+              <b>{selectedCar.price}</b>
+              <span>/ сутки</span>
+            </div>
           </div>
 
-          <div className="tmCarVisual">
-            <img src={selectedCar.img} alt={selectedCar.name} />
-          </div>
-
-          <div className="tmPrice">
-            <small>от</small>
-            <b>{selectedCar.price}</b>
-            <span>/ сутки</span>
-          </div>
           <div className="tmMonth">{selectedCar.month}</div>
 
-          <div className="tmCalc">
+          <div className="tmCalcGrid">
             <div className="tmCalcRow">
               <div className="tmCalcIcon">⏱</div>
-              <div><strong>{selectedCar.term}</strong><span>срок аренды с выкупом</span></div>
+              <div>
+                <strong>{selectedCar.term}</strong>
+                <span>срок аренды с выкупом</span>
+              </div>
             </div>
+
             <div className="tmCalcRow">
               <div className="tmCalcIcon">₽</div>
-              <div><strong>{selectedCar.deposit}</strong><span>первоначальный взнос</span></div>
+              <div>
+                <strong>{selectedCar.deposit}</strong>
+                <span>первоначальный взнос</span>
+              </div>
             </div>
           </div>
 
           <div className="tmMiniFeatures">
             {selectedCar.features.map((feature) => (
-              <div key={feature}><b>✓</b><span>{feature}</span></div>
+              <div key={feature}>
+                <b>✓</b>
+                <span>{feature}</span>
+              </div>
             ))}
           </div>
 
           <button className="tmPrimary" type="button" style={{ marginTop: 16 }} onClick={() => openLead(selectedCar.name)}>
-            Получить условия
+            ⚡ Получить условия
           </button>
+
+          <div className="tmThumbs">
+            {cars.map((car, index) => (
+              <button
+                key={car.name}
+                className={`tmThumb ${index === selectedIndex ? "active" : ""}`}
+                type="button"
+                onClick={() => selectCar(index)}
+              >
+                <div className="tmThumbPic" style={{ backgroundImage: `url(${car.img})` }} />
+                <span>{car.short}</span>
+              </button>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -675,26 +778,23 @@ export default function MobileLanding() {
 
       <nav className="tmBottomNav">
         <div className="tmNavRow">
-  <button type="button" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-    <b>⌂</b>
-    <span>Главная</span>
-  </button>
-
-  <button type="button" onClick={() => document.getElementById("tmCars")?.scrollIntoView({ behavior: "smooth" })}>
-    <b>🚘</b>
-    <span>Авто</span>
-  </button>
-
-  <button type="button" onClick={() => document.getElementById("tmReviews")?.scrollIntoView({ behavior: "smooth" })}>
-    <b>★</b>
-    <span>Отзывы</span>
-  </button>
-
-  <button type="button" onClick={() => document.getElementById("tmContacts")?.scrollIntoView({ behavior: "smooth" })}>
-    <b>☎</b>
-    <span>Контакты</span>
-  </button>
-</div>
+          <button type="button" className="active" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+            <b>⌂</b>
+            <span>Главная</span>
+          </button>
+          <button type="button" onClick={() => scrollToId("tmCars")}>
+            <b>🚘</b>
+            <span>Авто</span>
+          </button>
+          <button type="button" onClick={() => scrollToId("tmReviews")}>
+            <b>★</b>
+            <span>Отзывы</span>
+          </button>
+          <button type="button" onClick={() => scrollToId("tmContacts")}>
+            <b>☎</b>
+            <span>Контакты</span>
+          </button>
+        </div>
         <button className="tmPrimary" type="button" onClick={() => openLead()}>Получить предложение</button>
       </nav>
 
