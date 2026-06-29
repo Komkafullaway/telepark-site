@@ -551,7 +551,8 @@ export default function MobileLanding() {
             <div><b>✓</b>Решение за 15 минут</div>
             <div><b>✓</b>Авто сегодня</div>
           </div>
-        </div>
+                </div>
+      </section>
 
       <section className="tmSection" id="tmCars">
         <div className="tmKicker">Выбор автомобиля</div>
