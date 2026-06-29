@@ -546,22 +546,6 @@ export default function MobileLanding() {
         </div>
 
         <div className="tmHeroBottom">
-          <div className="tmChooser">
-            <h2>Какой автомобиль нужен?</h2>
-            <div className="tmCarTabs">
-              {cars.slice(0, 4).map((car, index) => (
-                <button
-                  key={car.name}
-                  type="button"
-                  className={selectedIndex === index ? "active" : ""}
-                  onClick={() => setSelectedIndex(index)}
-                >
-                  {car.short}
-                </button>
-              ))}
-              <button className="tmAllCars" type="button" onClick={() => setSelectedIndex(4)}>Hongqi H5</button>
-            </div>
-          </div>
           <button className="tmPrimary" type="button" onClick={() => openLead()}>Получить предложение</button>
         </div>
       </section>
