@@ -42,14 +42,14 @@ export const metadata: Metadata = {
     title: "Телепарк — авто под выкуп",
     description:
       "Автомобиль под выкуп без банка и лишних условий. Одобрение 99%, решение за 15 минут, авто сегодня.",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Телепарк — авто под выкуп",
-      },
-    ],
+   images: [
+  {
+    url: "/og-image.png?v=2",
+    width: 1200,
+    height: 630,
+    alt: "Телепарк — авто под выкуп",
+  },
+],
   },
 
   twitter: {
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     title: "Телепарк — авто под выкуп",
     description:
       "Автомобиль под выкуп без банка и лишних условий.",
-    images: ["/og-image.png"],
+    images: ["/og-image.png?v=2"],
   },
 
   robots: {
