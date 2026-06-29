@@ -553,11 +553,6 @@ export default function MobileLanding() {
           </div>
         </div>
 
-        <div className="tmHeroBottom">
-          <button className="tmPrimary" type="button" onClick={() => openLead()}>Получить предложение</button>
-        </div>
-      </section>
-
       <section className="tmSection" id="tmCars">
         <div className="tmKicker">Выбор автомобиля</div>
         <h2>Условия по выбранному авто</h2>
