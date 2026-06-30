@@ -574,6 +574,21 @@ export default function MobileLanding() {
         .tmFaq summary::after { content: "+"; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.05); color: var(--tm-lime); font-size: 20px; flex-shrink: 0; }
         .tmFaq details[open] summary::after { content: "×"; }
         .tmFaq p { margin: 0; padding: 0 16px 16px; color: rgba(255,255,255,.62); font-size: 13px; line-height: 1.55; }
+        .tmSeoText {
+  margin: 0 0 18px;
+  color: rgba(255,255,255,.68);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.tmSeoSubtitle {
+  margin: 24px 0 10px;
+  color: #fff;
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 950;
+  letter-spacing: -.3px;
+}
 
         .tmContacts { display: grid; gap: 12px; }
         .tmContact {
@@ -702,21 +717,29 @@ export default function MobileLanding() {
     decoding="async"
   />
 
-  <div className="tmHeroTop">
-    <div className="tmBadge">АВТОМОБИЛЬ ПОД ВЫКУП</div>
-    <h1>БЕЗ БАНКА<br />И <span>ЛИШНИХ</span><br />УСЛОВИЙ</h1>
-    <div className="tmBullets">
-      <div><b>✓</b>Одобрение 99%</div>
-      <div><b>✓</b>Решение за 15 минут</div>
-      <div><b>✓</b>Авто сегодня</div>
-    </div>
+ <div className="tmHeroTop">
+  <div className="tmBadge">АВТОМОБИЛЬ ПОД ВЫКУП</div>
+
+  <h1>
+  БЕЗ БАНКА
+  <br />
+  И <span>ЛИШНИХ</span>
+  <br />
+  УСЛОВИЙ
+</h1>
+
+  <div className="tmBullets">
+    <div><b>✓</b>Одобрение 99%</div>
+    <div><b>✓</b>Решение за 15 минут</div>
+    <div><b>✓</b>Авто сегодня</div>
   </div>
+</div>
 
 </section>
 
       <section className="tmSection" id="tmCars">
         <div className="tmKicker">Выбор автомобиля</div>
-        <h2>Выберите автомобиль</h2>
+        <h2>Автомобили под выкуп в Санкт-Петербурге</h2>
 
         <div className="tmCarStage">
           <div className="tmCarPhoto">
@@ -795,7 +818,7 @@ export default function MobileLanding() {
 
       <section className="tmSection" id="benefits">
         <div className="tmKicker">Почему мы</div>
-        <h2>Почему выбирают ТЕЛЕПАРК</h2>
+        <h2>Почему выбирают Телепарк для аренды автомобиля с выкупом</h2>
         <div className="tmBenefits">
           <div className="tmBenefit"><div className="tmBenefitIcon">🛡</div><strong>Без банка</strong><span>Работаем без участия банков</span></div>
           <div className="tmBenefit"><div className="tmBenefitIcon">⚡</div><strong>15 минут</strong><span>Быстрое решение по заявке</span></div>
@@ -808,7 +831,7 @@ export default function MobileLanding() {
 
       <section className="tmSection" id="tmReviews">
         <div className="tmKicker">Видеоотзывы</div>
-        <h2>Листайте отзывы</h2>
+        <h2>Отзывы клиентов Телепарк</h2>
         <div className="tmReviews">
           {videos.map((video) => (
             <article className="tmReview" key={video[0]}>
@@ -853,10 +876,80 @@ export default function MobileLanding() {
           ))}
         </div>
       </section>
+      <section className="tmSection" id="seo">
+  <div className="tmKicker">Информация</div>
+
+  <h2>Автомобили под выкуп в Санкт-Петербурге без банка</h2>
+
+  <p className="tmSeoText">
+    Телепарк предлагает автомобили под выкуп в Санкт-Петербурге без участия
+    банков и длительного ожидания. Вы можете выбрать автомобиль для личного
+    пользования, работы или такси и оформить его по договору аренды с
+    последующим выкупом. Решение по заявке принимается в течение 15 минут, а
+    получить автомобиль можно уже в день обращения.
+  </p>
+  <h3 className="tmSeoSubtitle">
+  Как проходит оформление
+</h3>
+
+<p className="tmSeoText">
+  Оформление автомобиля под выкуп занимает минимум времени. После подачи
+  заявки менеджер связывается с вами, помогает подобрать подходящую модель,
+  объясняет условия договора и отвечает на все вопросы. После одобрения вы
+  приезжаете в офис, подписываете договор и получаете автомобиль. В большинстве
+  случаев весь процесс занимает один день.
+</p>
+
+<h3 className="tmSeoSubtitle">
+  Кому подходит аренда с выкупом
+</h3>
+
+<p className="tmSeoText">
+  Услуга подходит тем, кто хочет приобрести автомобиль без банковского кредита,
+  использовать машину для личных поездок, работы или такси. Многие клиенты
+  выбирают аренду с выкупом, когда банк отказал в кредите или не хочется
+  переплачивать по кредитным программам. После завершения срока договора
+  автомобиль переходит в собственность клиента.
+</p>
+
+  <h3 className="tmSeoSubtitle">
+    Почему аренда с выкупом выгоднее кредита
+  </h3>
+
+  <p className="tmSeoText">
+    В отличие от банковского кредита, оформление автомобиля под выкуп не
+    требует сложной проверки и большого пакета документов. Мы рассматриваем
+    каждую заявку индивидуально, поэтому даже при сложной кредитной истории
+    вероятность одобрения остаётся высокой. Все условия фиксируются в договоре,
+    а после завершения выплат автомобиль переходит в вашу собственность.
+  </p>
+
+  <h3 className="tmSeoSubtitle">
+    Какие автомобили доступны
+  </h3>
+
+  <p className="tmSeoText">
+    В наличии представлены современные автомобили различных классов: Kia Rio,
+    Hyundai Solaris, Geely Coolray, Hongqi H5, TENET T7 и другие модели. Все
+    автомобили проходят техническую проверку и готовы к эксплуатации сразу после
+    оформления договора.
+  </p>
+  <h3 className="tmSeoSubtitle">
+  Почему выбирают Телепарк
+</h3>
+
+<p className="tmSeoText">
+  Компания «Телепарк» работает в Санкт-Петербурге и помогает клиентам оформить
+  автомобиль под выкуп без участия банков. Мы предлагаем понятные условия,
+  официальный договор, прозрачные платежи и широкий выбор автомобилей. Наша
+  цель — сделать оформление максимально простым и понятным, чтобы вы могли
+  пользоваться автомобилем уже в день обращения.
+</p>
+</section>
 
       <section className="tmSection" id="tmContacts">
         <div className="tmKicker">Контакты</div>
-        <h2>Свяжитесь с нами</h2>
+        <h2>Контакты Телепарк в Санкт-Петербурге</h2>
         <div className="tmContacts">
           <a className="tmContact" href={PHONE_LINK}>
             <div className="tmContactIcon"><PhoneCallIcon /></div>

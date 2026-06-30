@@ -106,6 +106,28 @@ const organizationSchema = {
     name: "Санкт-Петербург",
   },
 };
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+  {
+    "@type": "Question",
+    name: "Можно ли оформить с плохой кредитной историей?",
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: "Да. Мы рассматриваем разные ситуации и часто одобряем заявки, которые банк не принимает.",
+    },
+  },
+  {
+    "@type": "Question",
+    name: "Нужен ли первоначальный взнос?",
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: "Есть автомобили без первоначального взноса. По некоторым моделям условия рассчитываются индивидуально.",
+    },
+  },
+],
+};
 
 export default function RootLayout({
   children,
