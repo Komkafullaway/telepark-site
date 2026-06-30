@@ -12,8 +12,6 @@
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
-    "framer-motion": "latest",
-    "lucide-react": "latest",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
