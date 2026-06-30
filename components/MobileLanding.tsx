@@ -270,7 +270,18 @@ export default function MobileLanding() {
   return (
     <main className="tm" id="top">
       <style>{`
-        
+        .tmHeroTrust {
+  margin-top: 18px;
+  color: rgba(255,255,255,.82);
+  font-size: 14px;
+  line-height: 1.6;
+  text-shadow: 0 8px 20px rgba(0,0,0,.5);
+}
+
+.tmHeroTrust strong {
+  color: var(--tm-lime);
+  font-weight: 900;
+}
 
         :root {
           --tm-bg: #050607;
@@ -733,6 +744,10 @@ export default function MobileLanding() {
     <div><b>✓</b>Решение за 15 минут</div>
     <div><b>✓</b>Авто сегодня</div>
   </div>
+  <div className="tmHeroTrust">
+  Уже передали клиентам <strong>более 50 автомобилей</strong> • Официальный
+  договор • Выдача автомобиля <strong>в течение суток</strong>
+</div>
 </div>
 
 </section>
@@ -941,7 +956,7 @@ export default function MobileLanding() {
 <p className="tmSeoText">
   Компания «Телепарк» работает в Санкт-Петербурге и помогает клиентам оформить
   автомобиль под выкуп без участия банков. Мы предлагаем понятные условия,
-  официальный договор, прозрачные платежи и широкий выбор автомобилей. Наша
+  50+ автомобилей передано • Работаем официально • Выдача в течение суток, прозрачные платежи и широкий выбор автомобилей. Наша
   цель — сделать оформление максимально простым и понятным, чтобы вы могли
   пользоваться автомобилем уже в день обращения.
 </p>
