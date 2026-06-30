@@ -1,5 +1,6 @@
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://tpark.ru"),
@@ -124,9 +125,13 @@ const organizationSchema = {
   },
   geo: {
   "@type": "GeoCoordinates",
-  latitude: 59.8487,
-  longitude: 30.4574,
+  latitude: 59.85125,
+  longitude: 30.479254,
 },
+sameAs: [
+  "https://t.me/telepark1",
+  "https://max.ru/id7811810344_biz",
+],
 };
 
 const faqSchema = {
@@ -163,15 +168,48 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru">
-      <body>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLd),
-          }}
-        />
-        {children}
-      </body>
+    <body>
+  <Script id="yandex-metrika" strategy="afterInteractive">
+    {`
+      (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {
+          if (document.scripts[j].src === r) { return; }
+        }
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+      })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110291694', 'ym');
+
+      ym(110291694, 'init', {
+        ssr: true,
+        webvisor: true,
+        clickmap: true,
+        ecommerce: "dataLayer",
+        accurateTrackBounce: true,
+        trackLinks: true
+      });
+    `}
+  </Script>
+
+  <noscript>
+    <div>
+      <img
+        src="https://mc.yandex.ru/watch/110291694"
+        style={{ position: "absolute", left: "-9999px" }}
+        alt=""
+      />
+    </div>
+  </noscript>
+
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify(jsonLd),
+    }}
+  />
+
+  {children}
+</body>
     </html>
   );
 }
