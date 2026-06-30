@@ -93,7 +93,7 @@ const cars: Car[] = [
     short: "H5",
     year: "2023",
     gearbox: "АКПП",
-    img: "/New/Н5SPB.png",
+    img: "/New/H5SPB.png",
     price: "4 950 ₽",
     month: "≈ 148 500 ₽ / месяц",
     term: "24 месяца",
