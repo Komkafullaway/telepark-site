@@ -269,7 +269,7 @@ export default function MobileLanding() {
   return (
     <main className="tm" id="top">
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap');
+        
 
         :root {
           --tm-bg: #050607;
