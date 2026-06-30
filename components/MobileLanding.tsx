@@ -32,7 +32,7 @@ const cars: Car[] = [
     short: "TENET",
     year: "2026",
     gearbox: "АКПП",
-    img: "/New/TenetSPB.png",
+    img: "/New/TenetSPB.webp",
     heroImg: "/New/TenetSPB.webp",
     price: "3 800 ₽",
     month: "≈ 115 000 ₽ / месяц",
