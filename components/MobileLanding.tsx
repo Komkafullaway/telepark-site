@@ -720,12 +720,12 @@ export default function MobileLanding() {
  <div className="tmHeroTop">
   <div className="tmBadge">АВТОМОБИЛЬ ПОД ВЫКУП</div>
 
-  <h1>
-  БЕЗ БАНКА
+ <h1>
+  АВТО
   <br />
-  И <span>ЛИШНИХ</span>
+  ПОД ВЫКУП
   <br />
-  УСЛОВИЙ
+  БЕЗ <span>БАНКА</span>
 </h1>
 
   <div className="tmBullets">
