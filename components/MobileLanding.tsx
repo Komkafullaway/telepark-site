@@ -227,6 +227,7 @@ export default function MobileLanding() {
   const [phone, setPhone] = useState("+7");
   const [selectedCarName, setSelectedCarName] = useState(cars[0].name);
   const [activeNav, setActiveNav] = useState("top");
+  const [playingVideo, setPlayingVideo] = useState<string | null>(null);
 
   const selectedCar = cars[selectedIndex];
 
@@ -513,6 +514,30 @@ export default function MobileLanding() {
         .tmReviews::-webkit-scrollbar { display: none; }
         .tmReview { flex: 0 0 86%; scroll-snap-align: center; padding: 12px; border-radius: 24px; background: linear-gradient(180deg, rgba(17,22,26,.90), rgba(7,8,9,.96)); border: 1px solid rgba(200,255,47,.12); box-shadow: inset 0 1px 0 rgba(255,255,255,.04); }
         .tmReview video { width: 100%; height: 360px; object-fit: cover; border-radius: 18px; background: #111; }
+        .tmVideoPreview {
+  width: 100%;
+  height: 360px;
+  border: 0;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(200,255,47,.18), transparent 34%),
+    linear-gradient(180deg, rgba(17,22,26,.92), rgba(5,6,7,.96));
+  display: grid;
+  place-items: center;
+  color: #050607;
+}
+
+.tmVideoPreview span {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--tm-lime), var(--tm-lime-2));
+  font-size: 28px;
+  font-weight: 950;
+  box-shadow: 0 0 36px rgba(200,255,47,.35);
+}
         .tmReviewInfo { padding: 14px 4px 2px; }
         .tmReview strong { display: block; font-size: 18px; }
         .tmReview small { display: block; margin-top: 4px; color: rgba(255,255,255,.55); }
@@ -748,13 +773,24 @@ export default function MobileLanding() {
         <div className="tmReviews">
           {videos.map((video) => (
             <article className="tmReview" key={video[0]}>
-              <video
-  muted
-  controls
-  playsInline
-  preload="none"
-  src={`/videos/${video[0]}`}
-/>
+              {playingVideo === video[0] ? (
+  <video
+    controls
+    autoPlay
+    playsInline
+    preload="auto"
+    src={`/videos/${video[0]}`}
+  />
+) : (
+  <button
+    className="tmVideoPreview"
+    type="button"
+    onClick={() => setPlayingVideo(video[0])}
+    aria-label="Смотреть видеоотзыв"
+  >
+    <span>▶</span>
+  </button>
+)}
               <div className="tmReviewInfo">
                 <strong>{video[1]}</strong>
                 <small>{video[2]}</small>
