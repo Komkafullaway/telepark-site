@@ -107,28 +107,31 @@ const organizationSchema = {
   },
 };
 const faqSchema = {
-  "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: [
-  {
-    "@type": "Question",
-    name: "Можно ли оформить с плохой кредитной историей?",
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: "Да. Мы рассматриваем разные ситуации и часто одобряем заявки, которые банк не принимает.",
+    {
+      "@type": "Question",
+      name: "Можно ли оформить с плохой кредитной историей?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Да. Мы рассматриваем разные ситуации и часто одобряем заявки, которые банк не принимает.",
+      },
     },
-  },
-  {
-    "@type": "Question",
-    name: "Нужен ли первоначальный взнос?",
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: "Есть автомобили без первоначального взноса. По некоторым моделям условия рассчитываются индивидуально.",
+    {
+      "@type": "Question",
+      name: "Нужен ли первоначальный взнос?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Есть автомобили без первоначального взноса. По некоторым моделям условия рассчитываются индивидуально.",
+      },
     },
-  },
-],
+  ],
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [organizationSchema, faqSchema],
+};
 
 export default function RootLayout({
   children,
@@ -138,24 +141,12 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body>
-  <script
-    type="application/ld+json"
-    dangerouslySetInnerHTML={{
-      __html: JSON.stringify(jsonLd),
-    }}
-  />
-  {children}
-</body>
         <script
-  type="application/ld+json"
-  dangerouslySetInnerHTML={{
-    __html: JSON.stringify(faqSchema),
-  }}
-/>
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [organizationSchema, faqSchema],
-};
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd),
+          }}
+        />
         {children}
       </body>
     </html>
