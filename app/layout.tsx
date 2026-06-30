@@ -95,6 +95,22 @@ const organizationSchema = {
   email: "info@tpark.ru",
   telephone: "+79013711584",
   priceRange: "₽₽",
+  openingHoursSpecification: [
+  {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday",
+    ],
+    opens: "09:00",
+    closes: "18:00",
+  },
+],
   address: {
     "@type": "PostalAddress",
     postalCode: "192012",
@@ -106,7 +122,13 @@ const organizationSchema = {
     "@type": "City",
     name: "Санкт-Петербург",
   },
+  geo: {
+  "@type": "GeoCoordinates",
+  latitude: 59.8487,
+  longitude: 30.4574,
+},
 };
+
 const faqSchema = {
   "@type": "FAQPage",
   mainEntity: [
