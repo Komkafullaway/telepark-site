@@ -4,9 +4,10 @@ import type { Metadata, Viewport } from "next";
 export const metadata: Metadata = {
   metadataBase: new URL("https://tpark.ru"),
 
-  verification: {
-    google: "dCH-UYbFICNFbl_pHmZzqJXonyjeZtbewojovGGqKXk",
-  },
+ verification: {
+  google: "dCH-UYbFICNFbl_pHmZzqJXonyjeZtbewojovGGqKXk",
+  yandex: "6aff71feb4cd87e9",
+},
 
   alternates: {
     canonical: "/",
