@@ -33,7 +33,7 @@ const cars: Car[] = [
     year: "2026",
     gearbox: "АКПП",
     img: "/New/TenetSPB.png",
-    heroImg: "/New/TenetSPB.png",
+    heroImg: "/New/TenetSPB.webp",
     price: "3 800 ₽",
     month: "≈ 115 000 ₽ / месяц",
     term: "48 месяцев",
@@ -48,7 +48,7 @@ const cars: Car[] = [
     short: "Coolray",
     year: "2022",
     gearbox: "АКПП",
-    img: "/New/CoolraySPB.png",
+    img: "/New/CoolraySPB.webp",
     price: "2 950 ₽",
     month: "≈ 88 500 ₽ / месяц",
     term: "18 месяцев",
@@ -63,7 +63,7 @@ const cars: Car[] = [
     short: "Rio",
     year: "2022",
     gearbox: "АКПП",
-    img: "/New/RioSPB.png",
+    img: "/New/RioSPB.webp",
     price: "2 950 ₽",
     month: "≈ 88 500 ₽ / месяц",
     term: "16 месяцев",
@@ -78,7 +78,7 @@ const cars: Car[] = [
     short: "Solaris",
     year: "2021",
     gearbox: "АКПП",
-    img: "/New/SolarisSPB.png",
+    img: "/New/SolarisSPB.webp",
     price: "2 500 ₽",
     month: "≈ 75 000 ₽ / месяц",
     term: "16 месяцев",
@@ -93,7 +93,7 @@ const cars: Car[] = [
     short: "H5",
     year: "2023",
     gearbox: "АКПП",
-    img: "/New/Н5SPB.png",
+    img: "/New/Н5SPB.webp",
     price: "4 950 ₽",
     month: "≈ 148 500 ₽ / месяц",
     term: "24 месяца",
@@ -647,13 +647,7 @@ export default function MobileLanding() {
       <section className="tmHero">
         <div className="tmHeroTop">
           <div className="tmBadge">АВТОМОБИЛЬ ПОД ВЫКУП</div>
-          <h1>
-  Авто под выкуп
-  <br />
-  <span>в Санкт-Петербурге</span>
-  <br />
-  без банка
-</h1>
+          <h1>БЕЗ БАНКА<br />И <span>ЛИШНИХ</span><br />УСЛОВИЙ</h1>
           <div className="tmBullets">
             <div><b>✓</b>Одобрение 99%</div>
             <div><b>✓</b>Решение за 15 минут</div>
@@ -800,12 +794,12 @@ export default function MobileLanding() {
           </a>
           <div className="tmContact">
             <div className="tmContactIcon"><MapPinIcon /></div>
-            <div><strong>Адрес офиса</strong><span>Санкт-Петербург, пр-т Обуховской Обороны, 271А, помещение 7-Н</span></div>
+            <div><strong>Адрес офиса</strong><span>Санкт-Петербург, пр-т Обуховской Обороны, 271А</span></div>
             <div className="tmContactArrow"><ChevronIcon /></div>
           </div>
           <div className="tmContact">
             <div className="tmContactIcon"><ClockIcon /></div>
-            <div><strong>Работаем ежедневно</strong><span>с 9:00 до 22:00</span></div>
+            <div><strong>Работаем ежедневно</strong><span>с 9:00 до 18:00</span></div>
             <div className="tmContactArrow"><ChevronIcon /></div>
           </div>
         </div>
