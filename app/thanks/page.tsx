@@ -1,3 +1,19 @@
+export const metadata = {
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
+
+export default async function ThanksPage({
+  searchParams,
+}: {
+  searchParams?: Promise<{
+    name?: string;
+    car?: string;
+    request?: string;
+  }>;
+}) {
 export default async function ThanksPage({
   searchParams,
 }: {
