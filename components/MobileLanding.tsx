@@ -647,7 +647,13 @@ export default function MobileLanding() {
       <section className="tmHero">
         <div className="tmHeroTop">
           <div className="tmBadge">АВТОМОБИЛЬ ПОД ВЫКУП</div>
-          <h1>БЕЗ БАНКА<br />И <span>ЛИШНИХ</span><br />УСЛОВИЙ</h1>
+          <h1>
+  Авто под выкуп
+  <br />
+  <span>в Санкт-Петербурге</span>
+  <br />
+  без банка
+</h1>
           <div className="tmBullets">
             <div><b>✓</b>Одобрение 99%</div>
             <div><b>✓</b>Решение за 15 минут</div>
