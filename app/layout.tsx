@@ -94,6 +94,7 @@ const organizationSchema = {
   image: "https://tpark.ru/og-telepark-v3.png",
   email: "info@tpark.ru",
   telephone: "+79013711584",
+  priceRange: "₽₽",
   address: {
     "@type": "PostalAddress",
     postalCode: "192012",
