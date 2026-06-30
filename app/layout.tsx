@@ -129,6 +129,7 @@ const faqSchema = {
 ],
 };
 
+
 export default function RootLayout({
   children,
 }: {
@@ -137,12 +138,24 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body>
+  <script
+    type="application/ld+json"
+    dangerouslySetInnerHTML={{
+      __html: JSON.stringify(jsonLd),
+    }}
+  />
+  {children}
+</body>
         <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema),
-          }}
-        />
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify(faqSchema),
+  }}
+/>
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [organizationSchema, faqSchema],
+};
         {children}
       </body>
     </html>
