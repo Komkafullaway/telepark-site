@@ -32,8 +32,8 @@ const cars: Car[] = [
     short: "TENET",
     year: "2026",
     gearbox: "АКПП",
-    img: "/New/TenetSPB.png",
-    heroImg: "/New/TenetSPB.png",
+    img: "/New/TenetSPB.webp",
+    heroImg: "/New/TenetSPB.webp",
     price: "3 800 ₽",
     month: "≈ 115 000 ₽ / месяц",
     term: "48 месяцев",
@@ -48,7 +48,7 @@ const cars: Car[] = [
     short: "Coolray",
     year: "2022",
     gearbox: "АКПП",
-    img: "/New/CoolraySPB.png",
+    img: "/New/CoolraySPB.webp",
     price: "2 950 ₽",
     month: "≈ 88 500 ₽ / месяц",
     term: "18 месяцев",
@@ -63,7 +63,7 @@ const cars: Car[] = [
     short: "Rio",
     year: "2022",
     gearbox: "АКПП",
-    img: "/New/RioSPB.png",
+    img: "/New/RioSPB.webp",
     price: "2 950 ₽",
     month: "≈ 88 500 ₽ / месяц",
     term: "16 месяцев",
@@ -78,7 +78,7 @@ const cars: Car[] = [
     short: "Solaris",
     year: "2021",
     gearbox: "АКПП",
-    img: "/New/SolarisSPB.png",
+    img: "/New/SolarisSPB.webp",
     price: "2 500 ₽",
     month: "≈ 75 000 ₽ / месяц",
     term: "16 месяцев",
@@ -93,7 +93,7 @@ const cars: Car[] = [
     short: "H5",
     year: "2023",
     gearbox: "АКПП",
-    img: "/New/H5SPB.png",
+    img: "/New/H5SPB.webp",
     price: "4 950 ₽",
     month: "≈ 148 500 ₽ / месяц",
     term: "24 месяца",
@@ -357,7 +357,7 @@ export default function MobileLanding() {
           align-items: flex-start;
           background:
             linear-gradient(180deg, rgba(5,6,7,0) 0%, rgba(5,6,7,.10) 44%, rgba(5,6,7,.64) 78%, #050607 100%),
-            url('/New/TenetSPB.png');
+            url('/New/TenetSPB.webp');
           background-size: cover;
           background-position: center 18%;
           background-repeat: no-repeat;
