@@ -79,6 +79,29 @@ export const viewport: Viewport = {
   themeColor: "#0B0D0F",
 };
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "ООО «Телепарк»",
+  alternateName: "Телепарк",
+  url: "https://tpark.ru/",
+  logo: "https://tpark.ru/telepark-logo.png",
+  image: "https://tpark.ru/og-telepark-v3.png",
+  email: "info@tpark.ru",
+  telephone: "+79013711584",
+  address: {
+    "@type": "PostalAddress",
+    postalCode: "192012",
+    addressCountry: "RU",
+    addressLocality: "Санкт-Петербург",
+    streetAddress: "пр-т Обуховской Обороны, 271А, помещение 7-Н",
+  },
+  areaServed: {
+    "@type": "City",
+    name: "Санкт-Петербург",
+  },
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -86,7 +109,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru">
-      <body>{children}</body>
+      <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
+        {children}
+      </body>
     </html>
   );
 }
