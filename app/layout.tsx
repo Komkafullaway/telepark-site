@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     title: "Авто под выкуп в Санкт-Петербурге без банка — Телепарк",
     description:
       "Авто под выкуп в Санкт-Петербурге без банка. Одобрение за 15 минут, выдача авто в день обращения.",
-    images: ["/og-telepark-v3.png"],
+    images: ["/og-telepark-v4.png"],
   },
 
   robots: {
