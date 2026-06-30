@@ -2401,11 +2401,13 @@ margin:25px 20px 45px;
   <div className="mobileV2Hero">
     <div className="mobileV2Badge">АВТОМОБИЛЬ ПОД ВЫКУП</div>
 
-    <h1>
-      БЕЗ БАНКА<br />
-      И <span>ЛИШНИХ</span><br />
-      УСЛОВИЙ
-    </h1>
+    <<h1>
+  Авто под выкуп
+  <br />
+  <span>в Санкт-Петербурге</span>
+  <br />
+  без банка
+</h1>
 
     <p>
       Одобрение 99% • Решение за 15 минут<br />
