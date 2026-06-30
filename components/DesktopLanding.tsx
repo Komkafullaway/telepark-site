@@ -200,6 +200,17 @@ export default function DesktopLanding() {
     <>
       <style>{`
         
+        .heroTrustLine {
+  margin-top: 18px;
+  color: rgba(255,255,255,.82);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.heroTrustLine strong {
+  color: var(--lime);
+  font-weight: 900;
+}
 
         :root {
           --bg: #050607;
@@ -2572,6 +2583,10 @@ margin:25px 20px 45px;
               <p className="heroLead">
                 Премиальный подбор авто для работы, семьи и бизнеса. Официальный договор, прозрачный платёж и выдача в день обращения.
               </p>
+              <div className="heroTrustLine">
+  ✓ Уже передали клиентам более <strong>50 автомобилей</strong> • Одобрение за
+  <strong> 15 минут</strong> • Выдача автомобиля <strong>в течение суток</strong>
+</div>
 
               <div className="heroOfferRow">
                 <div className="heroBenefits">
