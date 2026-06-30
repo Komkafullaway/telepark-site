@@ -14,15 +14,7 @@ export default async function ThanksPage({
     request?: string;
   }>;
 }) {
-export default async function ThanksPage({
-  searchParams,
-}: {
-  searchParams?: Promise<{
-    name?: string;
-    car?: string;
-    request?: string;
-  }>;
-}) {
+
   const params = await searchParams;
 
   const name = params?.name || "Спасибо";
