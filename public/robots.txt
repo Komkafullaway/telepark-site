@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Host: tpark.ru
+
+Sitemap: https://tpark.ru/sitemap.xml
