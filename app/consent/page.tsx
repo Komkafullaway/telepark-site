@@ -1,3 +1,12 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Согласие на обработку персональных данных — Телепарк",
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 export default function ConsentPage() {
   return (
     <main className="consentPage">
