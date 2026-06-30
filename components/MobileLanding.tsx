@@ -350,19 +350,42 @@ export default function MobileLanding() {
         }
 
         .tmHero {
-          min-height: 82svh;
-          position: relative;
-          overflow: hidden;
-          padding: 104px 18px 28px;
-          display: flex;
-          align-items: flex-start;
-          background:
-            linear-gradient(180deg, rgba(5,6,7,0) 0%, rgba(5,6,7,.10) 44%, rgba(5,6,7,.64) 78%, #050607 100%),
-            url('/New/TenetSPB.webp');
-          background-size: cover;
-          background-position: center 18%;
-          background-repeat: no-repeat;
-        }
+  min-height: 82svh;
+  position: relative;
+  overflow: hidden;
+  padding: 104px 18px 28px;
+  display: flex;
+  align-items: flex-start;
+  background:
+    linear-gradient(180deg, rgba(5,6,7,0) 0%, rgba(5,6,7,.10) 44%, rgba(5,6,7,.64) 78%, #050607 100%);
+  background-size: cover;
+  background-position: center 18%;
+  background-repeat: no-repeat;
+}
+  .tmHeroImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+  z-index: 0;
+}
+
+.tmHero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(5,6,7,0) 0%,
+    rgba(5,6,7,.10) 44%,
+    rgba(5,6,7,.64) 78%,
+    #050607 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
 
         .tmHeroTop { position: relative; z-index: 2; width: 100%; }
         .tmBadge {
@@ -670,16 +693,26 @@ export default function MobileLanding() {
       </header>
 
       <section className="tmHero">
-        <div className="tmHeroTop">
-          <div className="tmBadge">АВТОМОБИЛЬ ПОД ВЫКУП</div>
-          <h1>БЕЗ БАНКА<br />И <span>ЛИШНИХ</span><br />УСЛОВИЙ</h1>
-          <div className="tmBullets">
-            <div><b>✓</b>Одобрение 99%</div>
-            <div><b>✓</b>Решение за 15 минут</div>
-            <div><b>✓</b>Авто сегодня</div>
-          </div>
-        </div>
-      </section>
+
+  <img
+    className="tmHeroImg"
+    src="/New/TenetSPB.webp"
+    alt=""
+    fetchPriority="high"
+    decoding="async"
+  />
+
+  <div className="tmHeroTop">
+    <div className="tmBadge">АВТОМОБИЛЬ ПОД ВЫКУП</div>
+    <h1>БЕЗ БАНКА<br />И <span>ЛИШНИХ</span><br />УСЛОВИЙ</h1>
+    <div className="tmBullets">
+      <div><b>✓</b>Одобрение 99%</div>
+      <div><b>✓</b>Решение за 15 минут</div>
+      <div><b>✓</b>Авто сегодня</div>
+    </div>
+  </div>
+
+</section>
 
       <section className="tmSection" id="tmCars">
         <div className="tmKicker">Выбор автомобиля</div>
@@ -688,7 +721,13 @@ export default function MobileLanding() {
         <div className="tmCarStage">
           <div className="tmCarPhoto">
             <div className="tmCarPhotoBg" style={{ backgroundImage: `url(${selectedCar.img})` }} />
-            <img className="tmCarMainImg" src={selectedCar.img} alt={selectedCar.name} />
+            <img
+  className="tmCarMainImg"
+  src={selectedCar.img}
+  alt={selectedCar.name}
+  fetchPriority="high"
+  decoding="async"
+/>
             <button className="tmArrow tmArrowLeft" type="button" onClick={prevCar}>‹</button>
             <button className="tmArrow tmArrowRight" type="button" onClick={nextCar}>›</button>
 
