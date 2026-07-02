@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 
+import MobileHero from "./mobile/MobileHero";
+
 import { useEffect, useState } from "react";
 
 const TELEGRAM_LINK = "https://t.me/teleparkgdel";
