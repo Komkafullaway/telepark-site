@@ -566,3 +566,401 @@ img { max-width: 100%; display: block; }
 .tmCatalogCard span {
   display: block;
 }
+.tmCarV2 {
+  min-height: 100vh;
+  padding-bottom: 36px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(200,255,47,.12), transparent 32%),
+    linear-gradient(180deg, #050607 0%, #080d10 42%, #050607 100%);
+  color: #fff;
+}
+
+.tmCarV2Hero {
+  padding: 18px 14px 30px;
+}
+
+.tmCarV2Back {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  margin-bottom: 14px;
+  color: rgba(255,255,255,.78);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.tmCarV2Media {
+  position: relative;
+  min-height: 470px;
+  overflow: hidden;
+  border-radius: 30px;
+  background: #080b0d;
+  border: 1px solid rgba(200,255,47,.18);
+  box-shadow: 0 24px 70px rgba(0,0,0,.55);
+}
+
+.tmCarV2Media img {
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(1.05) contrast(1.06);
+}
+
+.tmCarV2Media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(5,6,7,.32) 0%, rgba(5,6,7,.05) 38%, rgba(5,6,7,.86) 100%),
+    radial-gradient(circle at 50% 75%, rgba(200,255,47,.14), transparent 42%);
+  pointer-events: none;
+}
+
+.tmCarV2Overlay {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  top: 22px;
+  z-index: 2;
+}
+
+.tmCarV2Badge {
+  display: inline-flex;
+  padding: 8px 13px;
+  border-radius: 999px;
+  background: rgba(200,255,47,.13);
+  border: 1px solid rgba(200,255,47,.28);
+  color: var(--tm-lime);
+  font-size: 12px;
+  font-weight: 950;
+}
+
+.tmCarV2Overlay h1 {
+  margin: 20px 0 10px;
+  font-size: clamp(52px, 15vw, 78px);
+  line-height: .86;
+  letter-spacing: -3px;
+  font-weight: 950;
+  text-transform: uppercase;
+  text-shadow: 0 18px 42px rgba(0,0,0,.72);
+}
+
+.tmCarV2Overlay p {
+  margin: 0;
+  color: rgba(255,255,255,.88);
+  font-size: 18px;
+  line-height: 1.28;
+  font-weight: 750;
+  text-shadow: 0 12px 28px rgba(0,0,0,.72);
+}
+
+.tmCarV2Offer {
+  position: relative;
+  z-index: 3;
+  margin: -36px 14px 0;
+  padding: 22px 20px 18px;
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 30% 0%, rgba(200,255,47,.16), transparent 42%),
+    linear-gradient(180deg, rgba(20,27,30,.96), rgba(9,12,14,.98));
+  border: 1px solid rgba(200,255,47,.16);
+  box-shadow: 0 22px 60px rgba(0,0,0,.48);
+}
+
+.tmCarV2Price {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.tmCarV2Price strong {
+  color: var(--tm-lime);
+  font-size: 48px;
+  line-height: .9;
+  letter-spacing: -1.8px;
+  font-weight: 950;
+  text-shadow: 0 0 28px rgba(200,255,47,.42);
+}
+
+.tmCarV2Price span {
+  margin-bottom: 6px;
+  color: rgba(255,255,255,.84);
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.tmCarV2Offer p {
+  margin: 12px 0 18px;
+  color: rgba(255,255,255,.72);
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.tmCarV2Button {
+  min-height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--tm-lime), var(--tm-lime-2));
+  color: #050607;
+  font-size: 16px;
+  font-weight: 950;
+  box-shadow: 0 0 42px rgba(200,255,47,.34);
+}
+
+.tmCarV2Button b {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(5,6,7,.92);
+  color: var(--tm-lime);
+  font-size: 28px;
+  line-height: 1;
+}
+
+.tmCarV2Offer small {
+  display: block;
+  margin-top: 14px;
+  color: rgba(255,255,255,.56);
+  font-size: 12px;
+  text-align: center;
+}
+
+.tmCarV2Quick {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.tmCarV2Quick div {
+  min-height: 116px;
+  padding: 12px 7px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.035));
+  border: 1px solid rgba(255,255,255,.08);
+  text-align: center;
+}
+
+.tmCarV2Quick b {
+  width: 42px;
+  height: 42px;
+  margin: 0 auto 10px;
+  display: grid;
+  place-items: center;
+  border-radius: 15px;
+  border: 1px solid rgba(200,255,47,.32);
+  color: var(--tm-lime);
+  background: rgba(200,255,47,.08);
+  font-size: 18px;
+}
+
+.tmCarV2Quick span {
+  display: block;
+  color: rgba(255,255,255,.82);
+  font-size: 11px;
+  line-height: 1.25;
+  font-weight: 850;
+}
+
+.tmCarV2Section {
+  padding: 26px 18px;
+}
+
+.tmCarV2Section h2,
+.tmCarV2Final h2 {
+  margin: 8px 0 18px;
+  font-size: 30px;
+  line-height: 1.02;
+  letter-spacing: -.9px;
+  font-weight: 950;
+}
+
+.tmCarV2List {
+  display: grid;
+  gap: 10px;
+}
+
+.tmCarV2List div {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  min-height: 58px;
+  padding: 14px 16px;
+  border-radius: 17px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.07);
+}
+
+.tmCarV2List b {
+  color: var(--tm-lime);
+  font-size: 18px;
+}
+
+.tmCarV2List span {
+  color: rgba(255,255,255,.88);
+  font-size: 15px;
+  font-weight: 750;
+}
+
+.tmCarV2Conditions,
+.tmCarV2Specs {
+  display: grid;
+  gap: 10px;
+}
+
+.tmCarV2Conditions div,
+.tmCarV2Specs div {
+  padding: 16px;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(200,255,47,.08), transparent 38%),
+    rgba(255,255,255,.055);
+  border: 1px solid rgba(255,255,255,.075);
+}
+
+.tmCarV2Conditions span,
+.tmCarV2Specs span {
+  display: block;
+  color: rgba(255,255,255,.58);
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.tmCarV2Conditions b,
+.tmCarV2Specs b {
+  display: block;
+  color: #fff;
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+.tmCarV2Video {
+  width: 100%;
+  border-radius: 22px;
+  background: #111;
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: 0 20px 55px rgba(0,0,0,.38);
+}
+
+.tmCarV2Similar {
+  display: grid;
+  gap: 10px;
+}
+
+.tmCarV2Similar a {
+  display: grid;
+  grid-template-columns: 86px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 10px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.055);
+  border: 1px solid rgba(255,255,255,.075);
+}
+
+.tmCarV2Similar img {
+  width: 86px;
+  height: 62px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.tmCarV2Similar strong,
+.tmCarV2Similar span {
+  display: block;
+}
+
+.tmCarV2Similar strong {
+  font-size: 15px;
+}
+
+.tmCarV2Similar span {
+  margin-top: 4px;
+  color: rgba(255,255,255,.56);
+  font-size: 12px;
+}
+
+.tmCarV2Similar b {
+  color: var(--tm-lime);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.tmCarV2Final {
+  margin: 18px;
+  padding: 22px;
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at 15% 0%, rgba(200,255,47,.14), transparent 42%),
+    linear-gradient(180deg, rgba(20,27,30,.94), rgba(7,9,10,.98));
+  border: 1px solid rgba(200,255,47,.16);
+}
+
+.tmCarV2Final p {
+  margin: -6px 0 18px;
+  color: rgba(255,255,255,.68);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+@media (min-width: 769px) {
+  .tmCarV2 {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 390px) {
+  .tmCarV2Hero {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .tmCarV2Media {
+    min-height: 430px;
+  }
+
+  .tmCarV2Overlay h1 {
+    font-size: 50px;
+  }
+
+  .tmCarV2Price strong {
+    font-size: 42px;
+  }
+
+  .tmCarV2Quick {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.tmCarV2Payments {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.tmCarV2Payments div {
+  padding: 18px;
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at 30% 0%, rgba(200,255,47,.12), transparent 42%),
+    rgba(255,255,255,.055);
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+.tmCarV2Payments span {
+  display: block;
+  margin-bottom: 7px;
+  color: rgba(255,255,255,.58);
+  font-size: 13px;
+}
+
+.tmCarV2Payments b {
+  display: block;
+  color: var(--tm-lime);
+  font-size: 21px;
+  line-height: 1.1;
+}

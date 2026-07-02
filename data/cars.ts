@@ -1,4 +1,5 @@
 export type Car = {
+  slug: string;
   name: string;
   short: string;
   year: string;
@@ -17,6 +18,7 @@ export type Car = {
 
 export const cars: Car[] = [
   {
+    slug: "tenet-t7",
     name: "TENET T7",
     short: "TENET",
     year: "2026",
@@ -33,6 +35,7 @@ export const cars: Car[] = [
     features: ["ОСАГО + КАСКО в подарок", "Без ограничений по пробегу", "Одобрение 99%"],
   },
   {
+    slug: "geely-coolray",
     name: "Geely Coolray",
     short: "Coolray",
     year: "2022",
@@ -48,6 +51,7 @@ export const cars: Car[] = [
     features: ["Без первоначального взноса", "ОСАГО + КАСКО в подарок", "Через 18 месяцев авто ваше"],
   },
   {
+    slug: "kia-rio",
     name: "Kia Rio",
     short: "Rio",
     year: "2022",
@@ -63,6 +67,7 @@ export const cars: Car[] = [
     features: ["Подходит для такси", "Без ограничений по пробегу", "Авто ваше через 16 месяцев"],
   },
   {
+    slug: "hyundai-solaris",
     name: "Hyundai Solaris",
     short: "Solaris",
     year: "2021",
@@ -78,6 +83,7 @@ export const cars: Car[] = [
     features: ["Самый доступный платёж", "Всё включено", "Одобрение за 15 минут"],
   },
   {
+    slug: "hongqi-h5",
     name: "Hongqi H5",
     short: "H5",
     year: "2023",
