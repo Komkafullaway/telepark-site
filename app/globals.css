@@ -529,3 +529,40 @@ img { max-width: 100%; display: block; }
           .tmLeadCar img { width:116px; height:112px; }
           .tmLeadPrice span { font-size:21px; }
         }
+.tmCatalogGrid {
+  display: grid;
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.tmCatalogCard {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.tmCatalogCard img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.tmCatalogCard div {
+  padding: 18px;
+}
+
+.tmCatalogCard h2 {
+  margin: 0 0 8px;
+  font-size: 22px;
+}
+
+.tmCatalogCard p {
+  margin: 0 0 10px;
+  opacity: 0.75;
+}
+
+.tmCatalogCard strong,
+.tmCatalogCard span {
+  display: block;
+}
