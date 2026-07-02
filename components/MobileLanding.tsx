@@ -4,6 +4,8 @@ import Image from "next/image";
 
 import MobileHero from "./mobile/MobileHero";
 
+import MobileFaq from "./mobile/MobileFaq";
+
 import { useEffect, useState } from "react";
 
 const TELEGRAM_LINK = "https://t.me/teleparkgdel";
@@ -453,18 +455,9 @@ export default function MobileLanding() {
         </div>
       </section>
 
-      <section className="tmSection" id="faq">
-        <div className="tmKicker">FAQ</div>
-        <h2>Часто задаваемые вопросы</h2>
-        <div className="tmFaq">
-          {faqs.map(([question, answer]) => (
-            <details key={question}>
-              <summary>{question}</summary>
-              <p>{answer}</p>
-            </details>
-          ))}
-        </div>
-      </section>
+<MobileFaq />
+
+      
       <section className="tmSection" id="seo">
   <div className="tmKicker">Информация</div>
 
