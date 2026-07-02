@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import { useEffect, useState } from "react";
 
 const TELEGRAM_LINK = "https://t.me/teleparkgdel";
@@ -720,13 +722,14 @@ export default function MobileLanding() {
 
       <section className="tmHero" id="top">
 
-  <img
-    className="tmHeroImg"
-    src="/New/TenetSPB.webp"
-    alt=""
-    fetchPriority="high"
-    decoding="async"
-  />
+ <Image
+  className="tmHeroImg"
+  src="/New/TenetSPB.webp"
+  alt="Автомобиль Tenet для выкупа в Санкт-Петербурге"
+  fill
+  priority
+  sizes="100vw"
+/>
 
  <div className="tmHeroTop">
   <div className="tmBadge">АВТОМОБИЛЬ ПОД ВЫКУП</div>
