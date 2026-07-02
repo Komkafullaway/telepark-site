@@ -975,12 +975,24 @@ export default function MobileLanding() {
             <div><strong>Позвонить</strong><span>+7 (901) 371-15-84</span></div>
             <div className="tmContactArrow"><ChevronIcon /></div>
           </a>
-          <a className="tmContact" href={TELEGRAM_LINK} target="_blank" rel="noreferrer">
+          <a
+  className="tmContact"
+  href={TELEGRAM_LINK}
+  target="_blank"
+  rel="noreferrer"
+  onClick={() => window.ym?.(110291694, "reachGoal", "telegram_click")}
+>
             <div className="tmContactIcon"><img src="/icons/telegram.png" alt="" /></div>
             <div><strong>Telegram</strong><span>@teleparkgdel</span></div>
             <div className="tmContactArrow"><ChevronIcon /></div>
           </a>
-          <a className="tmContact" href={MAX_LINK} target="_blank" rel="noreferrer">
+          <a
+  className="tmContact"
+  href={MAX_LINK}
+  target="_blank"
+  rel="noreferrer"
+  onClick={() => window.ym?.(110291694, "reachGoal", "max_click")}
+>
             <div className="tmContactIcon"><img src="/icons/max.png" alt="" /></div>
             <div><strong>MAX</strong><span>Написать менеджеру</span></div>
             <div className="tmContactArrow"><ChevronIcon /></div>
