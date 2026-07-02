@@ -225,6 +225,7 @@ export default function MobileLanding() {
   const [playingVideo, setPlayingVideo] = useState<string | null>(null);
 
   const selectedCar = cars[selectedIndex];
+  const leadCar = cars.find((car) => car.name === selectedCarName) ?? selectedCar;
 
   useEffect(() => {
     const onScroll = () => {
@@ -257,9 +258,41 @@ export default function MobileLanding() {
   const nextCar = () => setSelectedIndex((value) => (value + 1) % cars.length);
   const prevCar = () => setSelectedIndex((value) => (value - 1 + cars.length) % cars.length);
   const selectCar = (index: number) => setSelectedIndex(index);
+  const selectLeadCar = (carName: string) => {
+    setSelectedCarName(carName);
+
+    const nextIndex = cars.findIndex((car) => car.name === carName);
+    if (nextIndex >= 0) setSelectedIndex(nextIndex);
+  };
   const scrollToId = (id: string, nav: string) => {
-    setActiveNav(nav);
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  setActiveNav(nav);
+
+  setTimeout(() => {
+    document.getElementById(id)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }, 50);
+};
+  const goToHero = () => {
+    setActiveNav("top");
+
+    const scrollToHero = () => {
+      const hero = document.getElementById("top");
+
+      if (hero) {
+        hero.scrollIntoView({ behavior: "smooth", block: "start" });
+        return;
+      }
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    // Сначала прокручиваем страницу за модальным окном, затем закрываем заявку.
+    // Повторный вызов после закрытия нужен для стабильной работы на мобильных браузерах.
+    scrollToHero();
+    setLeadOpen(false);
+    window.setTimeout(scrollToHero, 120);
   };
 
   return (
@@ -281,41 +314,7 @@ export default function MobileLanding() {
         </div>
       </header>
 
-      <section className="tmHero" id="top">
-
- <Image
-  className="tmHeroImg"
-  src="/New/TenetSPB.webp"
-  alt="Автомобиль Tenet для выкупа в Санкт-Петербурге"
-  fill
-  priority
-  fetchPriority="high"
-  sizes="(max-width: 480px) 100vw, 480px"
-/>
-
- <div className="tmHeroTop">
-  <div className="tmBadge">АВТОМОБИЛЬ ПОД ВЫКУП</div>
-
- <h1>
-  АВТО
-  <br />
-  ПОД ВЫКУП
-  <br />
-  БЕЗ <span>БАНКА</span>
-</h1>
-
-  <div className="tmBullets">
-    <div><b>✓</b>Одобрение 99%</div>
-    <div><b>✓</b>Решение за 15 минут</div>
-    <div><b>✓</b>Авто сегодня</div>
-  </div>
-  <div className="tmHeroTrust">
-  Уже передали клиентам <strong>более 50 автомобилей</strong> • Официальный
-  договор • Выдача автомобиля <strong>в течение суток</strong>
-</div>
-</div>
-
-</section>
+      <MobileHero />
 
       <section className="tmSection" id="tmCars">
         <div className="tmKicker">Выбор автомобиля</div>
@@ -498,9 +497,21 @@ export default function MobileLanding() {
 
       <nav className="tmBottomNav">
         <div className="tmNavRow">
-          <button type="button" className={activeNav === "top" ? "active" : ""} onClick={() => scrollToId("top", "top")}>
-            <b><HomeIcon /></b><span>Главная</span>
-          </button>
+          <button
+  type="button"
+  className={activeNav === "top" ? "active" : ""}
+  onClick={() => {
+    setActiveNav("top");
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }}
+>
+  <b><HomeIcon /></b>
+  <span>Главная</span>
+</button>
           <button type="button" className={activeNav === "cars" ? "active" : ""} onClick={() => scrollToId("tmCars", "cars")}>
             <b><CarIcon /></b><span>Авто</span>
           </button>
@@ -518,15 +529,16 @@ export default function MobileLanding() {
         <div className="tmModalOverlay" onClick={() => setLeadOpen(false)}>
           <div className="tmModal" onClick={(event) => event.stopPropagation()}>
             <button className="tmClose" type="button" onClick={() => setLeadOpen(false)}>×</button>
+            <button className="tmModalHome" type="button" onClick={goToHero}>← На главную</button>
             <h2>Получить условия<br />по выбранному <span>авто</span></h2>
 
             <div className="tmLeadCar">
-              <Image src={selectedCar.img} alt={selectedCar.name} width={132} height={118} />
+              <Image src={leadCar.img} alt={leadCar.name} width={132} height={118} />
               <div>
-                <strong>{selectedCar.name}</strong>
-                <div className="tmLeadBadge">{selectedCar.badge}</div>
-                <div className="tmLeadPrice"><span>{selectedCar.price}</span> / сутки</div>
-                <small>{selectedCar.month}</small>
+                <strong>{leadCar.name}</strong>
+                <div className="tmLeadBadge">{leadCar.badge}</div>
+                <div className="tmLeadPrice"><span>{leadCar.price}</span> / сутки</div>
+                <small>{leadCar.month}</small>
               </div>
             </div>
 
@@ -580,7 +592,7 @@ export default function MobileLanding() {
                   onChange={(event) => setPhone(formatPhone(event.target.value))}
                 />
               </div>
-              <select name="car" required value={selectedCarName} onChange={(event) => setSelectedCarName(event.target.value)}>
+              <select name="car" required value={selectedCarName} onChange={(event) => selectLeadCar(event.target.value)}>
                 {cars.map((car) => <option key={car.name}>{car.name}</option>)}
               </select>
 
