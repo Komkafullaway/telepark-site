@@ -268,7 +268,7 @@ export default function MobileLanding() {
   };
 
   return (
-    <main className="tm" id="top">
+    <main className="tm">
       <style>{`
         .tmHeroTrust {
   margin-top: 18px;
@@ -373,13 +373,13 @@ export default function MobileLanding() {
   background-position: center 18%;
   background-repeat: no-repeat;
 }
-  .tmHeroImg {
+ .tmHeroImg {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 18%;
+  object-position: center 80%;
   z-index: 0;
 }
 
@@ -718,7 +718,7 @@ export default function MobileLanding() {
         </div>
       </header>
 
-      <section className="tmHero">
+      <section className="tmHero" id="top">
 
   <img
     className="tmHeroImg"
@@ -1056,6 +1056,8 @@ export default function MobileLanding() {
                   body: formData,
                   mode: "no-cors",
                 });
+                
+                window.ym?.(110291694, "reachGoal", "lead_submit");
 
                 const name = String(formData.get("name") || "Спасибо");
                 const car = String(formData.get("car") || selectedCarName);
