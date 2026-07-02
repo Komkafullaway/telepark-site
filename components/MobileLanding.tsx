@@ -296,6 +296,7 @@ export default function MobileLanding() {
   alt="Автомобиль Tenet для выкупа в Санкт-Петербурге"
   fill
   priority
+  fetchPriority="high"
   sizes="(max-width: 480px) 100vw, 480px"
 />
 
