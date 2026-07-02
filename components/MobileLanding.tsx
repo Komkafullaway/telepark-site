@@ -966,7 +966,11 @@ export default function MobileLanding() {
         <div className="tmKicker">Контакты</div>
         <h2>Контакты Телепарк в Санкт-Петербурге</h2>
         <div className="tmContacts">
-          <a className="tmContact" href={PHONE_LINK}>
+          <a
+  className="tmContact"
+  href={PHONE_LINK}
+  onClick={() => window.ym?.(110291694, "reachGoal", "phone_click")}
+>
             <div className="tmContactIcon"><PhoneCallIcon /></div>
             <div><strong>Позвонить</strong><span>+7 (901) 371-15-84</span></div>
             <div className="tmContactArrow"><ChevronIcon /></div>
