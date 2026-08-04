@@ -2845,7 +2845,7 @@ margin:25px 20px 45px;
             <div className="videoGrid">
               {videos.map(([src, title, text, label]) => (
                 <div className="videoCard" key={src}>
-                  <video autoPlay muted loop playsInline>
+                  <video controls playsInline preload="none">
                     <source src={`/videos/${src}`} />
                   </video>
                   <div className="videoInfo">
