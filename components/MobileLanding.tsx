@@ -228,7 +228,6 @@ export default function MobileLanding() {
 
         <div className="tmCarStage">
           <div className="tmCarPhoto">
-            <div className="tmCarPhotoBg" style={{ backgroundImage: `url(${selectedCar.img})` }} />
             <Image
               className="tmCarMainImg"
               src={selectedCar.img}
@@ -293,7 +292,16 @@ export default function MobileLanding() {
                 type="button"
                 onClick={() => selectCar(index)}
               >
-                <div className="tmThumbPic" style={{ backgroundImage: `url(${car.img})` }} />
+                <div className="tmThumbPic">
+  <Image
+    src={car.img}
+    alt=""
+    width={108}
+    height={74}
+    sizes="108px"
+    loading="lazy"
+  />
+</div>
                 <span>{car.short}</span>
               </button>
             ))}

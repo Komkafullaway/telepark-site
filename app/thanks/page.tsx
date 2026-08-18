@@ -330,7 +330,7 @@ export default async function ThanksPage({
       <section className="card">
         <div className="top">
           <div className="brand">
-            <img src="/logo/teleparklogo3.png" alt="Телепарк" />
+            <img src="/logo/teleparklogo3.webp" alt="Телепарк" />
             <div>
               <div className="brandTitle">ТЕЛЕПАРК</div>
               <span>АВТО ПОД ВЫКУП</span>

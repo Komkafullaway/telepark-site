@@ -362,7 +362,19 @@ img { max-width: 100%; display: block; }
         .tmThumbs::-webkit-scrollbar { display: none; }
         .tmThumb { flex: 0 0 108px; min-height: 118px; border-radius: 20px; border: 1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.035); color: rgba(255,255,255,.76); overflow: hidden; scroll-snap-align: start; padding: 0; }
         .tmThumb.active { border-color: rgba(200,255,47,.72); color: var(--tm-lime); box-shadow: 0 0 26px rgba(200,255,47,.18); }
-        .tmThumbPic { height: 74px; background-size: cover; background-position: center; filter: saturate(.96) contrast(1.05); }
+        .tmThumbPic {
+  position: relative;
+  height: 74px;
+  overflow: hidden;
+}
+
+.tmThumbPic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(.96) contrast(1.05);
+}
         .tmThumb span { display: grid; place-items: center; min-height: 42px; font-size: 11px; font-weight: 950; text-transform: uppercase; }
 
         .tmBenefits { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }

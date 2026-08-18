@@ -2665,14 +2665,16 @@ margin:25px 20px 45px;
             </div>
 
             <div className="heroVisual">
-              <img
-                className="heroCar"
-                src="/images/hero/tenet-t7.webp"
-                alt="TENET T7"
-              />
+  <img
+    className="heroCar"
+    src="/images/hero/tenet-t7.webp"
+    alt="TENET T7"
+    loading="lazy"
+    decoding="async"
+  />
 
-              <div className="neonRing" />
-            </div>
+  <div className="neonRing" />
+</div>
           </div>
 </div>
           <div className="heroTrust">
