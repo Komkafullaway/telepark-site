@@ -2348,7 +2348,7 @@ margin:25px 20px 45px;
             <a className="brand" href="#top" aria-label="Телепарк">
 
   <div className="logo3d">
-    <img src="/logo/teleparklogo3.png" className="logo" alt="Телепарк" />
+    <img src="/logo/teleparklogo3.webp" className="logo" alt="Телепарк" />
   </div>
 
   <div>
