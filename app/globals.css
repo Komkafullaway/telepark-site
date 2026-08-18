@@ -964,3 +964,38 @@ img { max-width: 100%; display: block; }
   font-size: 21px;
   line-height: 1.1;
 }
+.oldPriceRow {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.newPriceBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 5px 9px;
+  border-radius: 6px;
+
+  background: #c8ff2f;
+  color: #050505;
+
+  font-size: 10px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.oldCarPrice {
+  color: #8d9296;
+
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1;
+
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+}

@@ -55,12 +55,15 @@ const cars = [
   },
   {
     name: "Kia Rio",
-    year: "2022",
-    gearbox: "АКПП",
-    img: "/images/cars/rio.jpg",
-    price: "2 950 ₽",
-    month: "≈ 88 500 ₽ / месяц",
-    term: "16 месяцев",
+year: "2022",
+gearbox: "АКПП",
+img: "/images/cars/rio.jpg",
+
+price: "2 650 ₽",
+oldPrice: "2 950 ₽",
+month: "≈ 79 500 ₽ / месяц",
+
+term: "16 месяцев",
     tag: "Для работы",
     tagClass: "blue",
     cta: "Подобрать условия",
@@ -2742,7 +2745,18 @@ margin:25px 20px 45px;
                       </div>
                     </div>
 
-                    <div className="carPrice">{car.price} <span>/ сутки</span></div>
+                    <>
+  {car.oldPrice && (
+    <div className="oldPriceRow">
+      <span className="newPriceBadge">НОВАЯ ЦЕНА</span>
+      <span className="oldCarPrice">{car.oldPrice} / сутки</span>
+    </div>
+  )}
+
+  <div className="carPrice">
+    {car.price} <span>/ сутки</span>
+  </div>
+</>
                     <div className="carMonth">{car.month}</div>
                     <div className="termBadge"><b>{car.term}</b>до выкупа</div>
 
