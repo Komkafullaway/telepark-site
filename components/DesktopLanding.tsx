@@ -2667,7 +2667,7 @@ margin:25px 20px 45px;
             <div className="heroVisual">
               <img
                 className="heroCar"
-                src="/images/hero/tenet-t7.png"
+                src="/images/hero/tenet-t7.webp"
                 alt="TENET T7"
               />
 
